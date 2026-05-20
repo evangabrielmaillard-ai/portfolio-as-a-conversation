@@ -294,7 +294,7 @@ header.scrolled .back-btn { display: flex; }
 .chip-more:hover { border-style: solid; }
 
 .chips-more { width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s; opacity: 0; }
-.chips-more.open { max-height: 300px; opacity: 1; }
+.chips-more.open { max-height: 600px; opacity: 1; overflow-y: auto; }
 .chips-more-section { margin-top: 10px; }
 .chips-more-label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; text-align: center; }
 .chips-more-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
@@ -328,7 +328,6 @@ header.scrolled .back-btn { display: flex; }
   header { padding: 0 1rem; }
   .header-name { font-size: 15px; }
   .li-btn span { display: none; }
-  .footer-counter { display: none; } /* mobile: footer caché, landing counter visible */
 
   /* Landing */
   .landing { padding: 0 1rem 160px; }
@@ -416,16 +415,11 @@ header.scrolled .back-btn { display: flex; }
     <h1 class="landing-name"><span class="word-evan">Evan</span><br><em class="word-maillard">Maillard</em></h1>
     <p class="landing-title" style="animation-fill-mode:both;">Je fais gagner aux PME & ETI 6 à 12 mois sur leur transformation digitale — sans recruter une équipe tech.</p>
     <p class="landing-tagline" id="tagline" style="opacity:0;animation:fadeUp 0.5s ease 0.9s both;"><span class="tagline-cursor"></span></p>
-  <div id="landingCounter" style="font-size:11px;color:var(--muted);opacity:0;letter-spacing:0.04em;margin-top:-1.5rem;animation:fadeUp 0.5s ease 1.2s both;"></div>
   </div>
   <div class="messages" id="messages"></div>
   <footer class="site-footer">
     <div class="footer-updated" id="footerUpdated">Dernière mise à jour du portfolio</div>
     <div class="footer-counter" id="footerCounter"></div>
-    <a href="https://github.com/evangabrielmaillard-ai/portfolio-as-a-conversation" target="_blank" class="footer-github">
-      <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-      <span id="footerLabel">Projet disponible en open source sur mon GitHub</span>
-    </a>
   </footer>
 </div>
 
@@ -457,26 +451,41 @@ header.scrolled .back-btn { display: flex; }
     </div>
     <div class="chips-more" id="chipsMore">
       <div class="chips-more-section">
-        <span class="chips-more-label" data-fr="Résoudre un problème" data-en="Solve a problem">Résoudre un problème</span>
+        <span class="chips-more-label" data-fr="Résultats & impact" data-en="Results & impact">Résultats & impact</span>
         <div class="chips-more-row">
-          <button class="chip" onclick="chipSend(this)" data-fr="Comment générer plus de leads qualifiés ?" data-en="How to generate more qualified leads?">Générer des leads</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Qu'est-ce que je peux automatiser concrètement ?" data-en="What can I actually automate?">Automatiser</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Je suis une PME industrielle, que fais-tu ?" data-en="I run an industrial SME, what do you do?">PME industrielle</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Mes commerciaux ne suivent pas les leads" data-en="My sales team doesn't follow up">Suivi commercial</button>
+          <button class="chip" type="button" onclick="openImpactShortcut()">Impact business en €</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Si tu arrivais dans mon entreprise, comment tu t'y prendrais ?" data-en="If you joined my company, how would you approach it?">Si j'arrivais chez vous</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Prospection B2B" data-en="B2B prospecting">Prospection B2B</button>
         </div>
       </div>
       <div class="chips-more-section">
-        <span class="chips-more-label" data-fr="Aller plus loin" data-en="Go deeper">Aller plus loin</span>
+        <span class="chips-more-label" data-fr="Systèmes construits" data-en="Systems built">Systèmes construits</span>
+        <div class="chips-more-row">
+          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu automatises le traitement des demandes de prix ?" data-en="How do you automate quote request processing?">Automatiser les devis</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Explique-moi comment tes agents IA prennent des décisions" data-en="Explain how your AI agents make decisions">Agents IA — décision</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Tes automatisations Make" data-en="Your Make automations">Automatisations Make</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu as géré le SEO après la migration FIMM ?" data-en="How did you handle SEO after the FIMM migration?">SEO post-migration</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Ton agent de veille aides et subventions" data-en="Your subsidies watch agent">Agent veille subventions</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Ton pipeline stock vers distributeur FTP" data-en="Your stock to distributor FTP pipeline">Pipeline stock FTP</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Ton générateur d'images IA" data-en="Your AI image generator">Générateur d'images IA</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Tes scripts Python" data-en="Your Python scripts">Scripts Python</button>
+        </div>
+      </div>
+      <div class="chips-more-section">
+        <span class="chips-more-label" data-fr="Side projects" data-en="Side projects">Side projects</span>
+        <div class="chips-more-row">
+          <button class="chip" onclick="chipSend(this)" data-fr="Parle-moi de Louche ou Pas" data-en="Tell me about Louche ou Pas">Louche ou Pas ?</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Ton matcher Pipedrive Lemlist" data-en="Your Pipedrive Lemlist matcher">Matcher Pipedrive × Lemlist</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Carnetto en détail" data-en="Carnetto in detail">Carnetto</button>
+        </div>
+      </div>
+      <div class="chips-more-section">
+        <span class="chips-more-label" data-fr="Méthode & profil" data-en="Method & profile">Méthode & profil</span>
         <div class="chips-more-row">
           <button class="chip" onclick="chipSend(this)" data-fr="Comment tu abordes un nouveau projet ?" data-en="How do you approach a new project?">Ta méthode</button>
+          <button class="chip" type="button" onclick="openPlan90Shortcut()">Plan 90 jours</button>
           <button class="chip" onclick="chipSend(this)" data-fr="Quelles erreurs tu vois souvent en entreprise ?" data-en="What mistakes do you often see?">Erreurs fréquentes</button>
           <button class="chip" onclick="chipSend(this)" data-fr="Comment tu utilises l'IA concrètement ?" data-en="How do you actually use AI?">Usage IA concret</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Prospection B2B" data-en="B2B prospecting">Prospection B2B</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ton générateur d'images IA" data-en="Your AI image generator">Générateur d'images IA</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Tes automatisations Make" data-en="Your Make automations">Automatisations Make</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu automatises le traitement des demandes de prix ?" data-en="How do you automate quote request processing?">Automatiser les devis entrants</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Explique-moi comment tes agents IA prennent des décisions" data-en="Explain how your AI agents make decisions">Agents IA — comment ça décide ?</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Tes scripts Python" data-en="Your Python scripts">Scripts Python</button>
           <button class="chip" onclick="chipSend(this)" data-fr="Ce qui n'a pas marché" data-en="What didn't work">Ce qui n'a pas marché</button>
         </div>
       </div>
@@ -513,10 +522,6 @@ function loadCounter() {
       footerEl.innerHTML = lang === 'fr'
         ? `<span>${count.toLocaleString('fr-FR')}</span> questions posées sur ce portfolio`
         : `<span>${count.toLocaleString('en-US')}</span> questions asked on this portfolio`;
-    }
-    const landingEl = document.getElementById('landingCounter');
-    if (landingEl && count > 0) {
-      landingEl.textContent = count.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US') + (lang === 'fr' ? ' questions posées' : ' questions asked');
     }
   }).catch(() => {});
 }
@@ -933,8 +938,6 @@ function setLang(l) {
   document.getElementById('eyebrow').textContent = l==='fr' ? 'Portfolio interactif' : 'Interactive portfolio';
   document.getElementById('inp').placeholder = l==='fr' ? 'Posez votre question…' : 'Ask your question…';
   document.getElementById('backLabel').textContent = l==='fr' ? 'Accueil' : 'Home';
-  const fl = document.getElementById('footerLabel');
-  if (fl) fl.textContent = l==='fr' ? 'Projet disponible en open source sur mon GitHub' : 'Project available as open source on my GitHub';
   hydrateFooterDate();
 }
 
@@ -1428,6 +1431,7 @@ function buildStockFTP() {
 /* ── PANELS REGISTRY ── */
 const PANELS = {
   impact:      { icon:'💰', cat:'results', label:{fr:'Impact business chiffré',en:'Business impact in €'}, sub:{fr:'~120 000€ générés ou économisés',en:'~€120,000 generated or saved'}, build:buildImpact },
+  arrivee:     { icon:'🎯', cat:'results', label:{fr:'Si j\'arrivais chez vous',en:'If I joined your team'}, sub:{fr:'3 questions de dirigeant',en:'3 leadership questions'}, build:buildArrivee },
   projects:    { icon:'🚀', label:{fr:'Side projects',en:'Side projects'}, sub:{fr:'5 projets',en:'5 projects'}, build:buildProjects },
   career:      { icon:'💼', label:{fr:'Parcours professionnel',en:'Career path'}, sub:{fr:'4 expériences',en:'4 positions'}, build:buildCareer },
   cv:          { icon:'📄', label:{fr:'Vue synthétique',en:'Quick summary'}, sub:{fr:'Compétences & objectif',en:'Skills & goal'}, build:buildCV },
@@ -1477,6 +1481,30 @@ function buildImpact() {
     </div>
 
     <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;">${lang==='fr'?'<span style="color:var(--text);font-weight:500;">Comment lire ces chiffres :</span> le gain devis combine le temps ADV récupéré et le CA débloqué par les relances qui partaient avant de tomber dans l\'oubli. La prospection est mesurée en CA réellement signé, pas en leads générés.':'<span style="color:var(--text);font-weight:500;">How to read these:</span> the quote figure combines recovered sales-admin time and revenue unlocked by follow-ups that used to fall through the cracks. Prospecting is measured in actually-signed revenue, not leads generated.'}</div>
+  </div>`;
+}
+
+function buildArrivee() {
+  return `<div style="display:flex;flex-direction:column;gap:8px;">
+    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Si j\'arrivais chez vous':'If I joined your team'}</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Trois questions qu\'un dirigeant se pose avant de recruter un profil comme le mien. Mes réponses, sans langue de bois.':'Three questions a leader asks before hiring a profile like mine. My answers, no fluff.'}</div>
+
+    <div style="border-left:2px solid var(--text);padding:4px 0 4px 14px;">
+      <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:5px;">${lang==='fr'?'Par où tu commences ?':'Where do you start?'}</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7;">${lang==='fr'?'Je ne touche à rien la première semaine. J\'observe le pipeline réel, j\'écoute les commerciaux, je regarde où le temps se perd vraiment. La plupart des erreurs viennent d\'avoir automatisé un process avant de l\'avoir compris.':'I touch nothing the first week. I observe the real pipeline, listen to the sales team, see where time is actually lost. Most mistakes come from automating a process before understanding it.'}</div>
+    </div>
+
+    <div style="border-left:2px solid var(--border);padding:4px 0 4px 14px;">
+      <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:5px;">${lang==='fr'?'Qu\'est-ce que tu ne touches pas ?':'What don\'t you touch?'}</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7;">${lang==='fr'?'Ce qui marche, même si c\'est moche. Un Excel partagé que toute l\'équipe maîtrise vaut mieux qu\'un outil parfait que personne n\'utilise. Je remplace seulement quand le gain est évident et que l\'équipe est prête.':'What works, even if it\'s ugly. A shared Excel everyone masters beats a perfect tool nobody uses. I only replace when the gain is obvious and the team is ready.'}</div>
+    </div>
+
+    <div style="border-left:2px solid var(--border);padding:4px 0 4px 14px;">
+      <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:5px;">${lang==='fr'?'Comment tu mesures ton impact ?':'How do you measure your impact?'}</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7;">${lang==='fr'?'En euros et en temps rendu aux équipes, pas en nombre d\'outils déployés. Si après 6 mois je n\'ai pas généré ou économisé un multiple de mon coût, je n\'ai pas fait mon travail.':'In euros and time given back to teams, not tools deployed. If after 6 months I haven\'t generated or saved a multiple of my cost, I haven\'t done my job.'}</div>
+    </div>
+
+    <div style="padding:10px 12px;background:var(--text);border-radius:8px;font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">${lang==='fr'?'Le fil rouge : structurer avant d\'automatiser, mesurer en impact business, transmettre pour que ça tienne quand je ne suis plus là.':'The thread: structure before automating, measure in business impact, hand over so it lasts when I\'m gone.'}</div>
   </div>`;
 }
 
