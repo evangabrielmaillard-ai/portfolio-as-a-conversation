@@ -87,6 +87,9 @@ header.scrolled { background: rgba(248,247,244,0.92); backdrop-filter: blur(10px
 header.scrolled .header-name { opacity: 1; }
 
 .header-left { display: flex; align-items: center; gap: 12px; }
+.header-avatar { width: 28px; height: 28px; border-radius: 50%; overflow: hidden; flex-shrink: 0; opacity: 0; transition: opacity 0.5s ease; border: 1.5px solid var(--border); }
+.header-avatar.visible { opacity: 1; }
+.header-avatar canvas { width: 28px; height: 28px; image-rendering: pixelated; display: block; }
 
 .back-btn { display: none; align-items: center; gap: 6px; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 5px 11px; font-size: 12px; font-family: var(--font-sans); color: var(--muted); cursor: pointer; transition: all 0.12s; }
 .back-btn:hover { color: var(--text); border-color: var(--text); }
@@ -140,7 +143,7 @@ header.scrolled .back-btn { display: flex; }
 .landing { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 1.5rem 140px; text-align: center; transition: opacity 0.35s, transform 0.35s; }
 .landing.hidden { opacity: 0; pointer-events: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; transform: translateY(-16px); }
 
-.landing-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 1.25rem; opacity: 0; transform: scale(0.85); animation: photoIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.1s forwards; border: 2px solid var(--border); }
+.landing-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; opacity: 0; transform: scale(0.85); animation: photoIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.1s forwards; border: 2px solid var(--border); display: block; }
 .landing-eyebrow { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; font-weight: 400; opacity: 0; animation: fadeUp 0.5s ease 0.3s forwards; }
 .landing-name .word-evan { display: inline-block; opacity: 0; transform: translateY(20px); animation: wordIn 0.5s cubic-bezier(0.22,1,0.36,1) 0.45s forwards; }
 .landing-name .word-maillard { display: inline-block; opacity: 0; transform: translateY(20px); animation: wordIn 0.5s cubic-bezier(0.22,1,0.36,1) 0.6s forwards; }
@@ -380,6 +383,9 @@ header.scrolled .back-btn { display: flex; }
 
 <header id="hdr">
   <div class="header-left">
+    <div class="header-avatar" id="headerAvatar">
+      <canvas id="pixelAvatar" width="64" height="64"></canvas>
+    </div>
     <span class="header-name">Evan Maillard</span>
     <button class="back-btn" id="backBtn" onclick="goBack()">
       <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
@@ -404,7 +410,8 @@ header.scrolled .back-btn { display: flex; }
 
 <div class="app">
   <div class="landing" id="landing">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCABQAFADASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAAAAMEBQYHAgEI/8QAOBAAAgEDAQYEBAMGBwAAAAAAAQIDAAQRBQYSITFBYRMiUXEHgaHBFVKRFDI2QrGyFmJyotHi8P/EABkBAAIDAQAAAAAAAAAAAAAAAAMEAAIFAf/EACMRAAIDAAIDAAEFAAAAAAAAAAABAgMRBCESE0ExBSIyUVL/2gAMAwEAAhEDEQA/ANOoooqECiiqz8QNSudN2Zc2blJriRYA45qGzkjvgVCETrHxLsrS4kg020a73GKmVm3EJHpwJPvwrjSPifYXFx4OqWj2eTgSK2+o9+GR9ai9D2dszaIZY1kYjOW5V5qex+myB3i3on6brcP0oPtWjHobWmpqyuoZSCpGQR1Fe1XNg5J/8OrbXL772krwBs81HFfoQKsdGXYu+goooqECiiioQKqu348bSorcRknxBMG6DdIz9DVqrN9vNrCL78NsVSSKAkTt13uWFPbr+ld8JTT8S0XFSXkLEXUMcS2TYXA5dPlg5rq7ubyZIY0RUJUmQgcyPkcUhZ6sklnDDayATuCcMOg7+tJSTXVu8bpeRSJFvMcRAEDHHJz8sCkTRTWFr2QkAt7m33W30kDsx5HeH/WrDUNsqxm0s3O7urPIXThjK8Bn6Gpmm4fxRn2Z5PAoooqxQKKKjNodWTRdHmvXAZl8sa/mc8h/70rqTbxEbwd319aWEBmvLiOGMdXYDPt61g00njXU0w4b7s2D3Oac313d6jcGe+neaU8cueXYeg9qY7pV+3pWrRx3V2/otOfkKI72ziXcaVRyH5acXV6hsQyWHh8AN4ADtSSZ3RuH5HlXEijxAzINwfyHjx96ByOE3JSh9/ISu/rJGk7EbWWp0+DTdUuFiuU8sbOMKy9BnlkcvlV4BDAEEEHkRXzycsxJ6cKl9C2hv9EvI5YJWeLOJIWY7rj7HvUs4n2JyNn9m4UUx0bVbbWdOjvbUndbgynmjDmDT6kWmnjDBVA+Jt2WksrEcgGmb35D71f6y34gy7+0zKeUUKL7cz96Z4cdtQK55Eq4HXr6iuJVDYYevGlv3ePTowrhgMnuM1ttCaYgMxnsa7bDLmrJJs9phiik/F0jDRh2VihIJGeHEdeA786az6PYwEk6nGUMaSKvAMynnjj04fr2oHui+gniyvqOHvQ4AxVqgttAhtoh+zXN7I+XHh5J5lcZGBgFc8eYPSoeaylu9ZlgtbYRbzF1j3hiNe5qvtj3vSRZRbeIlNhtf/BtU8K4Yi0ucLJ6K3Rvse3tWvVgM1ncJBHcSRssEjFUfoxHOtm2Ru5r7ZixuLht+VkIZvXBIz9KR5kI9TiGrbXTJisp26GNq7k+qRn/AG1q1Zx8R7Ux6xbXIHlmh3Se6n/giqcJ5acvX7CobvHyeXPTpSTZRhkgDPEU4Knd4fWm8uCRG48pIJCgk4zWzN5HRSPbwdpeLGvltbQkDGWj3s96Rm1CViXCQLlQvliAxg5H9KvFvoem6napcwQwyRuvMAZHY96Vg2P04Ek2keP82T/Wsh/qUPsHo+uI/wDRnkuqTyKUe6cqT+4pwP0FT+gSafb6Q5uZlje6bEpyMiMfy+5qJ1a2gt9WuoYMbiSsq4HpTJwBk9+Hem7KXfWluL8gYWKuW5pYNodUsrqyNvaKGkLLjyYWNR0X7mtA2E/g7T8/lb+9qxxj6Vsewn8Haf8A6X/valb6I00qMX9CKx2S1n//2Q==" alt="Evan Maillard" class="landing-photo">
+    <div style="position:relative;width:80px;height:80px;margin:0 auto 1.25rem;"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCABQAFADASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAAAAMEBQYHAgEI/8QAOBAAAgEDAQYEBAMGBwAAAAAAAQIDAAQRBQYSITFBYRMiUXEHgaHBFVKRFDI2QrGyFmJyotHi8P/EABkBAAIDAQAAAAAAAAAAAAAAAAMEAAIFAf/EACMRAAIDAAIDAAEFAAAAAAAAAAABAgMRBCESE0ExBSIyUVL/2gAMAwEAAhEDEQA/ANOoooqECiiqz8QNSudN2Zc2blJriRYA45qGzkjvgVCETrHxLsrS4kg020a73GKmVm3EJHpwJPvwrjSPifYXFx4OqWj2eTgSK2+o9+GR9ai9D2dszaIZY1kYjOW5V5qex+myB3i3on6brcP0oPtWjHobWmpqyuoZSCpGQR1Fe1XNg5J/8OrbXL772krwBs81HFfoQKsdGXYu+goooqECiiioQKqu348bSorcRknxBMG6DdIz9DVqrN9vNrCL78NsVSSKAkTt13uWFPbr+ld8JTT8S0XFSXkLEXUMcS2TYXA5dPlg5rq7ubyZIY0RUJUmQgcyPkcUhZ6sklnDDayATuCcMOg7+tJSTXVu8bpeRSJFvMcRAEDHHJz8sCkTRTWFr2QkAt7m33W30kDsx5HeH/WrDUNsqxm0s3O7urPIXThjK8Bn6Gpmm4fxRn2Z5PAoooqxQKKKjNodWTRdHmvXAZl8sa/mc8h/70rqTbxEbwd319aWEBmvLiOGMdXYDPt61g00njXU0w4b7s2D3Oac313d6jcGe+neaU8cueXYeg9qY7pV+3pWrRx3V2/otOfkKI72ziXcaVRyH5acXV6hsQyWHh8AN4ADtSSZ3RuH5HlXEijxAzINwfyHjx96ByOE3JSh9/ISu/rJGk7EbWWp0+DTdUuFiuU8sbOMKy9BnlkcvlV4BDAEEEHkRXzycsxJ6cKl9C2hv9EvI5YJWeLOJIWY7rj7HvUs4n2JyNn9m4UUx0bVbbWdOjvbUndbgynmjDmDT6kWmnjDBVA+Jt2WksrEcgGmb35D71f6y34gy7+0zKeUUKL7cz96Z4cdtQK55Eq4HXr6iuJVDYYevGlv3ePTowrhgMnuM1ttCaYgMxnsa7bDLmrJJs9phiik/F0jDRh2VihIJGeHEdeA786az6PYwEk6nGUMaSKvAMynnjj04fr2oHui+gniyvqOHvQ4AxVqgttAhtoh+zXN7I+XHh5J5lcZGBgFc8eYPSoeaylu9ZlgtbYRbzF1j3hiNe5qvtj3vSRZRbeIlNhtf/BtU8K4Yi0ucLJ6K3Rvse3tWvVgM1ncJBHcSRssEjFUfoxHOtm2Ru5r7ZixuLht+VkIZvXBIz9KR5kI9TiGrbXTJisp26GNq7k+qRn/AG1q1Zx8R7Ux6xbXIHlmh3Se6n/giqcJ5acvX7CobvHyeXPTpSTZRhkgDPEU4Knd4fWm8uCRG48pIJCgk4zWzN5HRSPbwdpeLGvltbQkDGWj3s96Rm1CViXCQLlQvliAxg5H9KvFvoem6napcwQwyRuvMAZHY96Vg2P04Ek2keP82T/Wsh/qUPsHo+uI/wDRnkuqTyKUe6cqT+4pwP0FT+gSafb6Q5uZlje6bEpyMiMfy+5qJ1a2gt9WuoYMbiSsq4HpTJwBk9+Hem7KXfWluL8gYWKuW5pYNodUsrqyNvaKGkLLjyYWNR0X7mtA2E/g7T8/lb+9qxxj6Vsewn8Haf8A6X/valb6I00qMX9CKx2S1n//2Q==" alt="Evan Maillard" class="landing-photo">
+    <canvas id="pixelAvatar" width="64" height="64" style="position:absolute;top:0;left:0;width:80px;height:80px;border-radius:50%;opacity:0;transition:opacity 0.6s ease;border:2px solid var(--border);image-rendering:pixelated;cursor:default;"></canvas></div>
     <p class="landing-eyebrow" id="eyebrow">Portfolio interactif</p>
     <h1 class="landing-name"><span class="word-evan">Evan</span><br><em class="word-maillard">Maillard</em></h1>
     <p class="landing-title" style="animation-fill-mode:both;">Digital Systems · Automation · AI</p>
@@ -513,6 +520,102 @@ function loadCounter() {
     }
   }).catch(() => {});
 }
+
+
+/* ── PIXEL AVATAR ── */
+(function() {
+  const C = {
+    skin:'#F4C68A', skinD:'#D4A56A', hair:'#1A1208',
+    shirt:'#1B3A7A', shirtD:'#0F2454', eye:'#1A1208',
+    white:'#F5F5F5', green:'#22C55E', shadow:'#C4956A', bg:'transparent'
+  };
+
+  function drawFace(ctx, blink, frame) {
+    ctx.clearRect(0, 0, 64, 64);
+    ctx.fillStyle = C.shirt;
+    ctx.fillRect(14, 40, 36, 24);
+    ctx.fillStyle = C.shirtD;
+    ctx.fillRect(28, 40, 8, 24);
+    ctx.fillStyle = C.skin;
+    ctx.fillRect(26, 35, 12, 8);
+    ctx.fillStyle = C.skin;
+    ctx.fillRect(16, 10, 32, 28);
+    ctx.fillStyle = C.skinD;
+    ctx.fillRect(16, 34, 32, 4);
+    ctx.fillStyle = C.hair;
+    ctx.fillRect(14, 8, 36, 8);
+    ctx.fillRect(14, 8, 4, 16);
+    ctx.fillRect(46, 8, 4, 12);
+    ctx.fillStyle = C.skinD;
+    ctx.fillRect(12, 18, 4, 8);
+    ctx.fillRect(48, 18, 4, 8);
+    if (blink) {
+      ctx.fillStyle = C.skin;
+      ctx.fillRect(20, 20, 8, 4);
+      ctx.fillRect(36, 20, 8, 4);
+      ctx.fillStyle = C.skinD;
+      ctx.fillRect(20, 23, 8, 1);
+      ctx.fillRect(36, 23, 8, 1);
+    } else {
+      ctx.fillStyle = C.white;
+      ctx.fillRect(20, 19, 8, 6);
+      ctx.fillRect(36, 19, 8, 6);
+      ctx.fillStyle = C.eye;
+      ctx.fillRect(23, 20, 4, 4);
+      ctx.fillRect(39, 20, 4, 4);
+      ctx.fillStyle = C.white;
+      ctx.fillRect(24, 20, 1, 1);
+      ctx.fillRect(40, 20, 1, 1);
+      ctx.fillStyle = C.hair;
+      ctx.fillRect(19, 16, 10, 2);
+      ctx.fillRect(35, 16, 10, 2);
+    }
+    ctx.fillStyle = C.shadow;
+    ctx.fillRect(30, 26, 4, 3);
+    ctx.fillStyle = C.eye;
+    ctx.fillRect(23, 31, 2, 2);
+    ctx.fillRect(39, 31, 2, 2);
+    ctx.fillRect(25, 33, 14, 2);
+    if (frame % 2 === 0) {
+      ctx.fillStyle = C.green;
+      ctx.fillRect(28, 58, 8, 3);
+    }
+  }
+
+  let frame = 0, blinkTimer = 100, isBlinking = false, animRunning = false;
+
+  function scheduleNextBlink() { blinkTimer = 80 + Math.floor(Math.random() * 120); }
+  scheduleNextBlink();
+
+  function loop() {
+    frame++;
+    if (frame >= blinkTimer && !isBlinking) {
+      isBlinking = true;
+      setTimeout(() => { isBlinking = false; scheduleNextBlink(); frame = 0; }, 150);
+    }
+    const canvas = document.getElementById('pixelAvatar');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      drawFace(ctx, isBlinking, frame);
+    }
+    if (animRunning) requestAnimationFrame(loop);
+  }
+
+  window.startPixelAvatar = function() {
+    if (animRunning) return;
+    animRunning = true;
+    const avatar = document.getElementById('headerAvatar');
+    if (!avatar) return;
+    requestAnimationFrame(loop);
+    setTimeout(() => { avatar.classList.add('visible'); }, 150);
+  };
+
+  window.stopPixelAvatar = function() {
+    animRunning = false;
+    const avatar = document.getElementById('headerAvatar');
+    if (avatar) avatar.classList.remove('visible');
+  };
+})();
 
 /* ── MAIL MODAL ── */
 const CHALLENGES = [
@@ -713,15 +816,20 @@ const DATA = {
 
 const TAGLINES = [
   "Le vrai problème n'est rarement celui qu'on croit.",
-  "J'ai construit des systèmes qui tournent. Pas des slides qui expliquent pourquoi.",
+  "Pas de slides. Des systèmes qui tournent en prod.",
   "SEO, CRM, automation : trois leviers. Un seul système.",
   "20 devis par jour traités automatiquement. 200 minutes d'équipe libérées.",
   "4 191 contacts. 43.5% d'ouverture. Sans agence, sans budget ads.",
-  "L'IA ne fait pas à ta place — elle libère du temps pour exercer ton jugement.",
-  "Builder depuis 10 ans. Ce qui a changé : ce qui prenait 3 semaines prend 3 heures.",
+  "L'IA ne remplace pas le travail. Elle rend les bonnes décisions moins coûteuses.",
+  "Builder depuis 10 ans. Ce qui prenait 3 semaines prend 3 heures.",
   "Je cherche le levier avec le plus d'impact, pas le plus visible.",
   "Aucun outil ne compense un problème mal posé.",
+  "Ce qui prenait un analyste une semaine prend maintenant un agent une nuit.",
+  "Du CRM au FTP au pipeline IA. Toujours le même fil : structurer avant d'automatiser.",
+  "Un Directeur Digital qui code ce qu'il ne trouve pas, et achète ce qu'il ne devrait pas coder.",
+  "10 ans à construire des trucs qui marchent encore quand je pars en vacances.",
   "Je lis les signaux faibles. J'agis avant que ça devienne une tendance.",
+  "Je livre. Puis je documente. Puis je transmets.",
 ];
 
 function toggleMoreChips() {
@@ -869,6 +977,7 @@ function goBack() {
   const tagEl = document.getElementById('tagline');
   tagEl.innerHTML = '<span class="tagline-cursor"></span>';
   setTimeout(() => typewrite(tagEl, TAGLINES[Math.floor(Math.random()*TAGLINES.length)]), 400);
+  if (typeof stopPixelAvatar === 'function') stopPixelAvatar();
 }
 
 /* ── ACTIVATE CHAT ── */
@@ -881,6 +990,7 @@ function activateChat() {
   document.getElementById('hdr').classList.add('scrolled');
   document.getElementById('chips').style.display = 'none';
   document.querySelector('.site-footer')?.classList.add('chat-active');
+  if (typeof startPixelAvatar === 'function') startPixelAvatar();
 }
 
 /* ── MIC ── */
