@@ -114,6 +114,7 @@ PANNEAUX — JSON exact sans texte autour :
 - Échecs / ce qui n'a pas marché / Feedcasse / Carnetto / leçons → {"panel":"failures","intro":"Deux projets. Deux leçons différentes. Celle sur Carnetto est probablement la plus honnête."}
 - Agent IA / offres commerciales / email vers CRM / automatisation offres / traitement email / demande de prix / génération offre → {"panel":"offres","intro":"272 offres traitées. Zéro saisie manuelle. Un agent IA qui comprend, décide, et agit."}
 - Architecture agents / agent CRM / agent produit / IA décision / Make exécution / agents spécialisés / JSON strict / normalisation référence → {"panel":"agents","intro":"IA = décision. Make = exécution. Deux agents spécialisés, zéro logique conditionnelle."}
+- Impact / résultats / euros / ROI / combien ça rapporte / gains / chiffre d'affaires / business case → {"panel":"impact","intro":"Pas de l'activité. Des résultats chiffrés en euros : ~120 000€ générés ou économisés."}
 - SEO / e-commerce / WooCommerce / FIMM / migration / trafic organique / CDN / tarif / conversion → {"panel":"seo","intro":"Refonte WooCommerce post-migration FIMM — maintien du trafic, CDN, cartographie tarifaire 2017–2025."}
 - Veille / subventions / aides / Carsat / Ameli / INRS / Manuvit / recommandations commerciales → {"panel":"veille","intro":"Un agent de veille qui transforme une demande DGA en recommandations actionnables — format précis, validation humaine."}
 - Stock / FTP / distributeur / pipeline / CSV / Make / alertes Slack / workflow critique → {"panel":"stockftp","intro":"Pipeline Make critique : CSV stock normalisé livré 2×/jour au distributeur — avec alertes pour zéro défaillance silencieuse."}
@@ -121,8 +122,8 @@ PANNEAUX — JSON exact sans texte autour :
 - Louche ou Pas / louche-ou-pas.fr / phishing / scam / arnaque / détection / cybersécurité → {"panel":"louche","intro":"Une plateforme web complète pour détecter les scams et le phishing — avec monétisation Stripe, auth Supabase et export PDF."}
 
 PROFIL & RÉALISATIONS :
-Prospection B2B : 4 191 contacts, 13 381 emails, 43.5% ouverture (2× moyenne B2B), 3.2% réponse, clustering sectoriel (aéro/défense, agroalimentaire, industrie lourde), icebreakers IA, triggers contextuels.
-Pipeline devis : Make + GPT, ~20/jour, 10 min → 10 sec, 200 min ADV libérées/jour. Limite : lecture PDF imparfaite.
+Prospection B2B : 4 191 contacts, 13 381 emails, 43.5% ouverture (2× moyenne B2B), 3.2% réponse, clustering sectoriel (aéro/défense, agroalimentaire, industrie lourde), icebreakers IA, triggers contextuels. À ce jour : +50 000€ de CA signé attribué à la prospection. IMPACT TOTAL mesuré : ~120 000€ générés ou économisés.
+Pipeline devis : Make + GPT, ~20/jour, 10 min → 10 sec, 200 min ADV libérées/jour. Depuis février : 455 devis traités automatiquement, relances auto jusqu'à réponse, ~70 000€ gagnés (temps ADV + CA débloqué). Limite : lecture PDF imparfaite.
 CRM : Pipedrive setup complet, champs custom, segmentation NAF, pipeline commercial.
 SEO : pipeline Make + Claude + WordPress actif, génération et publication automatisées.
 Scripts Python : 19 outils (médias, données CEGID, SEO, qualité), interface Tkinter, aucune installation requise.
