@@ -152,7 +152,7 @@ header.scrolled .back-btn { display: flex; }
 @keyframes wordIn { to { opacity: 1; transform: translateY(0); } }
 .landing-name { font-family: var(--font-serif); font-size: clamp(3.8rem, 11vw, 6.5rem); line-height: 0.95; letter-spacing: -0.04em; font-weight: 600; margin-bottom: 0.75rem; }
 .landing-name em { font-style: normal; color: var(--muted); font-weight: 300; }
-.landing-title { font-size: clamp(0.85rem, 2vw, 1rem); color: var(--muted); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 1.25rem; }
+.landing-title { font-size: clamp(0.85rem, 2vw, 1rem); color: var(--muted); font-weight: 300; letter-spacing: 0.02em; margin-bottom: 1.25rem; max-width: 460px; line-height: 1.55; margin-left: auto; margin-right: auto; }
 .landing-tagline { font-size: clamp(0.9rem, 2vw, 1.05rem); color: var(--text); font-weight: 300; line-height: 1.6; min-height: 1.7em; margin-bottom: 3rem; max-width: 480px; }
 .tagline-cursor { display: inline-block; width: 2px; height: 1em; background: var(--muted); margin-left: 2px; vertical-align: text-bottom; animation: blink 0.9s step-end infinite; }
 @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
@@ -414,7 +414,7 @@ header.scrolled .back-btn { display: flex; }
     <canvas id="pixelAvatar" width="64" height="64" style="position:absolute;top:0;left:0;width:80px;height:80px;border-radius:50%;opacity:0;transition:opacity 0.6s ease;border:2px solid var(--border);image-rendering:pixelated;cursor:default;"></canvas></div>
     <p class="landing-eyebrow" id="eyebrow">Portfolio interactif</p>
     <h1 class="landing-name"><span class="word-evan">Evan</span><br><em class="word-maillard">Maillard</em></h1>
-    <p class="landing-title" style="animation-fill-mode:both;">Digital Systems · Automation · AI</p>
+    <p class="landing-title" style="animation-fill-mode:both;">Je fais gagner aux PME & ETI 6 à 12 mois sur leur transformation digitale — sans recruter une équipe tech.</p>
     <p class="landing-tagline" id="tagline" style="opacity:0;animation:fadeUp 0.5s ease 0.9s both;"><span class="tagline-cursor"></span></p>
   <div id="landingCounter" style="font-size:11px;color:var(--muted);opacity:0;letter-spacing:0.04em;margin-top:-1.5rem;animation:fadeUp 0.5s ease 1.2s both;"></div>
   </div>
@@ -1427,6 +1427,7 @@ function buildStockFTP() {
 
 /* ── PANELS REGISTRY ── */
 const PANELS = {
+  impact:      { icon:'💰', cat:'results', label:{fr:'Impact business chiffré',en:'Business impact in €'}, sub:{fr:'~120 000€ générés ou économisés',en:'~€120,000 generated or saved'}, build:buildImpact },
   projects:    { icon:'🚀', label:{fr:'Side projects',en:'Side projects'}, sub:{fr:'5 projets',en:'5 projects'}, build:buildProjects },
   career:      { icon:'💼', label:{fr:'Parcours professionnel',en:'Career path'}, sub:{fr:'4 expériences',en:'4 positions'}, build:buildCareer },
   cv:          { icon:'📄', label:{fr:'Vue synthétique',en:'Quick summary'}, sub:{fr:'Compétences & objectif',en:'Skills & goal'}, build:buildCV },
@@ -1449,6 +1450,35 @@ const PANELS = {
   plan90:      { icon:'📅', label:{fr:'Plan 90 jours',en:'90-day plan'}, sub:{fr:'Comprendre · Livrer · Structurer',en:'Understand · Ship · Structure'}, build:buildPlan90 },
   failures:    { icon:'💡', label:{fr:'Ce qui n\'a pas marché',en:'What didn\'t work'}, sub:{fr:'Feedcasse · Carnetto · leçons',en:'Feedcasse · Carnetto · lessons'}, build:buildFailures },
 };
+
+function buildImpact() {
+  return `<div style="display:flex;flex-direction:column;gap:8px;">
+    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Impact business — résultats chiffrés':'Business Impact — measured results'}</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Pas de l\'activité. Des résultats. Voici ce que les systèmes que j\'ai construits ont rapporté ou économisé, en euros.':'Not activity. Results. Here is what the systems I built generated or saved, in euros.'}</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:2px 0;">
+      <div style="background:var(--text);border-radius:10px;padding:14px;text-align:center;">
+        <div style="font-size:26px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">~70 000€</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;line-height:1.4;">${lang==='fr'?'gagnés via l\'automatisation des devis + relances':'from quote automation + follow-ups'}</div>
+      </div>
+      <div style="background:var(--text);border-radius:10px;padding:14px;text-align:center;">
+        <div style="font-size:26px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">+50 000€</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;line-height:1.4;">${lang==='fr'?'de CA rapportés par la prospection B2B':'B2B prospecting revenue generated'}</div>
+      </div>
+    </div>
+
+    <div style="padding:11px 14px;background:var(--subtle);border-radius:8px;border-left:3px solid var(--text);">
+      <div style="font-size:11px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px;">${lang==='fr'?'Automatisation des devis — depuis février':'Quote automation — since February'}</div>
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="font-size:12px;color:var(--text);line-height:1.65;">→ ${lang==='fr'?'455 devis traités automatiquement':'455 quotes processed automatically'}</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.65;">→ ${lang==='fr'?'10 min d\'ADV économisées par devis':'10 min of sales-admin time saved per quote'}</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.65;">→ ${lang==='fr'?'relances automatiques jusqu\'à obtenir une réponse — aucune offre oubliée':'automated follow-ups until a reply — no quote forgotten'}</div>
+      </div>
+    </div>
+
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;">${lang==='fr'?'<span style="color:var(--text);font-weight:500;">Comment lire ces chiffres :</span> le gain devis combine le temps ADV récupéré et le CA débloqué par les relances qui partaient avant de tomber dans l\'oubli. La prospection est mesurée en CA réellement signé, pas en leads générés.':'<span style="color:var(--text);font-weight:500;">How to read these:</span> the quote figure combines recovered sales-admin time and revenue unlocked by follow-ups that used to fall through the cracks. Prospecting is measured in actually-signed revenue, not leads generated.'}</div>
+  </div>`;
+}
 
 /* ── VISITED NAV ── */
 const visitedPanels = new Set();
@@ -1631,10 +1661,7 @@ function chipSend(btn) { document.getElementById('inp').value = lang==='fr'?btn.
 function openImpactShortcut() {
   activateChat();
   addUserMsg(lang==='fr' ? 'Impact business' : 'Business impact');
-  const reply = lang==='fr'
-    ? "Quelques résultats concrets déjà obtenus.\n\n→ 140k€ générés en 2 mois via relances CRM automatisées\n→ taux de conversion passé de 20% à 40%\n→ mot-clé SEO concurrentiel : position 50 à 7\n→ 4 offres/jour traitées via Make avec moins de 5% d'erreur"
-    : "A few concrete outcomes already delivered.\n\n→ €140k generated in 2 months through automated CRM follow-up\n→ conversion rate increased from 20% to 40%\n→ competitive SEO keyword moved from position 50 to 7\n→ 4 quotes/day processed through Make with less than 5% error";
-  addBotMsg(reply);
+  addBotMsg(lang==='fr' ? 'Voici les résultats chiffrés, en euros.' : 'Here are the measured results, in euros.', 'impact');
 }
 
 function openPlan90Shortcut() {
