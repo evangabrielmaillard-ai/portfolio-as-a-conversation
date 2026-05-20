@@ -118,6 +118,12 @@ header.scrolled .back-btn { display: flex; }
 .modal-overlay.open { opacity: 1; pointer-events: all; }
 .modal-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; max-width: 380px; width: 100%; box-shadow: 0 8px 40px rgba(0,0,0,0.12); transform: translateY(12px); transition: transform 0.2s; }
 .modal-overlay.open .modal-box { transform: translateY(0); }
+.engage-badge { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bg); background: var(--text); padding: 3px 9px; border-radius: 20px; margin-bottom: 12px; }
+.engage-textarea { width: 100%; box-sizing: border-box; min-height: 80px; resize: vertical; border: 1px solid var(--border); border-radius: 10px; padding: 11px 13px; font-family: var(--font-sans); font-size: 13px; color: var(--text); background: var(--subtle); margin-bottom: 12px; line-height: 1.5; }
+.engage-textarea:focus { outline: none; border-color: var(--text); }
+.engage-send { width: 100%; background: var(--text); color: var(--bg); border: none; border-radius: 10px; padding: 12px; font-size: 13px; font-weight: 500; font-family: var(--font-sans); cursor: pointer; transition: opacity 0.12s; }
+.engage-send:hover { opacity: 0.85; }
+.engage-send:disabled { opacity: 0.4; cursor: not-allowed; }
 .modal-title { font-family: var(--font-serif); font-size: 18px; letter-spacing: -0.02em; font-weight: 600; margin-bottom: 6px; }
 .modal-sub { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
 .modal-challenge { background: var(--subtle); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; }
@@ -512,6 +518,17 @@ header.scrolled .back-btn { display: flex; }
   </div>
 </div>
 
+<div class="modal-overlay" id="engageModal" onclick="handleEngageOverlayClick(event)">
+  <div class="modal-box">
+    <span class="engage-badge" id="engageBadge">Défi gratuit</span>
+    <div class="modal-title" id="engageTitle">Un problème concret à régler ?</div>
+    <div class="modal-sub" id="engageSub">Décrivez votre plus gros goulot d'étranglement commercial ou opérationnel. Evan vous répond en 48h avec une piste concrète — gratuitement, sans engagement.</div>
+    <textarea id="engageInput" class="engage-textarea" placeholder="Ex : nos devis prennent 3 jours à sortir et on perd des affaires…"></textarea>
+    <button class="engage-send" id="engageSendBtn" onclick="sendEngage()">Envoyer mon défi →</button>
+    <button class="modal-close" onclick="closeEngageModal()" id="engageCloseBtn">Plus tard</button>
+  </div>
+</div>
+
 <script>
 /* ── COUNTER ── */
 function loadCounter() {
@@ -716,6 +733,44 @@ function handleModalOverlayClick(e) {
   if (e.target === document.getElementById('mailModal')) closeMailModal();
 }
 
+/* ── ENGAGE CTA POPUP ── */
+function openEngageModal() {
+  if (chatStarted === false) return; // ne s'ouvre qu'en conversation
+  const modal = document.getElementById('engageModal');
+  // Traductions
+  document.getElementById('engageBadge').textContent = lang==='fr' ? 'Défi gratuit' : 'Free challenge';
+  document.getElementById('engageTitle').textContent = lang==='fr' ? 'Un problème concret à régler ?' : 'A concrete problem to solve?';
+  document.getElementById('engageSub').textContent = lang==='fr'
+    ? "Décrivez votre plus gros goulot d'étranglement commercial ou opérationnel. Evan vous répond en 48h avec une piste concrète — gratuitement, sans engagement."
+    : "Describe your biggest commercial or operational bottleneck. Evan replies within 48h with a concrete idea — free, no strings attached.";
+  document.getElementById('engageInput').placeholder = lang==='fr'
+    ? "Ex : nos devis prennent 3 jours à sortir et on perd des affaires…"
+    : "E.g. our quotes take 3 days to produce and we lose deals…";
+  document.getElementById('engageSendBtn').textContent = lang==='fr' ? 'Envoyer mon défi →' : 'Send my challenge →';
+  document.getElementById('engageCloseBtn').textContent = lang==='fr' ? 'Plus tard' : 'Later';
+  modal.classList.add('open');
+  setTimeout(() => document.getElementById('engageInput')?.focus(), 250);
+}
+
+function closeEngageModal() {
+  document.getElementById('engageModal').classList.remove('open');
+}
+
+function handleEngageOverlayClick(e) {
+  if (e.target === document.getElementById('engageModal')) closeEngageModal();
+}
+
+function sendEngage() {
+  const val = document.getElementById('engageInput').value.trim();
+  const subject = lang==='fr' ? 'Mon défi pour Evan' : 'My challenge for Evan';
+  const body = val
+    ? (lang==='fr' ? 'Voici mon goulot d\'étranglement :\n\n' : 'Here is my bottleneck:\n\n') + val
+    : (lang==='fr' ? 'Bonjour Evan, j\'aimerais échanger sur un sujet précis.' : 'Hi Evan, I\'d like to discuss a specific topic.');
+  const mailto = `mailto:evangabriel.maillard@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailto;
+  closeEngageModal();
+}
+
 /* ── CHIPS ROTATION ── */
 const CHIPS_POOL = {
   fr: [
@@ -908,6 +963,8 @@ function parseMarkdown(text) {
 let lang = 'fr', history = [], busy = false, chatStarted = false;
 let recruiterMode = false, recruiterRole = '';
 let msgCount = 0;
+let userTurns = 0;
+let engageShown = false;
 const rl = (() => { let n=0,t=Date.now(); return ()=>{ if(Date.now()-t>3600000){n=0;t=Date.now();} return ++n<=20; }; })();
 
 /* ── THEME ── */
@@ -963,7 +1020,7 @@ function hydrateFooterDate() {
 
 /* ── BACK ── */
 function goBack() {
-  chatStarted = false; history = []; recruiterMode = false; msgCount = 0;
+  chatStarted = false; history = []; recruiterMode = false; msgCount = 0; userTurns = 0;
   document.getElementById('landing').classList.remove('hidden');
   document.getElementById('messages').classList.remove('visible');
   document.getElementById('messages').innerHTML = '';
@@ -1548,6 +1605,11 @@ function togglePanel(id) {
 
 /* ── MESSAGES ── */
 function addUserMsg(text) {
+  userTurns++;
+  if (userTurns === 3 && !engageShown) {
+    engageShown = true;
+    setTimeout(() => openEngageModal(), 2500);
+  }
   const el = document.createElement('div');
   el.className = 'msg-row user';
   el.innerHTML = `<div class="msg-avatar">?</div><div class="msg-content"><div class="msg-bubble">${text}</div></div>`;
@@ -1583,7 +1645,7 @@ function typewriterMsg(text, panelType, onDone) {
       // Afficher les éléments post-message une fois terminé
       if (text && text.length > 20) addFollowupChips(content);
       msgCount++;
-      if (msgCount > 0 && msgCount % 4 === 0 && !document.querySelector('.contact-cta')) {
+      if (msgCount > 0 && msgCount % 8 === 0 && !document.querySelector('.contact-cta')) {
         setTimeout(() => addContactCTA(), 500);
       }
       if (panelType) { content.appendChild(makePanel(panelType)); registerVisit(panelType); scroll(); }
@@ -1611,7 +1673,7 @@ function addBotMsg(text, panelType) {
 
   if (text && text.length > 20) addFollowupChips(content, panelType);
   msgCount++;
-  if (msgCount > 0 && msgCount % 4 === 0 && !document.querySelector('.contact-cta')) {
+  if (msgCount > 0 && msgCount % 8 === 0 && !document.querySelector('.contact-cta')) {
     setTimeout(() => addContactCTA(), 500);
   }
   scroll();
