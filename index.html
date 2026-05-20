@@ -631,6 +631,10 @@ const CHIPS_POOL = {
     { label: 'PME industrielle', msg: 'Je suis une PME industrielle, que fais-tu ?' },
     { label: 'Suivi commercial', msg: 'Mes commerciaux ne suivent pas les leads' },
     { label: 'Automatiser concrètement', msg: 'Qu\'est-ce que je peux automatiser concrètement ?' },
+    { label: 'Agent veille subventions', msg: 'Ton agent de veille aides et subventions' },
+    { label: 'SEO post-migration', msg: 'Comment tu as géré le SEO après la migration FIMM ?' },
+    { label: 'Pipeline stock FTP', msg: 'Ton pipeline stock vers distributeur FTP' },
+    { label: 'QuoteOps Agent', msg: 'Ton projet QuoteOps Agent' },
   ],
   en: [
     { label: 'What do you do?', msg: 'What do you do?' },
@@ -653,6 +657,10 @@ const CHIPS_POOL = {
     { label: 'Industrial SME', msg: 'I run an industrial SME, what do you do?' },
     { label: 'Sales follow-up', msg: 'My sales team doesn\'t follow up' },
     { label: 'What to automate', msg: 'What can I actually automate?' },
+    { label: 'Watch agent for grants', msg: 'Your subsidies watch agent' },
+    { label: 'Post-migration SEO', msg: 'How did you handle SEO after the FIMM migration?' },
+    { label: 'Stock FTP pipeline', msg: 'Your stock to distributor FTP pipeline' },
+    { label: 'QuoteOps Agent', msg: 'Your QuoteOps Agent project' },
   ]
 };
 
@@ -1237,6 +1245,76 @@ function buildLoucheOuPas() {
   </div>`;
 }
 
+
+function buildSEO() {
+  return `<div style="display:flex;flex-direction:column;gap:8px;">
+    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'SEO & E-Commerce — FIMM / Manuvit':'SEO & E-Commerce — FIMM / Manuvit'}</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Refonte WooCommerce post-migration : maintien du trafic organique, reconstruction architecture tarifaire 2017–2025, monitoring conversion.':'WooCommerce rebuild post-migration: maintaining organic traffic, rebuilding 2017–2025 pricing architecture, conversion monitoring.'}</div>
+
+    <div style="display:flex;flex-direction:column;gap:5px;margin:2px 0;">
+      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">SEO opportuniste</span> — extraction publi-reportage BBI (70 ans FIMM) en actualité SEO : backlink éditeur + métadonnées optimisées, sans transformation frauduleuse.</div>
+      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">CDN Ikadia</span> — déploiement et suivi heures pour accélération sélective des pages produit lourdes.</div>
+      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">Cartographie tarifaire</span> — reconstruction WooCommerce ↔ bases 2017–2025 : évolution prix, years-to-existence, écarts documentés.</div>
+      <div style="padding:9px 12px;background:var(--text);border-radius:8px;font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;"><span style="font-weight:500;color:rgba(255,255,255,0.7);">Monitoring contacts</span> — ancien site 35–33/mois vs nouveau 13–26/mois — suivi sans conclusions hâtives pendant stabilisation.</div>
+    </div>
+
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">Limite assumée :</span> la baisse post-migration est suivie sans panique — les comparaisons directes sont biaisées par les changements d'interface et de parcours utilisateur.</div>
+  </div>`;
+}
+
+function buildVeille() {
+  return `<div style="display:flex;flex-direction:column;gap:8px;">
+    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Agent Veille — Aides & Subventions Manuvit':'Watch Agent — Grants & Subsidies Manuvit'}</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Transformer une demande DGA — "détecter aides Carsat/Ameli/INRS, mapper produits, générer recommandations" — en agent de veille opérationnel avec validation humaine.':'Turning a C-level request — "detect grants, map products, generate recommendations" — into an operational watch agent with human validation.'}</div>
+
+    <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
+      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">Architecture</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ Sources paramétrables Google Sheets (Carsat, Ameli, INRS, Ministère Travail, FIPU, TMS Pro)</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ Détection RSS + web search + IA analyse pertinence vs gamme Manuvit</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ Validation humaine : Google Sheets + CSV exportable avant action commerciale</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ Feedback learning : notation Bonne/Moyenne/Mauvaise recommandation</div>
+      </div>
+    </div>
+
+    <div style="border:1px solid var(--border);border-radius:8px;padding:10px 14px;background:var(--subtle);">
+      <div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Format recommandation</div>
+      <div style="font-size:11px;color:#EF4444;line-height:1.7;margin-bottom:4px;">✗ "Contacter entreprises agroalimentaire"</div>
+      <div style="font-size:11px;color:#22C55E;line-height:1.7;">✓ "Campagne email 3 temps vers clients IAA Pays de la Loire (5 comptes) sur Lev600/Moovit140 éligibles subvention Carsat avant fin juin"</div>
+    </div>
+
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">Impact :</span> identification automatique des opportunités subventions = levier CA direct pour Manuvit. Recommandations concrètes, actionnables, validées humainement.</div>
+  </div>`;
+}
+
+function buildStockFTP() {
+  return `<div style="display:flex;flex-direction:column;gap:8px;">
+    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Pipeline Stock → Distributeur FTP':'Stock Pipeline → Distributor FTP'}</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Workflow Make critique : CSV stock normalisé livré 2×/jour à un distributeur partenaire — avec alertes Slack pour prévenir les défaillances silencieuses.':'Critical Make workflow: normalized stock CSV delivered 2×/day to a partner distributor — with Slack alerts to prevent silent failures.'}</div>
+
+    <div style="display:flex;flex-direction:column;gap:5px;margin:2px 0;">
+      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;">→ Extraction stock via endpoint WordPress REST</div>
+      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;">→ JSON → CSV avec statuts mappés : V=stock | O=fabrication | C=sur commande | R=rupture</div>
+      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;">→ Dépôt FTP nom fixe, gestion décimales, exécutions 08:05 + 17:05</div>
+      <div style="padding:9px 12px;background:var(--text);border-radius:8px;font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ Alertes Slack : fichier vide | date ancienne | résumé fin de journée</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:2px 0;">
+      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:18px;font-weight:600;color:var(--text);font-family:var(--font-serif);">2×/j</div>
+        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">Exécutions</div>
+      </div>
+      <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:18px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">0</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">Erreur manuelle</div>
+      </div>
+    </div>
+
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">Ce que ca demontre :</span> concevoir un workflow critique avec gestion explicite des erreurs — anticiper les cas de defaillance et alerter avant que le partenaire ne les detecte.</div>
+  </div>`;
+}
+
+
 /* ── PANELS REGISTRY ── */
 const PANELS = {
   projects:    { icon:'🚀', label:{fr:'Side projects',en:'Side projects'}, sub:{fr:'5 projets',en:'5 projects'}, build:buildProjects },
@@ -1251,6 +1329,9 @@ const PANELS = {
   imagegen:    { icon:'🖼️', label:{fr:'Générateur d\'images IA',en:'AI Image Generator'}, sub:{fr:'176 refs · 21h économisées',en:'176 refs · 21h saved'}, build:buildImageGen },
   python:      { icon:'🐍', label:{fr:'Scripts Python métier',en:'Python Business Tools'}, sub:{fr:'19 outils · GUI native',en:'19 tools · native GUI'}, build:buildPython },
   make:        { icon:'⚙️', label:{fr:'Automatisations Make',en:'Make Automations'}, sub:{fr:'5 scénarios · 600+ exec.',en:'5 scenarios · 600+ exec.'}, build:buildMake },
+  seo:         { icon:'📈', label:{fr:'SEO & E-Commerce FIMM',en:'SEO & E-Commerce FIMM'}, sub:{fr:'Post-migration · WooCommerce · CDN · Trafic',en:'Post-migration · WooCommerce · CDN · Traffic'}, build:buildSEO },
+  veille:      { icon:'🔍', label:{fr:'Agent Veille — Aides & Subventions',en:'Watch Agent — Grants'}, sub:{fr:'Manuvit · Carsat · Recommandations actionnables',en:'Manuvit · Carsat · Actionable recs'}, build:buildVeille },
+  stockftp:    { icon:'📦', label:{fr:'Pipeline Stock → FTP',en:'Stock Pipeline → FTP'}, sub:{fr:'Make · 2×/jour · Alertes Slack','en':'Make · 2×/day · Slack alerts'}, build:buildStockFTP },
   offres:      { icon:'🤖', label:{fr:'Agent IA — Offres commerciales',en:'AI Agent — Quote processing'}, sub:{fr:'Email → CRM · 272 offres · 0 saisies',en:'Email → CRM · 272 quotes · 0 entries'}, build:buildOffres },
   agents:      { icon:'🧩', label:{fr:'Architecture agents IA',en:'AI Agent Architecture'}, sub:{fr:'IA = décision · Make = exécution',en:'AI = decision · Make = execution'}, build:buildAgents },
   matcher:     { icon:'🔗', label:{fr:'Matcher Pipedrive × Lemlist',en:'Pipedrive × Lemlist Matcher'}, sub:{fr:'Attribution marketing · 0 clé commune',en:'Marketing attribution · 0 shared key'}, build:buildMatcher },
