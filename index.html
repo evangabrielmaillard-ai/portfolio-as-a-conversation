@@ -788,6 +788,7 @@ const CHIPS_POOL = {
     { label: 'Tes scripts Python', msg: 'Tes scripts Python' },
     { label: 'Prospection B2B', msg: 'Prospection B2B' },
     { label: 'Louche ou Pas ?', msg: 'Parle-moi de Louche ou Pas' },
+    { label: 'Agent cyber sur VPS', msg: 'Ton agent de veille cyber autonome sur VPS' },
     { label: 'Matcher Pipedrive × Lemlist', msg: 'Ton matcher Pipedrive Lemlist' },
     { label: 'Tes erreurs', msg: 'Quelles erreurs tu vois souvent en entreprise ?' },
     { label: 'Usage IA concret', msg: 'Comment tu utilises l\'IA concrètement ?' },
@@ -814,6 +815,7 @@ const CHIPS_POOL = {
     { label: 'Python scripts', msg: 'Your Python scripts' },
     { label: 'B2B prospecting', msg: 'B2B prospecting' },
     { label: 'Louche ou Pas?', msg: 'Tell me about Louche ou Pas' },
+    { label: 'Cyber agent on VPS', msg: 'Your autonomous cyber watch agent on VPS' },
     { label: 'Pipedrive × Lemlist matcher', msg: 'Your Pipedrive Lemlist matcher' },
     { label: 'Your mistakes', msg: 'What mistakes do you often see?' },
     { label: 'Practical AI use', msg: 'How do you actually use AI?' },
@@ -1508,6 +1510,7 @@ const PANELS = {
   agents:      { icon:'🧩', label:{fr:'Architecture agents IA',en:'AI Agent Architecture'}, sub:{fr:'IA = décision · Make = exécution',en:'AI = decision · Make = execution'}, build:buildAgents },
   matcher:     { icon:'🔗', label:{fr:'Matcher Pipedrive × Lemlist',en:'Pipedrive × Lemlist Matcher'}, sub:{fr:'Attribution marketing · 0 clé commune',en:'Marketing attribution · 0 shared key'}, build:buildMatcher },
   louche:      { icon:'🕵️', label:{fr:'Louche ou Pas',en:'Louche or Not'}, sub:{fr:'Détection scams & phishing · React + Supabase',en:'Scam & phishing detection · React + Supabase'}, build:buildLoucheOuPas },
+  veilleagent: { icon:'🤖', label:{fr:'Agent Veille Cyber — VPS',en:'Cyber Watch Agent — VPS'}, sub:{fr:'Gemini · cron · MCP · publication auto',en:'Gemini · cron · MCP · auto publish'}, build:buildVeilleAgent },
   plan90:      { icon:'📅', label:{fr:'Plan 90 jours',en:'90-day plan'}, sub:{fr:'Comprendre · Livrer · Structurer',en:'Understand · Ship · Structure'}, build:buildPlan90 },
   failures:    { icon:'💡', label:{fr:'Ce qui n\'a pas marché',en:'What didn\'t work'}, sub:{fr:'Feedcasse · Carnetto · leçons',en:'Feedcasse · Carnetto · lessons'}, build:buildFailures },
 };
@@ -1562,6 +1565,36 @@ function buildArrivee() {
     </div>
 
     <div style="padding:10px 12px;background:var(--text);border-radius:8px;font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">${lang==='fr'?'Le fil rouge : structurer avant d\'automatiser, mesurer en impact business, transmettre pour que ça tienne quand je ne suis plus là.':'The thread: structure before automating, measure in business impact, hand over so it lasts when I\'m gone.'}</div>
+  </div>`;
+}
+
+function buildVeilleAgent() {
+  return `<div style="display:flex;flex-direction:column;gap:8px;">
+    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Agent de veille cyber autonome — louche-ou-pas.fr':'Autonomous cyber watch agent — louche-ou-pas.fr'}</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Un agent IA déployé sur VPS qui surveille l\'actualité cybersécurité, génère des articles et les publie automatiquement sur louche-ou-pas.fr — sans intervention humaine.':'An AI agent deployed on a VPS that monitors cybersecurity news, generates articles and publishes them automatically on louche-ou-pas.fr — no human intervention.'}</div>
+
+    <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
+      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">Architecture</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Cerveau : Gemini 2.5 Flash (gratuit dans les limites de quota)':'Brain: Gemini 2.5 Flash (free within quota limits)'}</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Déclenchement : cron automatique tous les 2 jours à 9h sur VPS OVH':'Trigger: automatic cron every 2 days at 9am on OVH VPS'}</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'MCP server connecté à louche-ou-pas.fr — publication directe sans API custom':'MCP server connected to louche-ou-pas.fr — direct publishing without custom API'}</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Pipeline image en cours : Nano Banana → upload Supabase → illustration article auto':'Image pipeline WIP: Nano Banana → Supabase upload → auto article illustration'}</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:2px 0;">
+      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
+        <div style="font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">${lang==='fr'?'Ce qui tourne':'What runs'}</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.7;">Veille cyber J+2<br>Génération article IA<br>Publication automatique<br>Zéro intervention humaine</div>
+      </div>
+      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
+        <div style="font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Stack</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.7;">Gemini 2.5 Flash<br>VPS OVH · cron<br>MCP server<br>Supabase</div>
+      </div>
+    </div>
+
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;">${lang==='fr'?'<span style="color:var(--text);font-weight:500;">Ce que ça démontre :</span> concevoir et déployer un agent IA en production réelle — pas un prototype, un système qui tourne en arrière-plan sans surveillance. Le choix Gemini Flash (gratuit) plutôt que GPT-4 est une décision de coût assumée.':'<span style="color:var(--text);font-weight:500;">What this shows:</span> designing and deploying a real AI agent in production — not a prototype, a system running in the background unsupervised. Choosing Gemini Flash (free) over GPT-4 is a deliberate cost decision.'}</div>
   </div>`;
 }
 
