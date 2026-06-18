@@ -1420,17 +1420,41 @@ function buildLoucheOuPas() {
 
 function buildSEO() {
   return `<div style="display:flex;flex-direction:column;gap:8px;">
-    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'SEO & E-Commerce — FIMM / Manuvit':'SEO & E-Commerce — FIMM / Manuvit'}</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Refonte WooCommerce post-migration : maintien du trafic organique, reconstruction architecture tarifaire 2017–2025, monitoring conversion.':'WooCommerce rebuild post-migration: maintaining organic traffic, rebuilding 2017–2025 pricing architecture, conversion monitoring.'}</div>
+    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">SEO & Architecture de contenu — FIMM / fimm.fr</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Reconstruction complète de l\'architecture SEO post-migration WooCommerce : 90 pages, 146 mots clés suivis, audit technique live, maillage interne structuré.':'Full SEO architecture rebuild post-WooCommerce migration: 90 pages, 146 tracked keywords, live technical audit, structured internal linking.'}</div>
 
-    <div style="display:flex;flex-direction:column;gap:5px;margin:2px 0;">
-      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">SEO opportuniste</span> — extraction publi-reportage BBI (70 ans FIMM) en actualité SEO : backlink éditeur + métadonnées optimisées, sans transformation frauduleuse.</div>
-      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">CDN Ikadia</span> — déploiement et suivi heures pour accélération sélective des pages produit lourdes.</div>
-      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">Cartographie tarifaire</span> — reconstruction WooCommerce ↔ bases 2017–2025 : évolution prix, years-to-existence, écarts documentés.</div>
-      <div style="padding:9px 12px;background:var(--text);border-radius:8px;font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;"><span style="font-weight:500;color:rgba(255,255,255,0.7);">Monitoring contacts</span> — ancien site 35–33/mois vs nouveau 13–26/mois — suivi sans conclusions hâtives pendant stabilisation.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin:2px 0;">
+      <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">90</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Pages créées':'Pages created'}</div>
+      </div>
+      <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">146</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Mots clés suivis':'Tracked keywords'}</div>
+      </div>
+      <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">35</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'KW priorisés':'Prioritized KW'}</div>
+      </div>
     </div>
 
-    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">Limite assumée :</span> la baisse post-migration est suivie sans panique — les comparaisons directes sont biaisées par les changements d'interface et de parcours utilisateur.</div>
+    <div style="display:flex;flex-direction:column;gap:5px;margin:2px 0;">
+      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">90 pages de catégories</span> — 9 silos produits (Diables, Chariots, Transpalettes, Gerbeurs, Matériel à fûts…) × 3 niveaux de hiérarchie. Specs vérifiées en live, format unifié Yoast (H1, keyphrase, title ≤60, meta ≤155).</div>
+      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">Audit technique live</span> — 90 URLs vérifiées par requêtes HEAD : 63 en 200, 13 corrections de slugs (suffixes WooCommerce anti-collision), 14 pages manquantes transmises à l\'agence.</div>
+      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">Maillage interne structuré</span> — 3 axes : vertical (parent → grand-parent), latéral (pages sœurs), inter-silos (Palbac Transpalettes ↔ Palbac Rouleurs, Levfix Gerbeurs ↔ Matériel à fûts).</div>
+      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">6 mauvais atterrissages SEMRush corrigés</span> — mots clés positionnés sur les mauvaises pages, keyphrases Yoast renseignées, slugs cassés dans les liens internes corrigés.</div>
+    </div>
+
+    <div style="padding:10px 14px;background:var(--text);border-radius:8px;">
+      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Plan de montée en position — 3 phases':'Ranking improvement plan — 3 phases'}</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="color:#22C55E;font-weight:500;">Phase 1 (KD &lt;15)</span> — 9 mots clés · fiches Yoast complètes livrées · 8 URLs soumises GSC · résultats attendus 4–8 semaines</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="color:#F59E0B;font-weight:500;">Phase 2 (KD 15–25)</span> — 5 mots clés · travail sur description et autorité de page</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="color:rgba(255,255,255,0.5);font-weight:500;">Phase 3 (KD &gt;25)</span> — mots clés compétitifs · construction long terme</div>
+      </div>
+    </div>
+
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">Outils :</span> SEMRush (tracking, KD), Google Search Console, WordPress/WooCommerce, Yoast SEO Premium, sitemap XML, requêtes HEAD JavaScript pour audit de masse.</div>
   </div>`;
 }
 
@@ -1503,7 +1527,7 @@ const PANELS = {
   imagegen:    { icon:'🖼️', label:{fr:'Générateur d\'images IA',en:'AI Image Generator'}, sub:{fr:'176 refs · 21h économisées',en:'176 refs · 21h saved'}, build:buildImageGen },
   python:      { icon:'🐍', label:{fr:'Scripts Python métier',en:'Python Business Tools'}, sub:{fr:'19 outils · GUI native',en:'19 tools · native GUI'}, build:buildPython },
   make:        { icon:'⚙️', label:{fr:'Automatisations Make',en:'Make Automations'}, sub:{fr:'5 scénarios · 600+ exec.',en:'5 scenarios · 600+ exec.'}, build:buildMake },
-  seo:         { icon:'📈', label:{fr:'SEO & E-Commerce FIMM',en:'SEO & E-Commerce FIMM'}, sub:{fr:'Post-migration · WooCommerce · CDN · Trafic',en:'Post-migration · WooCommerce · CDN · Traffic'}, build:buildSEO },
+  seo:         { icon:'📈', label:{fr:'SEO — Architecture & Contenu FIMM',en:'SEO — Architecture & Content FIMM'}, sub:{fr:'90 pages · 146 KW · 3 phases · GSC',en:'90 pages · 146 KW · 3 phases · GSC'}, build:buildSEO },
   veille:      { icon:'🔍', label:{fr:'Agent Veille — Aides & Subventions',en:'Watch Agent — Grants'}, sub:{fr:'Manuvit · Carsat · Recommandations actionnables',en:'Manuvit · Carsat · Actionable recs'}, build:buildVeille },
   stockftp:    { icon:'📦', label:{fr:'Pipeline Stock → FTP',en:'Stock Pipeline → FTP'}, sub:{fr:'Make · 2×/jour · Alertes Slack','en':'Make · 2×/day · Slack alerts'}, build:buildStockFTP },
   offres:      { icon:'🤖', label:{fr:'Agent IA — Offres commerciales',en:'AI Agent — Quote processing'}, sub:{fr:'Email → CRM · 272 offres · 0 saisies',en:'Email → CRM · 272 quotes · 0 entries'}, build:buildOffres },
