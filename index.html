@@ -774,58 +774,56 @@ function sendEngage() {
 /* ── CHIPS ROTATION ── */
 const CHIPS_POOL = {
   fr: [
-    { label: 'Explique-moi ce que tu fais', msg: 'Explique-moi ce que tu fais' },
-    { label: 'Un exemple concret', msg: 'Montre-moi un système que tu as construit' },
-    { label: 'Résumé rapide', msg: 'Résumé rapide' },
+    { label: 'Ton intervention en une minute', msg: "Comment résumes-tu la nature exacte de ton intervention en une minute ?" },
+    { label: 'Un système réellement en production', msg: "Donne-moi un système que tu as réellement mis en production." },
+    { label: 'Synthèse de ton profil', msg: "Peux-tu me donner une synthèse de ton profil en quelques lignes ?" },
     { label: 'Impact business', fn: 'openImpactShortcut' },
     { label: 'Plan 90 jours', fn: 'openPlan90Shortcut' },
-    { label: 'Comment tu travailles ?', msg: 'Comment tu abordes un nouveau projet ?' },
-    { label: 'Ton profil en 30 sec', msg: 'Résume ton profil en 30 secondes' },
-    { label: 'Ce qui n\'a pas marché', msg: 'Ce qui n\'a pas marché' },
-    { label: 'Agents IA — comment ça décide ?', msg: 'Explique-moi comment tes agents IA prennent des décisions' },
-    { label: 'Automatiser les devis', msg: 'Comment tu automatises le traitement des demandes de prix ?' },
-    { label: 'Ton générateur d\'images IA', msg: 'Ton générateur d\'images IA' },
-    { label: 'Tes scripts Python', msg: 'Tes scripts Python' },
-    { label: 'Prospection B2B', msg: 'Prospection B2B' },
-    { label: 'Louche ou Pas ?', msg: 'Parle-moi de Louche ou Pas' },
-    { label: 'Agent cyber sur VPS', msg: 'Ton agent de veille cyber autonome sur VPS' },
-    { label: 'Matcher Pipedrive × Lemlist', msg: 'Ton matcher Pipedrive Lemlist' },
-    { label: 'Tes erreurs', msg: 'Quelles erreurs tu vois souvent en entreprise ?' },
-    { label: 'Usage IA concret', msg: 'Comment tu utilises l\'IA concrètement ?' },
-    { label: 'PME industrielle', msg: 'Je suis une PME industrielle, que fais-tu ?' },
-    { label: 'Suivi commercial', msg: 'Mes commerciaux ne suivent pas les leads' },
-    { label: 'Automatiser concrètement', msg: 'Qu\'est-ce que je peux automatiser concrètement ?' },
-    { label: 'Agent veille subventions', msg: 'Ton agent de veille aides et subventions' },
-    { label: 'SEO post-migration', msg: 'Comment tu as géré le SEO après la migration FIMM ?' },
-    { label: 'Pipeline stock FTP', msg: 'Ton pipeline stock vers distributeur FTP' },
-    { label: 'QuoteOps Agent', msg: 'Ton projet QuoteOps Agent' },
+    { label: 'Méthode face à un nouveau dossier', msg: "Quelle méthode suis-tu face à un dossier que tu découvres ?" },
+    { label: "L'échec dont tu as le plus appris", msg: "Quel est l'échec dont tu as le plus appris, et qu'en retires-tu aujourd'hui ?" },
+    { label: 'Décision d\'un agent IA', msg: "Comment tes agents IA prennent-ils concrètement leurs décisions, et où places-tu la validation humaine ?" },
+    { label: 'Goulot des devis : ta réponse', msg: "Comment as-tu traité le goulot d'étranglement des devis entrants ?" },
+    { label: 'Chaîne de génération d\'images', msg: "Parle-moi de ta chaîne de génération d'images produit." },
+    { label: 'Outils Python pour les équipes', msg: "Tes outils Python pour les équipes internes — ce qui marche, ce qui résiste." },
+    { label: 'Prospection B2B sortante', msg: "Ta démarche de prospection B2B sortante, en quelques mots." },
+    { label: 'Louche ou Pas, en quelques mots', msg: "Le projet Louche ou Pas, peux-tu m'en dire l'essentiel ?" },
+    { label: 'L\'agent Hermes en production', msg: "L'agent Hermes en production sur ton VPS Docker — parle-m'en." },
+    { label: 'Matcher Pipedrive × Lemlist', msg: "Le matcher Pipedrive × Lemlist : pourquoi l'avoir construit, et qu'en tires-tu ?" },
+    { label: 'Erreurs récurrentes en entreprise', msg: "Quelles erreurs récurrentes observes-tu en entreprise sur le digital et l'automatisation ?" },
+    { label: 'L\'IA dans ton quotidien', msg: "L'IA dans ton quotidien, concrètement — pas en théorie." },
+    { label: 'PME industrielle, que m\'apportes-tu ?', msg: "Je dirige une PME industrielle. Qu'apporterais-tu dans les six premiers mois ?" },
+    { label: 'Mes commerciaux ne relancent pas', msg: "Mes commerciaux ne relancent pas leurs leads. Comment t'y prendrais-tu ?" },
+    { label: 'Par où commencer à automatiser ?', msg: "Par où commencer pour automatiser sans casser l'existant ?" },
+    { label: 'Ton agent veille subventions', msg: "Ton agent de veille sur les aides et subventions — comment fonctionne-t-il, et quel format de recommandation ?" },
+    { label: 'Résultats SEO/SEA FIMM', msg: "Quels résultats concrets as-tu obtenus sur le SEO et le SEA chez FIMM ?" },
+    { label: 'Pipeline stock vers distributeur', msg: "Le pipeline stock vers le distributeur — comment l'as-tu sécurisé contre les défaillances silencieuses ?" },
+    { label: 'QuoteOps Agent — où en es-tu ?', msg: "Le projet QuoteOps Agent : à quel stade en es-tu, et qu'attends-tu de ce side project ?" },
   ],
   en: [
-    { label: 'What do you do?', msg: 'What do you do?' },
-    { label: 'Show me a system', msg: 'Show me a system you built' },
-    { label: 'Quick summary', msg: 'Quick summary' },
+    { label: 'Your role in one minute', msg: "Can you summarize the exact nature of your role in one minute?" },
+    { label: 'A system actually in production', msg: "Show me a system you have actually put into production." },
+    { label: 'A synthesis of your profile', msg: "Could you give me a brief synthesis of your profile?" },
     { label: 'Business impact', fn: 'openImpactShortcut' },
     { label: '90-day plan', fn: 'openPlan90Shortcut' },
-    { label: 'How you work?', msg: 'How do you approach a new project?' },
-    { label: 'Your profile in 30s', msg: 'Summarize your profile in 30 seconds' },
-    { label: 'What didn\'t work', msg: 'What didn\'t work' },
-    { label: 'AI agents — how they decide?', msg: 'Explain how your AI agents make decisions' },
-    { label: 'Automate quotes', msg: 'How do you automate quote request processing?' },
-    { label: 'Your AI image generator', msg: 'Your AI image generator' },
-    { label: 'Python scripts', msg: 'Your Python scripts' },
-    { label: 'B2B prospecting', msg: 'B2B prospecting' },
-    { label: 'Louche ou Pas?', msg: 'Tell me about Louche ou Pas' },
-    { label: 'Cyber agent on VPS', msg: 'Your autonomous cyber watch agent on VPS' },
-    { label: 'Pipedrive × Lemlist matcher', msg: 'Your Pipedrive Lemlist matcher' },
-    { label: 'Your mistakes', msg: 'What mistakes do you often see?' },
-    { label: 'Practical AI use', msg: 'How do you actually use AI?' },
-    { label: 'Industrial SME', msg: 'I run an industrial SME, what do you do?' },
-    { label: 'Sales follow-up', msg: 'My sales team doesn\'t follow up' },
-    { label: 'What to automate', msg: 'What can I actually automate?' },
-    { label: 'Watch agent for grants', msg: 'Your subsidies watch agent' },
-    { label: 'Post-migration SEO', msg: 'How did you handle SEO after the FIMM migration?' },
-    { label: 'Stock FTP pipeline', msg: 'Your stock to distributor FTP pipeline' },
-    { label: 'QuoteOps Agent', msg: 'Your QuoteOps Agent project' },
+    { label: 'Method on a new case', msg: "What method do you follow when you take on a new case?" },
+    { label: 'The failure you learned from most', msg: "What is the failure you learned the most from, and what do you take from it today?" },
+    { label: 'How an AI agent decides', msg: "How do your AI agents actually make their decisions, and where do you place human validation?" },
+    { label: 'Quote bottleneck: your response', msg: "How did you address the incoming-quote bottleneck?" },
+    { label: 'Your image generation chain', msg: "Tell me about your product image generation chain." },
+    { label: 'Python tools for internal teams', msg: "Your Python tools for internal teams — what works, what resists." },
+    { label: 'Outbound B2B prospecting', msg: "Your outbound B2B prospecting approach, in a few words." },
+    { label: 'Louche ou Pas, in short', msg: "The Louche ou Pas project: can you tell me the essentials?" },
+    { label: 'Hermes agent in production', msg: "The Hermes agent running on your Docker VPS — tell me about it." },
+    { label: 'Pipedrive × Lemlist matcher', msg: "The Pipedrive × Lemlist matcher: why did you build it, and what did you learn?" },
+    { label: 'Recurring mistakes you see', msg: "What recurring mistakes do you see in companies regarding digital and automation?" },
+    { label: 'AI in your daily work', msg: "AI in your daily work, concretely — not in theory." },
+    { label: 'Industrial SME, what do you bring?', msg: "I run an industrial SME. What would you bring in the first six months?" },
+    { label: 'My sales team doesn\'t follow up', msg: "My sales team doesn't follow up on leads. How would you handle that?" },
+    { label: 'Where to start automating?', msg: "Where do you start to automate without breaking what works?" },
+    { label: 'Your grants watch agent', msg: "Your grants and subsidies watch agent — how does it work, and what recommendation format?" },
+    { label: 'FIMM SEO/SEA results', msg: "What concrete results did you get on SEO and SEA at FIMM?" },
+    { label: 'Stock to distributor pipeline', msg: "The stock-to-distributor pipeline — how did you secure it against silent failures?" },
+    { label: 'QuoteOps Agent — where are you?', msg: "QuoteOps Agent: where are you with this side project, and what do you expect from it?" },
   ]
 };
 
@@ -903,34 +901,97 @@ function toggleMoreChips() {
 
 
 const FOLLOWUP_POOLS = {
+  // Génériques (fallback)
   fr: [
-    ["Donne-moi un exemple chiffré", "Quelle est la limite de cette approche ?", "Tu ferais ça différemment aujourd'hui ?"],
-    ["Comment tu as mesuré l'impact ?", "Combien de temps ça a pris à mettre en place ?", "Qu'est-ce qui a failli ne pas marcher ?"],
-    ["C'est applicable dans ma boîte ?", "Quel outil tu utiliserais aujourd'hui ?", "Montre-moi le système complet"],
-    ["Quelle est la première étape concrète ?", "Où est-ce que la plupart des gens se plantent ?", "Tu peux détailler ?"],
-    ["C'est quoi le vrai levier ici ?", "Qu'est-ce qui change si on n'a pas de budget ?", "Comment tu prioriserais ?"],
+    ["Tu peux développer ce point ?", "Quel exemple concret derrière cette idée ?", "Et l'impact mesuré, qu'a-t-il donné ?"],
+    ["Quelle limite tu n'as pas réussi à franchir ?", "Comment tu aurais procédé avec moins de budget ?", "Qu'est-ce que tu en retires aujourd'hui ?"],
+    ["Quelle est la première étape concrète ?", "Où est-ce que la plupart des gens se trompent ?", "Tu peux détailler la méthode ?"],
   ],
   en: [
-    ["Give me a concrete example", "What's the limit of this approach?", "Would you do it differently today?"],
-    ["How did you measure the impact?", "How long did it take to set up?", "What almost didn't work?"],
-    ["Is this applicable to my company?", "What tool would you use today?", "Show me the full system"],
-    ["What's the first concrete step?", "Where do most people go wrong?", "Can you elaborate?"],
-    ["What's the real lever here?", "What changes with no budget?", "How would you prioritize?"],
+    ["Can you elaborate on that point?", "Any concrete example behind this idea?", "And the measured impact — what was it?"],
+    ["What limit did you fail to overcome?", "How would you have done it with less budget?", "What do you take from it today?"],
+    ["What's the first concrete step?", "Where do most people get it wrong?", "Can you detail the method?"],
   ],
+
+  // Panneaux Résultats & Impact
+  impact_fr: [["Comment as-tu attribué ces chiffres ?", "Quelle part vient de l'IA, quelle part du process ?", "Comment as-tu calculé les 50 000€ de prospection ?"]],
+  impact_en: [["How did you attribute these figures?", "What share comes from AI vs. from process?", "How did you compute the €50k prospecting figure?"]],
+
+  arrivee_fr: [["Quel est le piège classique du premier mois ?", "Comment repères-tu ce qu'il ne faut surtout pas toucher ?", "Au bout de combien de temps les premiers résultats ?"]],
+  arrivee_en: [["What's the classic trap of the first month?", "How do you identify what you must not touch?", "How long until the first results?"]],
+
+  // Systèmes construits
+  seo_fr: [["Comment as-tu pensé l'arbitrage entre SEO et SEA ?", "Quelle erreur de migration tu ne referais pas ?", "Combien de temps avant que les positions ne bougent réellement ?"]],
+  seo_en: [["How did you think about the SEO vs. SEA trade-off?", "Which migration mistake would you avoid next time?", "How long before positions actually shifted?"]],
+
+  veille_fr: [["Comment l'agent priorise-t-il les opportunités ?", "Comment as-tu calibré le feedback learning ?", "Quelle est ta métrique de succès sur ce système ?"]],
+  veille_en: [["How does the agent prioritize opportunities?", "How did you calibrate the feedback learning loop?", "What's your success metric on this system?"]],
+
+  stockftp_fr: [["Quelles défaillances ont déjà déclenché tes alertes ?", "Comment as-tu fixé le seuil d'alerte ?", "Que se passe-t-il si l'API WordPress tombe ?"]],
+  stockftp_en: [["What failures have already triggered your alerts?", "How did you set the alert threshold?", "What happens if the WordPress API goes down?"]],
+
+  offres_fr: [["Comment gères-tu les erreurs d'extraction de l'IA ?", "Quel est le taux réel de validation humaine sur les cas limites ?", "Et si l'agent se trompe de référence produit ?"]],
+  offres_en: [["How do you handle AI extraction errors?", "What's the real human validation rate on edge cases?", "What if the agent picks the wrong product reference?"]],
+
+  agents_fr: [["Quel est ton critère pour ne PAS automatiser ?", "Comment tu choisis entre Make et Python pour un agent ?", "Où places-tu précisément la validation humaine ?"]],
+  agents_en: [["What's your criterion for NOT automating?", "How do you choose between Make and Python for an agent?", "Where exactly do you place human validation?"]],
+
+  make_fr: [["Quel scénario considères-tu comme le plus critique ?", "Comment gères-tu les erreurs Make en production ?", "Quelle limite de l'outil tu as déjà rencontrée ?"]],
+  make_en: [["Which scenario do you consider most critical?", "How do you handle Make errors in production?", "What tool limit have you already hit?"]],
+
+  imagegen_fr: [["Comment valides-tu la qualité des images générées ?", "Quel modèle envisages-tu après gpt-image-1 ?", "Et le pipeline Nano Banana pour Hermes, où en es-tu ?"]],
+  imagegen_en: [["How do you validate the quality of generated images?", "What model do you consider after gpt-image-1?", "And the Nano Banana pipeline for Hermes — where are you?"]],
+
+  python_fr: [["Lesquels sont utilisés quotidiennement ?", "Comment les équipes les prennent-elles en main ?", "Tu envisages de les passer en application web ?"]],
+  python_en: [["Which ones are used daily?", "How do the teams adopt them?", "Are you considering moving them to a web app?"]],
+
+  prospection_fr: [["Comment écris-tu un icebreaker qui convertit ?", "Quelle proportion devient prospect réel ?", "Comment segmentes-tu tes clusters sectoriels ?"]],
+  prospection_en: [["How do you write an icebreaker that converts?", "What share becomes a real prospect?", "How do you segment your sector clusters?"]],
+
+  pipeline_fr: [["Quel est le taux d'erreur réel sur la lecture des PDF ?", "Comment gères-tu les cas où l'extraction échoue ?", "Quel a été l'impact mesuré sur l'équipe ADV ?"]],
+  pipeline_en: [["What's the real error rate on PDF reading?", "How do you handle extraction failures?", "What was the measured impact on the sales-admin team?"]],
+
+  // Side projects
+  louche_fr: [["Quelle a été la décision technique la plus difficile ?", "Combien d'utilisateurs actifs aujourd'hui ?", "Comment fonctionne le modèle premium ?"]],
+  louche_en: [["What was the hardest technical decision?", "How many active users today?", "How does the premium model work?"]],
+
+  veilleagent_fr: [["Comment as-tu réagi à l'incident en pleine production ?", "Pourquoi Gemini plutôt qu'un modèle plus coûteux ?", "Quelle est la limite actuelle de l'agent ?"]],
+  veilleagent_en: [["How did you react to the production incident?", "Why Gemini rather than a more expensive model?", "What is the agent's current limitation?"]],
+
+  carnetto_fr: [["Pourquoi avoir choisi Lovable plutôt que du code from scratch ?", "Quelle leçon retires-tu de ces 100 licences ?", "Le badge Platine, qu'est-ce que ça change concrètement ?"]],
+  carnetto_en: [["Why Lovable rather than coding from scratch?", "What lesson do you take from those 100 licenses?", "The Platinum badge — what does it actually change?"]],
+
+  matcher_fr: [["Comment calibres-tu le seuil de confiance ?", "Combien de faux positifs en réel ?", "L'outil est-il devenu un standard interne ?"]],
+  matcher_en: [["How do you calibrate the confidence threshold?", "How many false positives in real use?", "Has the tool become an internal standard?"]],
+
+  // Méthode & profil
   failures_fr: [
-    ["Pourquoi t'as pas persévéré sur Feedcasse ?", "C'était quoi le vrai signal sur Carnetto ?", "Tu referais ça aujourd'hui ?"],
-    ["T'as vendu comment les 100 premières licences ?", "C'était quoi le moment exact où t'as lâché ?", "T'as appris quoi sur toi ?"],
+    ["Pourquoi n'as-tu pas persévéré sur Feedcasse ?", "Quel était le vrai signal sur Carnetto ?", "Tu referais cela aujourd'hui ?"],
+    ["Comment as-tu vendu les 100 premières licences ?", "Quel a été le moment exact où tu as lâché ?", "Qu'as-tu appris sur toi-même ?"],
   ],
   failures_en: [
-    ["Why didn't you push further on Feedcasse?", "What was the real signal with Carnetto?", "Would you do it again today?"],
+    ["Why didn't you push further on Feedcasse?", "What was the real signal on Carnetto?", "Would you do it again today?"],
     ["How did you sell the first 100 licenses?", "What was the exact moment you let go?", "What did you learn about yourself?"],
-  ]
+  ],
+
+  plan90_fr: [["Quel est le KPI clé du 90e jour ?", "Comment sécurises-tu le buy-in interne ?", "Que ferais-tu si l'équipe résiste au changement ?"]],
+  plan90_en: [["What's the key KPI on day 90?", "How do you secure internal buy-in?", "What would you do if the team resists change?"]],
+
+  ai_fr: [["Quel cas d'usage as-tu écarté volontairement ?", "Comment évalues-tu le bon moment pour intégrer l'IA ?", "Quelle erreur dans l'usage de l'IA tu vois le plus souvent ?"]],
+  ai_en: [["Which use case did you deliberately set aside?", "How do you evaluate the right moment to bring AI in?", "What AI usage mistake do you see most often?"]],
+
+  career_fr: [["Quel choix de carrière t'a le plus surpris a posteriori ?", "Quel poste t'a le plus appris, et pourquoi ?", "Que cherches-tu précisément aujourd'hui ?"]],
+  career_en: [["Which career choice surprised you most in hindsight?", "Which role taught you the most, and why?", "What are you precisely looking for today?"]],
+
+  cv_fr: [["Quel est le poste exact que tu vises ?", "Quelle compétence te sépare du marché ?", "Combien de temps avant de produire un impact mesurable ?"]],
+  cv_en: [["What is the exact role you are targeting?", "What skill sets you apart from the market?", "How long before you produce measurable impact?"]],
 };
 
 function addFollowupChips(parentEl, context) {
+  // Si on a un panneau ouvert : chercher le pool spécifique {panel}_{lang}, fallback générique
   let pool;
-  if (context === 'failures') {
-    pool = FOLLOWUP_POOLS['failures_' + lang] || FOLLOWUP_POOLS.failures_fr;
+  if (context) {
+    pool = FOLLOWUP_POOLS[context + '_' + lang] || FOLLOWUP_POOLS[lang] || FOLLOWUP_POOLS.fr;
   } else {
     pool = FOLLOWUP_POOLS[lang] || FOLLOWUP_POOLS.fr;
   }
@@ -1420,41 +1481,63 @@ function buildLoucheOuPas() {
 
 function buildSEO() {
   return `<div style="display:flex;flex-direction:column;gap:8px;">
-    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">SEO & Architecture de contenu — FIMM / fimm.fr</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Reconstruction complète de l\'architecture SEO post-migration WooCommerce : 90 pages, 146 mots clés suivis, audit technique live, maillage interne structuré.':'Full SEO architecture rebuild post-WooCommerce migration: 90 pages, 146 tracked keywords, live technical audit, structured internal linking.'}</div>
+    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">SEO, SEA & Architecture — FIMM / fimm.fr</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Refonte WooCommerce (mars 2026) → chute de visibilité organique. Reconstruction complète : audit technique, architecture de contenu, et campagnes SEA pour compenser pendant la reconstruction.':'WooCommerce rebuild (March 2026) → organic visibility drop. Full reconstruction: technical audit, content architecture, and SEA campaigns to compensate during rebuild.'}</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:2px 0;">
+      <div style="background:var(--text);border-radius:10px;padding:12px;text-align:center;">
+        <div style="font-size:22px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">24,5 → 12,1</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.6);margin-top:3px;">${lang==='fr'?'Position moyenne (+12)':'Average position (+12)'}</div>
+      </div>
+      <div style="background:var(--text);border-radius:10px;padding:12px;text-align:center;">
+        <div style="font-size:22px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">1,9% → 5,3%</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.6);margin-top:3px;">${lang==='fr'?'CTR organique (+179%)':'Organic CTR (+179%)'}</div>
+      </div>
+    </div>
+
+    <div style="border-left:2px solid var(--text);padding:3px 0 3px 14px;margin:2px 0;">
+      <div style="font-size:11px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">${lang==='fr'?'SEO technique — audit post-migration':'Technical SEO — post-migration audit'}</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7;">→ 1 841 pages en 404, 829 redirections en chaîne, 419 doublons sans canonical identifiés via GSC<br>→ 823 règles de redirection 301 (regex Apache) générées et transmises à l'agence Ikadia<br>→ robots.txt corrigé : blocage de 745 URLs Bitly + 156 PDFs qui gaspillaient le budget crawl<br>→ 54 titres et 96 meta descriptions en doublon corrigés via import WooCommerce<br>→ Cloudflare APO déployé pour les Core Web Vitals</div>
+    </div>
+
+    <div style="border-left:2px solid var(--border);padding:3px 0 3px 14px;margin:2px 0;">
+      <div style="font-size:11px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">${lang==='fr'?'Architecture de contenu — 90 pages':'Content architecture — 90 pages'}</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7;">→ 9 silos produits × 3 niveaux hiérarchiques, specs vérifiées en live, format Yoast unifié<br>→ Audit technique 90 URLs (requêtes HEAD) : 63×200, 13 corrections de slugs, 14 pages transmises à l'agence<br>→ Maillage interne 3 axes : vertical, latéral, inter-silos · 10 guides /conseils/ intégrés<br>→ 6 mauvais atterrissages SEMRush corrigés (146 mots clés suivis)</div>
+    </div>
+
+    <div style="border-left:2px solid var(--border);padding:3px 0 3px 14px;margin:2px 0;">
+      <div style="font-size:11px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">${lang==='fr'?'SEO éditorial':'Editorial SEO'}</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7;">→ 9 articles produits rédigés sur audit live des fiches (capacités, fabrication, garanties)<br>→ Nouvelles requêtes non-brandées apparues en GSC : diable monte-escalier, marchepied Manuvit, servante FIMM — absentes de l'index avant migration</div>
+    </div>
+
+    <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
+      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'SEA Google Ads — compte FIMM ALPHA':'SEA Google Ads — FIMM ALPHA account'}</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'6 campagnes Search lancées from scratch, analyse concurrentielle de 10 domaines (Semrush Advertising Toolkit)':'6 Search campaigns launched from scratch, competitive analysis of 10 domains'}</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Annonces RSA (15 titres + 4 descriptions/campagne), 129 mots clés négatifs structurés':'RSA ads (15 titles + 4 descriptions/campaign), 129 structured negative keywords'}</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="font-weight:600;">${lang==='fr'?'30 jours':'30 days'} :</span> 596 clics, 7 539 impressions, CTR 7,91%, CPC moyen 0,83€</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="font-weight:600;">13 conversions</span> ${lang==='fr'?'réelles (devis générant du CA), coût par conversion 38,01€ pour 25€/jour de budget':'real conversions (revenue-generating quotes), €38.01 cost per conversion on €25/day budget'}</div>
+      </div>
+    </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin:2px 0;">
-      <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
-        <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">90</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Pages créées':'Pages created'}</div>
+      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:18px;font-weight:600;color:var(--text);font-family:var(--font-serif);">90</div>
+        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Pages créées':'Pages created'}</div>
       </div>
-      <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
-        <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">146</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Mots clés suivis':'Tracked keywords'}</div>
+      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:18px;font-weight:600;color:var(--text);font-family:var(--font-serif);">823</div>
+        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Règles 301':'301 rules'}</div>
       </div>
-      <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
-        <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">35</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'KW priorisés':'Prioritized KW'}</div>
-      </div>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:5px;margin:2px 0;">
-      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">90 pages de catégories</span> — 9 silos produits (Diables, Chariots, Transpalettes, Gerbeurs, Matériel à fûts…) × 3 niveaux de hiérarchie. Specs vérifiées en live, format unifié Yoast (H1, keyphrase, title ≤60, meta ≤155).</div>
-      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">Audit technique live</span> — 90 URLs vérifiées par requêtes HEAD : 63 en 200, 13 corrections de slugs (suffixes WooCommerce anti-collision), 14 pages manquantes transmises à l\'agence.</div>
-      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">Maillage interne structuré</span> — 3 axes : vertical (parent → grand-parent), latéral (pages sœurs), inter-silos (Palbac Transpalettes ↔ Palbac Rouleurs, Levfix Gerbeurs ↔ Matériel à fûts).</div>
-      <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:500;">6 mauvais atterrissages SEMRush corrigés</span> — mots clés positionnés sur les mauvaises pages, keyphrases Yoast renseignées, slugs cassés dans les liens internes corrigés.</div>
-    </div>
-
-    <div style="padding:10px 14px;background:var(--text);border-radius:8px;">
-      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Plan de montée en position — 3 phases':'Ranking improvement plan — 3 phases'}</div>
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="color:#22C55E;font-weight:500;">Phase 1 (KD &lt;15)</span> — 9 mots clés · fiches Yoast complètes livrées · 8 URLs soumises GSC · résultats attendus 4–8 semaines</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="color:#F59E0B;font-weight:500;">Phase 2 (KD 15–25)</span> — 5 mots clés · travail sur description et autorité de page</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="color:rgba(255,255,255,0.5);font-weight:500;">Phase 3 (KD &gt;25)</span> — mots clés compétitifs · construction long terme</div>
+      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:18px;font-weight:600;color:var(--text);font-family:var(--font-serif);">+0,3%</div>
+        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Trafic stabilisé':'Traffic stable'}</div>
       </div>
     </div>
 
-    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">Outils :</span> SEMRush (tracking, KD), Google Search Console, WordPress/WooCommerce, Yoast SEO Premium, sitemap XML, requêtes HEAD JavaScript pour audit de masse.</div>
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">${lang==='fr'?'Attribution & tracking':'Attribution & tracking'} :</span> ${lang==='fr'?'écart identifié entre formulaires reçus et conversions GA4 ↔ Google Ads — spécifications transmises pour intégration CF7 UTM Tracker (utm_source/medium/campaign, gclid) dans Contact Form 7 + CFDB7.':'gap identified between received forms and GA4 ↔ Google Ads conversions — specifications delivered for CF7 UTM Tracker integration in Contact Form 7 + CFDB7.'}</div>
+
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">Stack :</span> WordPress/WooCommerce, Yoast SEO, WP Rocket, Cloudflare APO, GSC, GA4, Google Ads, Semrush (SEO + Advertising Toolkit), Keyword Planner, Contact Form 7, CFDB7, Pipedrive.</div>
   </div>`;
 }
 
@@ -1527,14 +1610,14 @@ const PANELS = {
   imagegen:    { icon:'🖼️', label:{fr:'Générateur d\'images IA',en:'AI Image Generator'}, sub:{fr:'176 refs · 21h économisées',en:'176 refs · 21h saved'}, build:buildImageGen },
   python:      { icon:'🐍', label:{fr:'Scripts Python métier',en:'Python Business Tools'}, sub:{fr:'19 outils · GUI native',en:'19 tools · native GUI'}, build:buildPython },
   make:        { icon:'⚙️', label:{fr:'Automatisations Make',en:'Make Automations'}, sub:{fr:'5 scénarios · 600+ exec.',en:'5 scenarios · 600+ exec.'}, build:buildMake },
-  seo:         { icon:'📈', label:{fr:'SEO — Architecture & Contenu FIMM',en:'SEO — Architecture & Content FIMM'}, sub:{fr:'90 pages · 146 KW · 3 phases · GSC',en:'90 pages · 146 KW · 3 phases · GSC'}, build:buildSEO },
+  seo:         { icon:'📈', label:{fr:'SEO, SEA & Architecture FIMM',en:'SEO, SEA & Architecture FIMM'}, sub:{fr:'+12 positions · CTR +179% · 13 conversions Ads',en:'+12 positions · CTR +179% · 13 Ads conversions'}, build:buildSEO },
   veille:      { icon:'🔍', label:{fr:'Agent Veille — Aides & Subventions',en:'Watch Agent — Grants'}, sub:{fr:'Manuvit · Carsat · Recommandations actionnables',en:'Manuvit · Carsat · Actionable recs'}, build:buildVeille },
   stockftp:    { icon:'📦', label:{fr:'Pipeline Stock → FTP',en:'Stock Pipeline → FTP'}, sub:{fr:'Make · 2×/jour · Alertes Slack','en':'Make · 2×/day · Slack alerts'}, build:buildStockFTP },
   offres:      { icon:'🤖', label:{fr:'Agent IA — Offres commerciales',en:'AI Agent — Quote processing'}, sub:{fr:'Email → CRM · 272 offres · 0 saisies',en:'Email → CRM · 272 quotes · 0 entries'}, build:buildOffres },
   agents:      { icon:'🧩', label:{fr:'Architecture agents IA',en:'AI Agent Architecture'}, sub:{fr:'IA = décision · Make = exécution',en:'AI = decision · Make = execution'}, build:buildAgents },
   matcher:     { icon:'🔗', label:{fr:'Matcher Pipedrive × Lemlist',en:'Pipedrive × Lemlist Matcher'}, sub:{fr:'Attribution marketing · 0 clé commune',en:'Marketing attribution · 0 shared key'}, build:buildMatcher },
   louche:      { icon:'🕵️', label:{fr:'Louche ou Pas',en:'Louche or Not'}, sub:{fr:'Détection scams & phishing · React + Supabase',en:'Scam & phishing detection · React + Supabase'}, build:buildLoucheOuPas },
-  veilleagent: { icon:'🤖', label:{fr:'Agent Veille Cyber — VPS',en:'Cyber Watch Agent — VPS'}, sub:{fr:'Gemini · cron · MCP · publication auto',en:'Gemini · cron · MCP · auto publish'}, build:buildVeilleAgent },
+  veilleagent: { icon:'🤖', label:{fr:'Agent IA Hermes — VPS Docker',en:'Hermes AI Agent — VPS Docker'}, sub:{fr:'Docker · MCP · Telegram · incident géré',en:'Docker · MCP · Telegram · incident handled'}, build:buildVeilleAgent },
   plan90:      { icon:'📅', label:{fr:'Plan 90 jours',en:'90-day plan'}, sub:{fr:'Comprendre · Livrer · Structurer',en:'Understand · Ship · Structure'}, build:buildPlan90 },
   failures:    { icon:'💡', label:{fr:'Ce qui n\'a pas marché',en:'What didn\'t work'}, sub:{fr:'Feedcasse · Carnetto · leçons',en:'Feedcasse · Carnetto · lessons'}, build:buildFailures },
 };
@@ -1594,31 +1677,42 @@ function buildArrivee() {
 
 function buildVeilleAgent() {
   return `<div style="display:flex;flex-direction:column;gap:8px;">
-    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Agent de veille cyber autonome — louche-ou-pas.fr':'Autonomous cyber watch agent — louche-ou-pas.fr'}</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Un agent IA déployé sur VPS qui surveille l\'actualité cybersécurité, génère des articles et les publie automatiquement sur louche-ou-pas.fr — sans intervention humaine.':'An AI agent deployed on a VPS that monitors cybersecurity news, generates articles and publishes them automatically on louche-ou-pas.fr — no human intervention.'}</div>
+    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Agent IA autonome "Hermes" — louche-ou-pas.fr':'Autonomous AI agent "Hermes" — louche-ou-pas.fr'}</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Veille, production et distribution de contenu en autonomie, sur infrastructure auto-hébergée — objectif croissance organique à coût quasi nul.':'Autonomous content watch, production and distribution on self-hosted infrastructure — goal: organic growth at near-zero cost.'}</div>
+
+    <div style="border-left:2px solid var(--text);padding:3px 0 3px 14px;margin:2px 0;">
+      <div style="font-size:11px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">${lang==='fr'?'Infrastructure':'Infrastructure'}</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7;">→ ${lang==='fr'?'VPS Linux OVH (Ubuntu 24.04), administration SSH':'OVH Linux VPS (Ubuntu 24.04), SSH administration'}<br>→ ${lang==='fr'?'Backend conteneurisé Docker, gestion volumes et persistance':'Dockerized backend, volume management and persistence'}<br>→ ${lang==='fr'?'Provider LLM Gemini choisi après arbitrage technique multi-fournisseurs':'Gemini LLM provider chosen after multi-vendor technical arbitration'}<br>→ ${lang==='fr'?'Pilotage via Telegram : notifications, validation humaine, déclenchement de tâches':'Telegram-driven control: notifications, human validation, task triggering'}</div>
+    </div>
+
+    <div style="border-left:2px solid var(--border);padding:3px 0 3px 14px;margin:2px 0;">
+      <div style="font-size:11px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">${lang==='fr'?'Intégrations & automatisation':'Integrations & automation'}</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7;">→ ${lang==='fr'?'Serveur MCP custom reliant l\'agent à Supabase via edge functions':'Custom MCP server connecting the agent to Supabase via edge functions'}<br>→ ${lang==='fr'?'Veille quotidienne : 7 flux RSS agrégés, filtrage éditorial par pertinence':'Daily watch: 7 RSS feeds aggregated, editorial relevance filtering'}<br>→ ${lang==='fr'?'Maillage interne automatique entre articles liés thématiquement':'Automatic internal linking between thematically related articles'}<br>→ ${lang==='fr'?'Chaîne de publication : génération HTML + image IA + upload + mise en ligne':'Publishing chain: HTML generation + AI image + upload + go-live'}</div>
+    </div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
-      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">Architecture</div>
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Cerveau : Gemini 2.5 Flash (gratuit dans les limites de quota)':'Brain: Gemini 2.5 Flash (free within quota limits)'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Déclenchement : cron automatique tous les 2 jours à 9h sur VPS OVH':'Trigger: automatic cron every 2 days at 9am on OVH VPS'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'MCP server connecté à louche-ou-pas.fr — publication directe sans API custom':'MCP server connected to louche-ou-pas.fr — direct publishing without custom API'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Pipeline image en cours : Nano Banana → upload Supabase → illustration article auto':'Image pipeline WIP: Nano Banana → Supabase upload → auto article illustration'}</div>
+      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Incident géré en production':'Production incident handled'}</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.7;">${lang==='fr'?'Corruption de contenu détectée → diagnostic de cause racine → correction de l\'outil fautif → reconstruction du contenu. Garde-fous ajoutés ensuite : opérations en lecture seule par défaut, validation humaine sur toute action destructrice, méthode d\'ajout non-destructive.':'Content corruption detected → root cause diagnosis → faulty tool fixed → content rebuilt. Safeguards added afterward: read-only operations by default, human validation on destructive actions, non-destructive append method.'}</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin:2px 0;">
+      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:16px;font-weight:600;color:var(--text);font-family:var(--font-serif);">7</div>
+        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Flux RSS':'RSS feeds'}</div>
+      </div>
+      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:16px;font-weight:600;color:var(--text);font-family:var(--font-serif);">Docker</div>
+        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">Backend</div>
+      </div>
+      <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:16px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">~0€</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Coût marginal':'Marginal cost'}</div>
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:2px 0;">
-      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
-        <div style="font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">${lang==='fr'?'Ce qui tourne':'What runs'}</div>
-        <div style="font-size:11px;color:var(--muted);line-height:1.7;">Veille cyber J+2<br>Génération article IA<br>Publication automatique<br>Zéro intervention humaine</div>
-      </div>
-      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
-        <div style="font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Stack</div>
-        <div style="font-size:11px;color:var(--muted);line-height:1.7;">Gemini 2.5 Flash<br>VPS OVH · cron<br>MCP server<br>Supabase</div>
-      </div>
-    </div>
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">${lang==='fr'?'Sécurité':'Security'} :</span> ${lang==='fr'?'audit et nettoyage des secrets serveur (révocation credentials, suppression cookies de session), tri de la mémoire persistante de l\'agent.':'server secrets audit and cleanup (credential revocation, session cookie removal), agent persistent memory cleanup.'}</div>
 
-    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;">${lang==='fr'?'<span style="color:var(--text);font-weight:500;">Ce que ça démontre :</span> concevoir et déployer un agent IA en production réelle — pas un prototype, un système qui tourne en arrière-plan sans surveillance. Le choix Gemini Flash (gratuit) plutôt que GPT-4 est une décision de coût assumée.':'<span style="color:var(--text);font-weight:500;">What this shows:</span> designing and deploying a real AI agent in production — not a prototype, a system running in the background unsupervised. Choosing Gemini Flash (free) over GPT-4 is a deliberate cost decision.'}</div>
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">${lang==='fr'?'Ce que ça démontre':'What this shows'} :</span> ${lang==='fr'?'déployer un agent IA en production réelle — pas un prototype — et savoir réagir quand ça casse. Diagnostiquer une cause racine, corriger l\'outil fautif, ajouter des garde-fous : c\'est la différence entre bricoler et opérer.':'deploying a real AI agent in production — not a prototype — and knowing how to react when it breaks. Root-causing, fixing the faulty tool, adding safeguards: that\'s the difference between tinkering and operating.'}</div>
   </div>`;
 }
 
