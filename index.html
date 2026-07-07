@@ -797,6 +797,7 @@ const CHIPS_POOL = {
     { label: 'Ton agent veille subventions', msg: "Ton agent de veille sur les aides et subventions — comment fonctionne-t-il, et quel format de recommandation ?" },
     { label: 'Résultats SEO/SEA FIMM', msg: "Quels résultats concrets as-tu obtenus sur le SEO et le SEA chez FIMM ?" },
     { label: 'Pipeline stock vers distributeur', msg: "Le pipeline stock vers le distributeur — comment l'as-tu sécurisé contre les défaillances silencieuses ?" },
+    { label: 'Veille tarifaire concurrentielle', msg: "Comment surveilles-tu les prix de la concurrence malgré leurs protections anti-bot ?" },
     { label: 'QuoteOps Agent — où en es-tu ?', msg: "Le projet QuoteOps Agent : à quel stade en es-tu, et qu'attends-tu de ce side project ?" },
   ],
   en: [
@@ -823,6 +824,7 @@ const CHIPS_POOL = {
     { label: 'Your grants watch agent', msg: "Your grants and subsidies watch agent — how does it work, and what recommendation format?" },
     { label: 'FIMM SEO/SEA results', msg: "What concrete results did you get on SEO and SEA at FIMM?" },
     { label: 'Stock to distributor pipeline', msg: "The stock-to-distributor pipeline — how did you secure it against silent failures?" },
+    { label: 'Competitive price monitoring', msg: "How do you monitor competitor prices despite their anti-bot protections?" },
     { label: 'QuoteOps Agent — where are you?', msg: "QuoteOps Agent: where are you with this side project, and what do you expect from it?" },
   ]
 };
@@ -928,7 +930,9 @@ const FOLLOWUP_POOLS = {
   veille_en: [["How does the agent prioritize opportunities?", "How did you calibrate the feedback learning loop?", "What's your success metric on this system?"]],
 
   stockftp_fr: [["Quelles défaillances ont déjà déclenché tes alertes ?", "Comment as-tu fixé le seuil d'alerte ?", "Que se passe-t-il si l'API WordPress tombe ?"]],
+  pricing_fr: [["Comment détectes-tu qu'une page est bloquée par l'anti-bot ?", "Comment as-tu calibré le seuil de confiance de l'IA ?", "Quelle proportion des références part en vérification manuelle ?"]],
   stockftp_en: [["What failures have already triggered your alerts?", "How did you set the alert threshold?", "What happens if the WordPress API goes down?"]],
+  pricing_en: [["How do you detect an anti-bot blocked page?", "How did you calibrate the AI confidence threshold?", "What share of references goes to manual review?"]],
 
   offres_fr: [["Comment gères-tu les erreurs d'extraction de l'IA ?", "Quel est le taux réel de validation humaine sur les cas limites ?", "Et si l'agent se trompe de référence produit ?"]],
   offres_en: [["How do you handle AI extraction errors?", "What's the real human validation rate on edge cases?", "What if the agent picks the wrong product reference?"]],
@@ -1613,6 +1617,7 @@ const PANELS = {
   seo:         { icon:'📈', label:{fr:'SEO, SEA & Architecture FIMM',en:'SEO, SEA & Architecture FIMM'}, sub:{fr:'+12 positions · CTR +179% · 13 conversions Ads',en:'+12 positions · CTR +179% · 13 Ads conversions'}, build:buildSEO },
   veille:      { icon:'🔍', label:{fr:'Agent Veille — Aides & Subventions',en:'Watch Agent — Grants'}, sub:{fr:'Manuvit · Carsat · Recommandations actionnables',en:'Manuvit · Carsat · Actionable recs'}, build:buildVeille },
   stockftp:    { icon:'📦', label:{fr:'Pipeline Stock → FTP',en:'Stock Pipeline → FTP'}, sub:{fr:'Make · 2×/jour · Alertes Slack','en':'Make · 2×/day · Slack alerts'}, build:buildStockFTP },
+  pricing:     { icon:'🏷️', label:{fr:'Veille tarifaire concurrentielle',en:'Competitive price monitoring'}, sub:{fr:'Anti-bot · 3 niveaux · 0 prix inventé',en:'Anti-bot · 3 tiers · 0 invented price'}, build:buildPricing },
   offres:      { icon:'🤖', label:{fr:'Agent IA — Offres commerciales',en:'AI Agent — Quote processing'}, sub:{fr:'Email → CRM · 272 offres · 0 saisies',en:'Email → CRM · 272 quotes · 0 entries'}, build:buildOffres },
   agents:      { icon:'🧩', label:{fr:'Architecture agents IA',en:'AI Agent Architecture'}, sub:{fr:'IA = décision · Make = exécution',en:'AI = decision · Make = execution'}, build:buildAgents },
   matcher:     { icon:'🔗', label:{fr:'Matcher Pipedrive × Lemlist',en:'Pipedrive × Lemlist Matcher'}, sub:{fr:'Attribution marketing · 0 clé commune',en:'Marketing attribution · 0 shared key'}, build:buildMatcher },
@@ -1713,6 +1718,48 @@ function buildVeilleAgent() {
     <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">${lang==='fr'?'Sécurité':'Security'} :</span> ${lang==='fr'?'audit et nettoyage des secrets serveur (révocation credentials, suppression cookies de session), tri de la mémoire persistante de l\'agent.':'server secrets audit and cleanup (credential revocation, session cookie removal), agent persistent memory cleanup.'}</div>
 
     <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">${lang==='fr'?'Ce que ça démontre':'What this shows'} :</span> ${lang==='fr'?'déployer un agent IA en production réelle — pas un prototype — et savoir réagir quand ça casse. Diagnostiquer une cause racine, corriger l\'outil fautif, ajouter des garde-fous : c\'est la différence entre bricoler et opérer.':'deploying a real AI agent in production — not a prototype — and knowing how to react when it breaks. Root-causing, fixing the faulty tool, adding safeguards: that\'s the difference between tinkering and operating.'}</div>
+  </div>`;
+}
+
+function buildPricing() {
+  return `<div style="display:flex;flex-direction:column;gap:8px;">
+    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Veille tarifaire concurrentielle — FIMM / Manuvit':'Competitive price monitoring — FIMM / Manuvit'}</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Suivre les prix affichés par les distributeurs (Manutan…) sur des centaines de références — insoutenable à la main, stratégique pour la direction commerciale. Un système autonome qui relève, fiabilise et trace chaque prix.':'Tracking distributor prices (Manutan…) across hundreds of references — unsustainable by hand, strategic for sales leadership. An autonomous system that collects, validates and traces every price.'}</div>
+
+    <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
+      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Architecture à 3 niveaux — coût minimal, fiabilité maximale':'3-tier architecture — minimal cost, maximum reliability'}</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="font-weight:600;">1.</span> ${lang==='fr'?'Extraction HTTP directe + règles déterministes — rapide, gratuit, sans IA':'Direct HTTP extraction + deterministic rules — fast, free, no AI'}</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="font-weight:600;">2.</span> ${lang==='fr'?'Blocage anti-bot détecté ? Bascule vers Playwright sur serveur privé — jamais par défaut, uniquement si nécessaire':'Anti-bot block detected? Fallback to Playwright on private server — never by default, only when needed'}</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="font-weight:600;">3.</span> ${lang==='fr'?'Cas ambigu ? Agent IA avec score de confiance chiffré — sous le seuil, renvoi en vérification humaine':'Ambiguous case? AI agent with numeric confidence score — below threshold, routed to human check'}</div>
+      </div>
+    </div>
+
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:3px solid var(--text);font-size:12px;color:var(--text);line-height:1.65;"><span style="font-weight:600;">${lang==='fr'?'Le principe structurant : ne jamais inventer un prix.':'The structuring principle: never invent a price.'}</span> ${lang==='fr'?'Chaque donnée porte son niveau de fiabilité — validation auto, validation IA, ou vérification manuelle. Exploitable en confiance par la direction, sans black-box.':'Every data point carries its reliability level — auto-validated, AI-validated, or manual check. Trustworthy for leadership, no black-box.'}</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin:2px 0;">
+      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:16px;font-weight:600;color:var(--text);font-family:var(--font-serif);">${lang==='fr'?'100aines':'100s'}</div>
+        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Références suivies':'Tracked refs'}</div>
+      </div>
+      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:16px;font-weight:600;color:var(--text);font-family:var(--font-serif);">3</div>
+        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Niveaux de confiance':'Trust tiers'}</div>
+      </div>
+      <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
+        <div style="font-size:16px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">0</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Prix inventé':'Invented price'}</div>
+      </div>
+    </div>
+
+    <div style="border-left:2px solid var(--border);padding:3px 0 3px 14px;margin:2px 0;">
+      <div style="font-size:11px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">${lang==='fr'?'Problèmes réels résolus en itérant':'Real problems solved iteratively'}</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.7;">→ ${lang==='fr'?'Défaillance réseau Make ↔ serveur privé : diagnostic par élimination, composant par composant':'Make ↔ private server network failure: diagnosis by elimination, component by component'}<br>→ ${lang==='fr'?'Service tiers gratuit devenu instable : remplacé par domaine propre + HTTPS sous contrôle total':'Unstable free third-party service: replaced with own domain + HTTPS under full control'}<br>→ ${lang==='fr'?'Biais de calibration IA : échelle de notation mal spécifiée gonflait le volume de vérification humaine — corrigé sur cas réels avant/après':'AI calibration bias: mis-specified rating scale inflated human review volume — fixed on real before/after cases'}<br>→ ${lang==='fr'?'Règle de correspondance trop stricte : exigeait une donnée que les distributeurs n\'exposent jamais':'Over-strict matching rule: required data distributors structurally never expose'}<br>→ ${lang==='fr'?'Limite structurelle documentée (prix affiché après interaction) plutôt que masquée — 2 pistes chiffrées pour arbitrage':'Structural limit documented (price shown after interaction) rather than hidden — 2 costed options for decision'}</div>
+    </div>
+
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">${lang==='fr'?'Sécurité & transfert':'Security & handover'} :</span> ${lang==='fr'?'audit infra (service en root, port exposé, clé jamais renouvelée — corrigés), domaine et certificat TLS propres à l\'entreprise, documentation de maintenabilité complète pour reprise sans repartir de zéro.':'infra audit (root service, exposed port, never-rotated key — all fixed), company-owned domain and TLS certificate, full maintainability documentation for handover without starting over.'}</div>
+
+    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">${lang==='fr'?'Utilité business':'Business value'} :</span> ${lang==='fr'?'la direction commerciale voit en continu où se placent les distributeurs — ajustement des prix de cession, détection des écarts anormaux, arguments factuels en négociation. Ce qui prenait des journées de relevé manuel tourne désormais sans supervision.':'sales leadership continuously sees where distributors stand — transfer price adjustments, anomaly detection, factual arguments in negotiation. What took days of manual checking now runs unsupervised.'}</div>
   </div>`;
 }
 
