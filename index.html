@@ -7,16 +7,17 @@
 <meta name="description" content="Je conçois des systèmes digitaux qui transforment acquisition, CRM et opérations. Portfolio interactif basé sur des cas réels et des résultats mesurés.">
 <meta property="og:title" content="Evan Maillard — Digital Systems, Automation & AI">
 <meta property="og:description" content="Je construis des systèmes qui tournent : acquisition, CRM, automation, IA.">
-<meta property="og:image" content="https://portfolio-evangabrielmaillard-ais-projects.vercel.app/og.png">
+<meta property="og:image" content="https://www.evangabrielmaillard.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://portfolio-evangabrielmaillard-ais-projects.vercel.app">
+<meta property="og:url" content="https://www.evangabrielmaillard.com">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Evan Maillard — Digital Systems, Automation & AI">
 <meta name="twitter:description" content="Je construis des systèmes qui tournent : acquisition, CRM, automation, IA.">
-<meta name="twitter:image" content="https://portfolio-evangabrielmaillard-ais-projects.vercel.app/og.png">
+<meta name="twitter:image" content="https://www.evangabrielmaillard.com/og.png">
 <link rel="canonical" href="https://www.evangabrielmaillard.com">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2318171A'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='32' fill='%23F8F7F4' text-anchor='middle'%3EEM%3C/text%3E%3C/svg%3E">
 <!--
   👋 Tu inspectes le code source.
   C'est exactement ce qu'Evan aurait fait à ta place.
@@ -65,6 +66,15 @@
   --radius: 14px;
   --font-serif: 'ClashDisplay', 'DM Sans', sans-serif;
   --font-sans: 'DM Sans', sans-serif;
+  /* Texte posé sur un fond var(--text) — s'inverse avec le thème */
+  --on-accent-90: rgba(255, 255, 255, 0.9);
+  --on-accent-85: rgba(255, 255, 255, 0.85);
+  --on-accent-60: rgba(255, 255, 255, 0.6);
+  --on-accent-50: rgba(255, 255, 255, 0.5);
+  /* Accent conversion — réservé aux CTA (LinkedIn, défi gratuit) */
+  --cta: #16A34A;
+  --cta-hover: #15803D;
+  --on-cta: #FFFFFF;
 }
 
 [data-theme="dark"] {
@@ -74,6 +84,13 @@
   --text: #F0EFE9;
   --muted: #7A7870;
   --subtle: #1A1A18;
+  --on-accent-90: rgba(17,17,16,0.92);
+  --on-accent-85: rgba(17,17,16,0.88);
+  --on-accent-60: rgba(17,17,16,0.62);
+  --on-accent-50: rgba(17,17,16,0.55);
+  --cta: #22C55E;
+  --cta-hover: #4ADE80;
+  --on-cta: #0B2812;
 }
 
 html, body { height: 100%; font-family: var(--font-sans); background: var(--bg); color: var(--text); font-size: 14px; -webkit-font-smoothing: antialiased; transition: background 0.3s, color 0.3s; }
@@ -103,7 +120,7 @@ header.scrolled .back-btn { display: flex; }
 
 .lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
 .lang-btn { background: none; border: none; padding: 3px 9px; font-size: 10px; font-family: var(--font-sans); font-weight: 500; letter-spacing: 0.06em; cursor: pointer; color: var(--muted); transition: all 0.12s; }
-.lang-btn.active { background: var(--text); color: #fff; }
+.lang-btn.active { background: var(--text); color: var(--bg); }
 
 .li-btn { display: flex; align-items: center; gap: 5px; text-decoration: none; font-size: 11px; font-weight: 500; color: var(--muted); transition: color 0.12s; }
 .li-btn:hover { color: var(--text); }
@@ -118,11 +135,11 @@ header.scrolled .back-btn { display: flex; }
 .modal-overlay.open { opacity: 1; pointer-events: all; }
 .modal-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; max-width: 380px; width: 100%; box-shadow: 0 8px 40px rgba(0,0,0,0.12); transform: translateY(12px); transition: transform 0.2s; }
 .modal-overlay.open .modal-box { transform: translateY(0); }
-.engage-badge { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bg); background: var(--text); padding: 3px 9px; border-radius: 20px; margin-bottom: 12px; }
+.engage-badge { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-cta); background: var(--cta); padding: 3px 9px; border-radius: 20px; margin-bottom: 12px; }
 .engage-textarea { width: 100%; box-sizing: border-box; min-height: 80px; resize: vertical; border: 1px solid var(--border); border-radius: 10px; padding: 11px 13px; font-family: var(--font-sans); font-size: 13px; color: var(--text); background: var(--subtle); margin-bottom: 12px; line-height: 1.5; }
 .engage-textarea:focus { outline: none; border-color: var(--text); }
-.engage-send { width: 100%; background: var(--text); color: var(--bg); border: none; border-radius: 10px; padding: 12px; font-size: 13px; font-weight: 500; font-family: var(--font-sans); cursor: pointer; transition: opacity 0.12s; }
-.engage-send:hover { opacity: 0.85; }
+.engage-send { width: 100%; background: var(--cta); color: var(--on-cta); border: none; border-radius: 10px; padding: 12px; font-size: 13px; font-weight: 500; font-family: var(--font-sans); cursor: pointer; transition: background 0.12s; }
+.engage-send:hover { background: var(--cta-hover); }
 .engage-send:disabled { opacity: 0.4; cursor: not-allowed; }
 .modal-title { font-family: var(--font-serif); font-size: 18px; letter-spacing: -0.02em; font-weight: 600; margin-bottom: 6px; }
 .modal-sub { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
@@ -156,7 +173,17 @@ header.scrolled .back-btn { display: flex; }
 @keyframes photoIn { to { opacity: 1; transform: scale(1); } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes wordIn { to { opacity: 1; transform: translateY(0); } }
-.landing-name { font-family: var(--font-serif); font-size: clamp(3.8rem, 11vw, 6.5rem); line-height: 0.95; letter-spacing: -0.04em; font-weight: 600; margin-bottom: 0.75rem; }
+.landing-name { font-family: var(--font-serif); font-size: clamp(3.8rem, 11vw, 6.5rem); line-height: 0.95; letter-spacing: -0.04em; font-weight: 600; margin-bottom: 0.75rem; transition: font-size 0.3s ease; }
+
+/* Hero compact quand le menu Explorer est déplié — l'accroche reste visible */
+.landing.explorer-open { justify-content: flex-start; padding-top: 64px; }
+.landing.explorer-open .landing-photo-wrap,
+.landing.explorer-open .landing-eyebrow,
+.landing.explorer-open .landing-tagline { display: none; }
+.landing.explorer-open .landing-name { font-size: clamp(1.9rem, 4.5vw, 2.5rem); margin-bottom: 0.5rem; }
+.landing.explorer-open .landing-name br { display: none; }
+.landing.explorer-open .landing-name em { margin-left: 0.35em; }
+.landing.explorer-open .landing-title { margin-bottom: 0; }
 .landing-name em { font-style: normal; color: var(--muted); font-weight: 300; }
 .landing-title { font-size: clamp(0.85rem, 2vw, 1rem); color: var(--muted); font-weight: 300; letter-spacing: 0.02em; margin-bottom: 1.25rem; max-width: 460px; line-height: 1.55; margin-left: auto; margin-right: auto; }
 .landing-tagline { font-size: clamp(0.9rem, 2vw, 1.05rem); color: var(--text); font-weight: 300; line-height: 1.6; min-height: 1.7em; margin-bottom: 3rem; max-width: 480px; }
@@ -164,7 +191,7 @@ header.scrolled .back-btn { display: flex; }
 @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
 
 /* RECRUITER MODE BANNER */
-.recruiter-banner { display: none; align-items: center; gap: 8px; background: var(--text); color: #fff; padding: 7px 14px; border-radius: 8px; font-size: 12px; margin-bottom: 1rem; animation: msgIn 0.3s ease; }
+.recruiter-banner { display: none; align-items: center; gap: 8px; background: var(--text); color: var(--bg); padding: 7px 14px; border-radius: 8px; font-size: 12px; margin-bottom: 1rem; animation: msgIn 0.3s ease; }
 .recruiter-banner.visible { display: flex; }
 .recruiter-banner span { opacity: 0.75; }
 
@@ -261,9 +288,9 @@ header.scrolled .back-btn { display: flex; }
 
 /* CONTACT CTA */
 .contact-cta { margin-top: 10px; background: var(--text); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.contact-cta-text { font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.5; }
-.contact-cta-btn { background: #fff; color: var(--text); border: none; border-radius: 8px; padding: 8px 14px; font-size: 12px; font-weight: 500; font-family: var(--font-sans); cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-block; transition: opacity 0.12s; }
-.contact-cta-btn:hover { opacity: 0.85; }
+.contact-cta-text { font-size: 13px; color: var(--on-accent-90); line-height: 1.5; }
+.contact-cta-btn { background: var(--cta); color: var(--on-cta); border: none; border-radius: 8px; padding: 8px 14px; font-size: 12px; font-weight: 500; font-family: var(--font-sans); cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-block; transition: background 0.12s; }
+.contact-cta-btn:hover { background: var(--cta-hover); }
 
 /* typing */
 .response-time { font-size: 10px; color: var(--muted); opacity: 0.5; margin-top: 4px; padding-left: 36px; letter-spacing: 0.03em; }
@@ -300,7 +327,7 @@ header.scrolled .back-btn { display: flex; }
 .chip-more:hover { border-style: solid; }
 
 .chips-more { width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s; opacity: 0; }
-.chips-more.open { max-height: 600px; opacity: 1; overflow-y: auto; }
+.chips-more.open { max-height: min(480px, 52vh); opacity: 1; overflow-y: auto; }
 .chips-more-section { margin-top: 10px; }
 .chips-more-label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; text-align: center; }
 .chips-more-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
@@ -398,7 +425,7 @@ header.scrolled .back-btn { display: flex; }
     </button>
   </div>
   <div class="header-right">
-    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" title="Mode sombre">☀️</button>
+    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" title="Mode sombre" aria-label="Changer de thème">☀️</button>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('fr')">FR</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -407,7 +434,7 @@ header.scrolled .back-btn { display: flex; }
       <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       <span>LinkedIn</span>
     </a>
-    <button class="mail-btn" onclick="openMailModal()" title="Contacter Evan">
+    <button class="mail-btn" onclick="openMailModal()" title="Contacter Evan" aria-label="Contacter Evan par email">
       <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
     </button>
   </div>
@@ -415,14 +442,14 @@ header.scrolled .back-btn { display: flex; }
 
 <div class="app">
   <div class="landing" id="landing">
-    <div style="position:relative;width:80px;height:80px;margin:0 auto 1.25rem;"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCABQAFADASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAAAAMEBQYHAgEI/8QAOBAAAgEDAQYEBAMGBwAAAAAAAQIDAAQRBQYSITFBYRMiUXEHgaHBFVKRFDI2QrGyFmJyotHi8P/EABkBAAIDAQAAAAAAAAAAAAAAAAMEAAIFAf/EACMRAAIDAAIDAAEFAAAAAAAAAAABAgMRBCESE0ExBSIyUVL/2gAMAwEAAhEDEQA/ANOoooqECiiqz8QNSudN2Zc2blJriRYA45qGzkjvgVCETrHxLsrS4kg020a73GKmVm3EJHpwJPvwrjSPifYXFx4OqWj2eTgSK2+o9+GR9ai9D2dszaIZY1kYjOW5V5qex+myB3i3on6brcP0oPtWjHobWmpqyuoZSCpGQR1Fe1XNg5J/8OrbXL772krwBs81HFfoQKsdGXYu+goooqECiiioQKqu348bSorcRknxBMG6DdIz9DVqrN9vNrCL78NsVSSKAkTt13uWFPbr+ld8JTT8S0XFSXkLEXUMcS2TYXA5dPlg5rq7ubyZIY0RUJUmQgcyPkcUhZ6sklnDDayATuCcMOg7+tJSTXVu8bpeRSJFvMcRAEDHHJz8sCkTRTWFr2QkAt7m33W30kDsx5HeH/WrDUNsqxm0s3O7urPIXThjK8Bn6Gpmm4fxRn2Z5PAoooqxQKKKjNodWTRdHmvXAZl8sa/mc8h/70rqTbxEbwd319aWEBmvLiOGMdXYDPt61g00njXU0w4b7s2D3Oac313d6jcGe+neaU8cueXYeg9qY7pV+3pWrRx3V2/otOfkKI72ziXcaVRyH5acXV6hsQyWHh8AN4ADtSSZ3RuH5HlXEijxAzINwfyHjx96ByOE3JSh9/ISu/rJGk7EbWWp0+DTdUuFiuU8sbOMKy9BnlkcvlV4BDAEEEHkRXzycsxJ6cKl9C2hv9EvI5YJWeLOJIWY7rj7HvUs4n2JyNn9m4UUx0bVbbWdOjvbUndbgynmjDmDT6kWmnjDBVA+Jt2WksrEcgGmb35D71f6y34gy7+0zKeUUKL7cz96Z4cdtQK55Eq4HXr6iuJVDYYevGlv3ePTowrhgMnuM1ttCaYgMxnsa7bDLmrJJs9phiik/F0jDRh2VihIJGeHEdeA786az6PYwEk6nGUMaSKvAMynnjj04fr2oHui+gniyvqOHvQ4AxVqgttAhtoh+zXN7I+XHh5J5lcZGBgFc8eYPSoeaylu9ZlgtbYRbzF1j3hiNe5qvtj3vSRZRbeIlNhtf/BtU8K4Yi0ucLJ6K3Rvse3tWvVgM1ncJBHcSRssEjFUfoxHOtm2Ru5r7ZixuLht+VkIZvXBIz9KR5kI9TiGrbXTJisp26GNq7k+qRn/AG1q1Zx8R7Ux6xbXIHlmh3Se6n/giqcJ5acvX7CobvHyeXPTpSTZRhkgDPEU4Knd4fWm8uCRG48pIJCgk4zWzN5HRSPbwdpeLGvltbQkDGWj3s96Rm1CViXCQLlQvliAxg5H9KvFvoem6napcwQwyRuvMAZHY96Vg2P04Ek2keP82T/Wsh/qUPsHo+uI/wDRnkuqTyKUe6cqT+4pwP0FT+gSafb6Q5uZlje6bEpyMiMfy+5qJ1a2gt9WuoYMbiSsq4HpTJwBk9+Hem7KXfWluL8gYWKuW5pYNodUsrqyNvaKGkLLjyYWNR0X7mtA2E/g7T8/lb+9qxxj6Vsewn8Haf8A6X/valb6I00qMX9CKx2S1n//2Q==" alt="Evan Maillard" class="landing-photo">
+    <div class="landing-photo-wrap" style="position:relative;width:80px;height:80px;margin:0 auto 1.25rem;"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCABQAFADASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAAAAMEBQYHAgEI/8QAOBAAAgEDAQYEBAMGBwAAAAAAAQIDAAQRBQYSITFBYRMiUXEHgaHBFVKRFDI2QrGyFmJyotHi8P/EABkBAAIDAQAAAAAAAAAAAAAAAAMEAAIFAf/EACMRAAIDAAIDAAEFAAAAAAAAAAABAgMRBCESE0ExBSIyUVL/2gAMAwEAAhEDEQA/ANOoooqECiiqz8QNSudN2Zc2blJriRYA45qGzkjvgVCETrHxLsrS4kg020a73GKmVm3EJHpwJPvwrjSPifYXFx4OqWj2eTgSK2+o9+GR9ai9D2dszaIZY1kYjOW5V5qex+myB3i3on6brcP0oPtWjHobWmpqyuoZSCpGQR1Fe1XNg5J/8OrbXL772krwBs81HFfoQKsdGXYu+goooqECiiioQKqu348bSorcRknxBMG6DdIz9DVqrN9vNrCL78NsVSSKAkTt13uWFPbr+ld8JTT8S0XFSXkLEXUMcS2TYXA5dPlg5rq7ubyZIY0RUJUmQgcyPkcUhZ6sklnDDayATuCcMOg7+tJSTXVu8bpeRSJFvMcRAEDHHJz8sCkTRTWFr2QkAt7m33W30kDsx5HeH/WrDUNsqxm0s3O7urPIXThjK8Bn6Gpmm4fxRn2Z5PAoooqxQKKKjNodWTRdHmvXAZl8sa/mc8h/70rqTbxEbwd319aWEBmvLiOGMdXYDPt61g00njXU0w4b7s2D3Oac313d6jcGe+neaU8cueXYeg9qY7pV+3pWrRx3V2/otOfkKI72ziXcaVRyH5acXV6hsQyWHh8AN4ADtSSZ3RuH5HlXEijxAzINwfyHjx96ByOE3JSh9/ISu/rJGk7EbWWp0+DTdUuFiuU8sbOMKy9BnlkcvlV4BDAEEEHkRXzycsxJ6cKl9C2hv9EvI5YJWeLOJIWY7rj7HvUs4n2JyNn9m4UUx0bVbbWdOjvbUndbgynmjDmDT6kWmnjDBVA+Jt2WksrEcgGmb35D71f6y34gy7+0zKeUUKL7cz96Z4cdtQK55Eq4HXr6iuJVDYYevGlv3ePTowrhgMnuM1ttCaYgMxnsa7bDLmrJJs9phiik/F0jDRh2VihIJGeHEdeA786az6PYwEk6nGUMaSKvAMynnjj04fr2oHui+gniyvqOHvQ4AxVqgttAhtoh+zXN7I+XHh5J5lcZGBgFc8eYPSoeaylu9ZlgtbYRbzF1j3hiNe5qvtj3vSRZRbeIlNhtf/BtU8K4Yi0ucLJ6K3Rvse3tWvVgM1ncJBHcSRssEjFUfoxHOtm2Ru5r7ZixuLht+VkIZvXBIz9KR5kI9TiGrbXTJisp26GNq7k+qRn/AG1q1Zx8R7Ux6xbXIHlmh3Se6n/giqcJ5acvX7CobvHyeXPTpSTZRhkgDPEU4Knd4fWm8uCRG48pIJCgk4zWzN5HRSPbwdpeLGvltbQkDGWj3s96Rm1CViXCQLlQvliAxg5H9KvFvoem6napcwQwyRuvMAZHY96Vg2P04Ek2keP82T/Wsh/qUPsHo+uI/wDRnkuqTyKUe6cqT+4pwP0FT+gSafb6Q5uZlje6bEpyMiMfy+5qJ1a2gt9WuoYMbiSsq4HpTJwBk9+Hem7KXfWluL8gYWKuW5pYNodUsrqyNvaKGkLLjyYWNR0X7mtA2E/g7T8/lb+9qxxj6Vsewn8Haf8A6X/valb6I00qMX9CKx2S1n//2Q==" alt="Evan Maillard" class="landing-photo">
     <canvas id="pixelAvatar" width="64" height="64" style="position:absolute;top:0;left:0;width:80px;height:80px;border-radius:50%;opacity:0;transition:opacity 0.6s ease;border:2px solid var(--border);image-rendering:pixelated;cursor:default;"></canvas></div>
     <p class="landing-eyebrow" id="eyebrow">Portfolio interactif</p>
     <h1 class="landing-name"><span class="word-evan">Evan</span><br><em class="word-maillard">Maillard</em></h1>
     <p class="landing-title" style="animation-fill-mode:both;">Je fais gagner aux PME & ETI 6 à 12 mois sur leur transformation digitale — sans recruter une équipe tech.</p>
     <p class="landing-tagline" id="tagline" style="opacity:0;animation:fadeUp 0.5s ease 0.9s both;"><span class="tagline-cursor"></span></p>
   </div>
-  <div class="messages" id="messages"></div>
+  <div class="messages" id="messages" aria-live="polite"></div>
   <footer class="site-footer">
     <div class="footer-updated" id="footerUpdated">Dernière mise à jour du portfolio</div>
     <div class="footer-counter" id="footerCounter"></div>
@@ -441,10 +468,10 @@ header.scrolled .back-btn { display: flex; }
         onkeydown="onKey(event)"
         oninput="resize(this)"></textarea>
       <div class="input-actions">
-        <button class="mic-btn" id="micBtn" onclick="toggleMic()" title="Parler">
+        <button class="mic-btn" id="micBtn" onclick="toggleMic()" title="Parler" aria-label="Dicter une question au micro">
           <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
         </button>
-        <button class="send-btn" id="sendBtn" onclick="send()">
+        <button class="send-btn" id="sendBtn" onclick="send()" aria-label="Envoyer la question">
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
@@ -459,40 +486,40 @@ header.scrolled .back-btn { display: flex; }
       <div class="chips-more-section">
         <span class="chips-more-label" data-fr="Résultats & impact" data-en="Results & impact">Résultats & impact</span>
         <div class="chips-more-row">
-          <button class="chip" type="button" onclick="openImpactShortcut()">Impact business en €</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Si tu arrivais dans mon entreprise, comment tu t'y prendrais ?" data-en="If you joined my company, how would you approach it?">Si j'arrivais chez vous</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Prospection B2B" data-en="B2B prospecting">Prospection B2B</button>
+          <button class="chip" type="button" onclick="openImpactShortcut()" data-lfr="Impact business en €" data-len="Business impact in €">Impact business en €</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Si tu arrivais dans mon entreprise, comment tu t'y prendrais ?" data-en="If you joined my company, how would you approach it?" data-lfr="Si j'arrivais chez vous" data-len="If I joined you">Si j'arrivais chez vous</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Prospection B2B" data-en="B2B prospecting" data-lfr="Prospection B2B" data-len="B2B prospecting">Prospection B2B</button>
         </div>
       </div>
       <div class="chips-more-section">
         <span class="chips-more-label" data-fr="Systèmes construits" data-en="Systems built">Systèmes construits</span>
         <div class="chips-more-row">
-          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu automatises le traitement des demandes de prix ?" data-en="How do you automate quote request processing?">Automatiser les devis</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Explique-moi comment tes agents IA prennent des décisions" data-en="Explain how your AI agents make decisions">Agents IA — décision</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Tes automatisations Make" data-en="Your Make automations">Automatisations Make</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu as géré le SEO après la migration FIMM ?" data-en="How did you handle SEO after the FIMM migration?">SEO post-migration</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ton agent de veille aides et subventions" data-en="Your subsidies watch agent">Agent veille subventions</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ton pipeline stock vers distributeur FTP" data-en="Your stock to distributor FTP pipeline">Pipeline stock FTP</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ton générateur d'images IA" data-en="Your AI image generator">Générateur d'images IA</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Tes scripts Python" data-en="Your Python scripts">Scripts Python</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu automatises le traitement des demandes de prix ?" data-en="How do you automate quote request processing?" data-lfr="Automatiser les devis" data-len="Automate quotes">Automatiser les devis</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Explique-moi comment tes agents IA prennent des décisions" data-en="Explain how your AI agents make decisions" data-lfr="Agents IA — décision" data-len="AI agents — decision">Agents IA — décision</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Tes automatisations Make" data-en="Your Make automations" data-lfr="Automatisations Make" data-len="Make automations">Automatisations Make</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu as géré le SEO après la migration FIMM ?" data-en="How did you handle SEO after the FIMM migration?" data-lfr="SEO post-migration" data-len="Post-migration SEO">SEO post-migration</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Ton agent de veille aides et subventions" data-en="Your subsidies watch agent" data-lfr="Agent veille subventions" data-len="Grants watch agent">Agent veille subventions</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Ton pipeline stock vers distributeur FTP" data-en="Your stock to distributor FTP pipeline" data-lfr="Pipeline stock FTP" data-len="Stock FTP pipeline">Pipeline stock FTP</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Ton générateur d'images IA" data-en="Your AI image generator" data-lfr="Générateur d'images IA" data-len="AI image generator">Générateur d'images IA</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Tes scripts Python" data-en="Your Python scripts" data-lfr="Scripts Python" data-len="Python scripts">Scripts Python</button>
         </div>
       </div>
       <div class="chips-more-section">
         <span class="chips-more-label" data-fr="Side projects" data-en="Side projects">Side projects</span>
         <div class="chips-more-row">
-          <button class="chip" onclick="chipSend(this)" data-fr="Parle-moi de Louche ou Pas" data-en="Tell me about Louche ou Pas">Louche ou Pas ?</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ton matcher Pipedrive Lemlist" data-en="Your Pipedrive Lemlist matcher">Matcher Pipedrive × Lemlist</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Carnetto en détail" data-en="Carnetto in detail">Carnetto</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Parle-moi de Louche ou Pas" data-en="Tell me about Louche ou Pas" data-lfr="Louche ou Pas ?" data-len="Louche ou Pas?">Louche ou Pas ?</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Ton matcher Pipedrive Lemlist" data-en="Your Pipedrive Lemlist matcher" data-lfr="Matcher Pipedrive × Lemlist" data-len="Pipedrive × Lemlist matcher">Matcher Pipedrive × Lemlist</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Carnetto en détail" data-en="Carnetto in detail" data-lfr="Carnetto" data-len="Carnetto">Carnetto</button>
         </div>
       </div>
       <div class="chips-more-section">
         <span class="chips-more-label" data-fr="Méthode & profil" data-en="Method & profile">Méthode & profil</span>
         <div class="chips-more-row">
-          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu abordes un nouveau projet ?" data-en="How do you approach a new project?">Ta méthode</button>
-          <button class="chip" type="button" onclick="openPlan90Shortcut()">Plan 90 jours</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Quelles erreurs tu vois souvent en entreprise ?" data-en="What mistakes do you often see?">Erreurs fréquentes</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu utilises l'IA concrètement ?" data-en="How do you actually use AI?">Usage IA concret</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ce qui n'a pas marché" data-en="What didn't work">Ce qui n'a pas marché</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu abordes un nouveau projet ?" data-en="How do you approach a new project?" data-lfr="Ta méthode" data-len="Your method">Ta méthode</button>
+          <button class="chip" type="button" onclick="openPlan90Shortcut()" data-lfr="Plan 90 jours" data-len="90-day plan">Plan 90 jours</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Quelles erreurs tu vois souvent en entreprise ?" data-en="What mistakes do you often see?" data-lfr="Erreurs fréquentes" data-len="Common mistakes">Erreurs fréquentes</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu utilises l'IA concrètement ?" data-en="How do you actually use AI?" data-lfr="Usage IA concret" data-len="Concrete AI use">Usage IA concret</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Ce qui n'a pas marché" data-en="What didn't work" data-lfr="Ce qui n'a pas marché" data-len="What didn't work">Ce qui n'a pas marché</button>
         </div>
       </div>
     </div>
@@ -834,7 +861,15 @@ const CHIPS_POOL = {
 function initChips() {
   const container = document.getElementById('chipsPrimary');
   if (!container) return;
-  const pool = CHIPS_POOL[lang] || CHIPS_POOL.fr;
+  // Retirer les chips dynamiques existantes (regénérées au changement de langue)
+  container.querySelectorAll('.chip-primary').forEach(el => el.remove());
+  // Exclure les suggestions qui doublonnent avec le menu Explorer
+  const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+  const staticLabels = [...document.querySelectorAll('#chipsMore .chip')].map(b => norm(b.textContent)).filter(Boolean);
+  const pool = (CHIPS_POOL[lang] || CHIPS_POOL.fr).filter(chip => {
+    const l = norm(chip.label);
+    return !staticLabels.some(s => l.includes(s) || s.includes(l));
+  });
   // Shuffle Fisher-Yates
   const shuffled = [...pool];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -851,9 +886,7 @@ function initChips() {
     if (chip.fn) {
       btn.onclick = () => window[chip.fn]();
     } else {
-      btn.setAttribute('data-fr', chip.msg);
-      btn.setAttribute('data-en', chip.msg);
-      btn.onclick = () => chipSend(btn);
+      btn.onclick = () => { document.getElementById('inp').value = chip.msg; send(); };
     }
     container.insertBefore(btn, moreBtn);
   });
@@ -900,7 +933,8 @@ function toggleMoreChips() {
   const more = document.getElementById('chipsMore');
   const btn = document.getElementById('chipsMoreBtn');
   const isOpen = more.classList.toggle('open');
-  btn.textContent = isOpen ? '↑ Réduire' : '+ Explorer →';
+  btn.textContent = isOpen ? (lang==='fr' ? '↑ Réduire' : '↑ Collapse') : (lang==='fr' ? '+ Explorer →' : '+ Explore →');
+  document.getElementById('landing').classList.toggle('explorer-open', isOpen);
 }
 
 
@@ -1021,8 +1055,17 @@ function addFollowupChips(parentEl, context) {
   parentEl.appendChild(wrap);
 }
 
-function parseMarkdown(text) {
+function escapeHtml(text) {
   return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function parseMarkdown(text) {
+  return escapeHtml(text)
     .replace(/^#{1,3} (.+)$/gm, '<span style="font-weight:500;color:var(--text);display:block;margin-bottom:4px;">$1</span>')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
@@ -1063,10 +1106,13 @@ function typewrite(el, text, speed=38) {
 function setLang(l) {
   lang = l;
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === l.toUpperCase()));
-  document.querySelectorAll('[data-fr]').forEach(el => { el.textContent = l==='fr' ? el.dataset.fr : el.dataset.en; });
+  // data-lfr/data-len = libellé court affiché ; data-fr/data-en = message envoyé au chat
+  document.querySelectorAll('[data-fr]').forEach(el => { if (el.dataset.lfr) return; el.textContent = l==='fr' ? el.dataset.fr : el.dataset.en; });
+  document.querySelectorAll('[data-lfr]').forEach(el => { el.textContent = l==='fr' ? el.dataset.lfr : el.dataset.len; });
   document.getElementById('eyebrow').textContent = l==='fr' ? 'Portfolio interactif' : 'Interactive portfolio';
   document.getElementById('inp').placeholder = l==='fr' ? 'Posez votre question…' : 'Ask your question…';
   document.getElementById('backLabel').textContent = l==='fr' ? 'Accueil' : 'Home';
+  if (!chatStarted) initChips(); // regénérer les suggestions dans la bonne langue
   hydrateFooterDate();
 }
 
@@ -1172,7 +1218,7 @@ function buildEaster() {
 }
 
 function buildBuilt() {
-  return `<div style="display:flex;flex-direction:column;gap:8px;"><div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Ce site a été construit en une soirée et une matinée.':'This site was built in one evening and one morning.'}</div>${block(lang==='fr'?'Le point de départ':'The starting point',lang==='fr'?'Se prouver que c\'est possible. Documenter ce que je sais faire. Et parce que j\'aime la tech — pas pour la montrer, pour l\'utiliser.':'Proving to myself it was possible. Documenting what I know. Because I love tech — not to show it, to use it.')}${block(lang==='fr'?'La méthode':'The method',lang==='fr'?'Une conversation avec Claude. Pas de brief figé. Co-création — Evan dirigeait, l\'IA exécutait, on itérait. Chaque blocage était une décision à prendre.':'A conversation with Claude. No fixed brief. Co-creation — Evan directed, AI executed, we iterated. Every blocker was a decision.')}${block('Stack','HTML / CSS / JS — un seul fichier. API Anthropic proxifiée via Vercel Function. GitHub + Vercel. Zéro ligne de code écrite manuellement.')}${block(lang==='fr'?'Le temps':'Time',lang==='fr'?'Projet cadré en une soirée. Sorti en production le lendemain matin.':'Project framed in one evening. Live in production the next morning.')}<div style="padding:10px 12px;background:var(--text);border-radius:8px;"><span style="font-size:12px;color:rgba(255,255,255,0.9);font-style:italic;line-height:1.65;">"${lang==='fr'?'Même sans profil technique, l\'IA te permet de faire ce que tu veux — tout ce que tu as à faire, c\'est être méthodique, itérer et ne jamais rien lâcher.':'Even without a technical background, AI lets you build whatever you want — you just need to be methodical, iterate, and never give up.'}"</span></div></div>`;
+  return `<div style="display:flex;flex-direction:column;gap:8px;"><div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Ce site a été construit en une soirée et une matinée.':'This site was built in one evening and one morning.'}</div>${block(lang==='fr'?'Le point de départ':'The starting point',lang==='fr'?'Se prouver que c\'est possible. Documenter ce que je sais faire. Et parce que j\'aime la tech — pas pour la montrer, pour l\'utiliser.':'Proving to myself it was possible. Documenting what I know. Because I love tech — not to show it, to use it.')}${block(lang==='fr'?'La méthode':'The method',lang==='fr'?'Une conversation avec Claude. Pas de brief figé. Co-création — Evan dirigeait, l\'IA exécutait, on itérait. Chaque blocage était une décision à prendre.':'A conversation with Claude. No fixed brief. Co-creation — Evan directed, AI executed, we iterated. Every blocker was a decision.')}${block('Stack','HTML / CSS / JS — un seul fichier. API Anthropic proxifiée via Vercel Function. GitHub + Vercel. Zéro ligne de code écrite manuellement.')}${block(lang==='fr'?'Le temps':'Time',lang==='fr'?'Projet cadré en une soirée. Sorti en production le lendemain matin.':'Project framed in one evening. Live in production the next morning.')}<div style="padding:10px 12px;background:var(--text);border-radius:8px;"><span style="font-size:12px;color:var(--on-accent-90);font-style:italic;line-height:1.65;">"${lang==='fr'?'Même sans profil technique, l\'IA te permet de faire ce que tu veux — tout ce que tu as à faire, c\'est être méthodique, itérer et ne jamais rien lâcher.':'Even without a technical background, AI lets you build whatever you want — you just need to be methodical, iterate, and never give up.'}"</span></div></div>`;
 }
 
 function buildProspection() {
@@ -1181,7 +1227,7 @@ function buildProspection() {
     const bars = document.querySelectorAll('.bar-fill[data-pct]');
     bars.forEach(b => { b.style.width = b.dataset.pct + '%'; });
   }, 100);
-  return `<div><div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:10px;">${lang==='fr'?'Prospection B2B — chiffres réels 2025':'B2B Prospecting — real 2025 data'}</div><div class="stat-grid"><div class="stat-card"><div class="stat-value" data-target="4191">4 191</div><div class="stat-label">${lang==='fr'?'Contacts touchés':'Contacts reached'}</div></div><div class="stat-card"><div class="stat-value">43.5%</div><div class="stat-label">${lang==='fr'?'Taux d\'ouverture':'Open rate'}</div></div><div class="stat-card"><div class="stat-value">3.2%</div><div class="stat-label">${lang==='fr'?'Taux de réponse':'Reply rate'}</div></div><div class="stat-card"><div class="stat-value">88.7%</div><div class="stat-label">${lang==='fr'?'Délivrabilité':'Deliverability'}</div></div></div><div class="bar-wrap"><div class="bar-row"><span class="bar-name">${lang==='fr'?'Ouverture':'Open'}</span><div class="bar-track"><div class="bar-fill" data-pct="43.5" style="background:#18171A;"></div></div><span class="bar-pct">43.5%</span></div><div class="bar-row"><span class="bar-name">${lang==='fr'?'Clic / Accepté':'Click / Accept'}</span><div class="bar-track"><div class="bar-fill" data-pct="14.2"></div></div><span class="bar-pct">14.2%</span></div><div class="bar-row"><span class="bar-name">${lang==='fr'?'Réponse':'Reply'}</span><div class="bar-track"><div class="bar-fill" data-pct="3.2"></div></div><span class="bar-pct">3.2%</span></div><div class="bar-row"><span class="bar-name">${lang==='fr'?'Intéressé':'Interested'}</span><div class="bar-track"><div class="bar-fill" data-pct="1.2"></div></div><span class="bar-pct">1.2%</span></div></div>${block(lang==='fr'?'La méthode':'The method',lang==='fr'?'Clustering sectoriel (aéronautique/défense, agroalimentaire, industrie lourde). Icebreakers personnalisés et triggers contextuels. L\'IA rend le qualitatif scalable sur des volumes impossibles à traiter manuellement.':'Sector clustering (aerospace/defense, agri-food, heavy industry). Personalized icebreakers and contextual triggers. AI makes quality scalable at volumes impossible to handle manually.')}${block(lang==='fr'?'Le chiffre clé':'Key insight',lang==='fr'?'43.5% d\'ouverture — presque le double de la moyenne B2B (25%). 13 381 emails envoyés sur 2025.':'43.5% open rate — nearly double the B2B average (25%). 13,381 emails sent in 2025.')}</div>`;
+  return `<div><div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:10px;">${lang==='fr'?'Prospection B2B — chiffres réels 2025':'B2B Prospecting — real 2025 data'}</div><div class="stat-grid"><div class="stat-card"><div class="stat-value" data-target="4191">4 191</div><div class="stat-label">${lang==='fr'?'Contacts touchés':'Contacts reached'}</div></div><div class="stat-card"><div class="stat-value">43.5%</div><div class="stat-label">${lang==='fr'?'Taux d\'ouverture':'Open rate'}</div></div><div class="stat-card"><div class="stat-value">3.2%</div><div class="stat-label">${lang==='fr'?'Taux de réponse':'Reply rate'}</div></div><div class="stat-card"><div class="stat-value">88.7%</div><div class="stat-label">${lang==='fr'?'Délivrabilité':'Deliverability'}</div></div></div><div class="bar-wrap"><div class="bar-row"><span class="bar-name">${lang==='fr'?'Ouverture':'Open'}</span><div class="bar-track"><div class="bar-fill" data-pct="43.5"></div></div><span class="bar-pct">43.5%</span></div><div class="bar-row"><span class="bar-name">${lang==='fr'?'Clic / Accepté':'Click / Accept'}</span><div class="bar-track"><div class="bar-fill" data-pct="14.2"></div></div><span class="bar-pct">14.2%</span></div><div class="bar-row"><span class="bar-name">${lang==='fr'?'Réponse':'Reply'}</span><div class="bar-track"><div class="bar-fill" data-pct="3.2"></div></div><span class="bar-pct">3.2%</span></div><div class="bar-row"><span class="bar-name">${lang==='fr'?'Intéressé':'Interested'}</span><div class="bar-track"><div class="bar-fill" data-pct="1.2"></div></div><span class="bar-pct">1.2%</span></div></div>${block(lang==='fr'?'La méthode':'The method',lang==='fr'?'Clustering sectoriel (aéronautique/défense, agroalimentaire, industrie lourde). Icebreakers personnalisés et triggers contextuels. L\'IA rend le qualitatif scalable sur des volumes impossibles à traiter manuellement.':'Sector clustering (aerospace/defense, agri-food, heavy industry). Personalized icebreakers and contextual triggers. AI makes quality scalable at volumes impossible to handle manually.')}${block(lang==='fr'?'Le chiffre clé':'Key insight',lang==='fr'?'43.5% d\'ouverture — presque le double de la moyenne B2B (25%). 13 381 emails envoyés sur 2025.':'43.5% open rate — nearly double the B2B average (25%). 13,381 emails sent in 2025.')}</div>`;
 }
 
 function buildPipeline() {
@@ -1193,7 +1239,7 @@ function buildCarnettoPanel() {
 }
 
 function buildAI() {
-  return `<div style="display:flex;flex-direction:column;gap:8px;"><div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Mon point de vue sur l\'IA — ce que j\'observe vraiment':'My take on AI — what I actually observe'}</div>${block(lang==='fr'?'La grande illusion':'The big illusion',lang==='fr'?'L\'IA ne fait pas à ta place. Tu es toujours obligé d\'itérer. La valeur est dans le cadrage, pas dans la génération.':'AI doesn\'t do it for you. You still have to iterate. The value is in the framing, not the generation.')}${block(lang==='fr'?'Les vrais gains':'Real gains',lang==='fr'?'Productivité massive, livrables de meilleure qualité. Moins de temps pour faire beaucoup plus. Presque rien ne peut coincer quand tu sais utiliser les bons outils.':'Massive productivity, better quality outputs. Less time to do much more. Almost nothing can block you when you know the right tools.')}${block(lang==='fr'?'La philosophie':'Philosophy',lang==='fr'?'L\'IA pour augmenter la valeur de son travail — être un humain augmenté. Pas un remplacement, un accélérateur. L\'IA libère du temps pour exercer le jugement.':'AI to increase the value of your work — be an augmented human. Not a replacement, an accelerator.')}<div style="padding:12px 14px;background:var(--text);border-radius:8px;margin-top:4px;"><span style="font-size:12px;color:rgba(255,255,255,0.9);font-style:italic;line-height:1.65;">"${lang==='fr'?'Même sans être un profil technique, l\'IA te permet de faire ce que tu veux — tout ce que tu as à faire, c\'est être méthodique, itérer, essayer et ne jamais rien lâcher.':'Even without a technical background, AI lets you build whatever you want — you just need to be methodical, iterate, try, and never give up.'}"</span></div></div>`;
+  return `<div style="display:flex;flex-direction:column;gap:8px;"><div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Mon point de vue sur l\'IA — ce que j\'observe vraiment':'My take on AI — what I actually observe'}</div>${block(lang==='fr'?'La grande illusion':'The big illusion',lang==='fr'?'L\'IA ne fait pas à ta place. Tu es toujours obligé d\'itérer. La valeur est dans le cadrage, pas dans la génération.':'AI doesn\'t do it for you. You still have to iterate. The value is in the framing, not the generation.')}${block(lang==='fr'?'Les vrais gains':'Real gains',lang==='fr'?'Productivité massive, livrables de meilleure qualité. Moins de temps pour faire beaucoup plus. Presque rien ne peut coincer quand tu sais utiliser les bons outils.':'Massive productivity, better quality outputs. Less time to do much more. Almost nothing can block you when you know the right tools.')}${block(lang==='fr'?'La philosophie':'Philosophy',lang==='fr'?'L\'IA pour augmenter la valeur de son travail — être un humain augmenté. Pas un remplacement, un accélérateur. L\'IA libère du temps pour exercer le jugement.':'AI to increase the value of your work — be an augmented human. Not a replacement, an accelerator.')}<div style="padding:12px 14px;background:var(--text);border-radius:8px;margin-top:4px;"><span style="font-size:12px;color:var(--on-accent-90);font-style:italic;line-height:1.65;">"${lang==='fr'?'Même sans être un profil technique, l\'IA te permet de faire ce que tu veux — tout ce que tu as à faire, c\'est être méthodique, itérer, essayer et ne jamais rien lâcher.':'Even without a technical background, AI lets you build whatever you want — you just need to be methodical, iterate, try, and never give up.'}"</span></div></div>`;
 }
 
 function buildImageGen() {
@@ -1212,7 +1258,7 @@ function buildImageGen() {
       </div>
       <div style="background:var(--text);border-radius:8px;padding:10px;text-align:center;">
         <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">21h</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Économisées':'Saved'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Économisées':'Saved'}</div>
       </div>
     </div>
     ${block(lang==='fr'?'Le calcul':'The math', lang==='fr'?'Méthode manuelle : 3 min × 3 requêtes × 176 refs = 26h. Avec l\'outil : 4-5h sans intervention. Gain net : 21h par batch. Taux de déchet ~1 image sur 6 — identique en manuel, mais sans l\'overhead de saisie.':'Manual method: 3 min × 3 requests × 176 refs = 26h. With the tool: 4-5h unattended. Net gain: 21h per batch. Rejection rate ~1 in 6 images — same as manual, but without input overhead.')}
@@ -1238,7 +1284,7 @@ function buildPython() {
       </div>
       <div style="background:var(--text);border-radius:8px;padding:10px;text-align:center;">
         <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">0</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Install. requise':'Install. required'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Install. requise':'Install. required'}</div>
       </div>
     </div>
     ${block(lang==='fr'?'Médias produits':'Product media', lang==='fr'?'Export inventaire fichiers → Excel, copie visuels/PDFs par référence CEGID, renommage massif piloté par Excel avec convention SEO, conversion WebP. Tous utilisables par l\'équipe sans ligne de code.':'File inventory export → Excel, copy visuals/PDFs by CEGID reference, bulk rename driven by Excel with SEO naming convention, WebP conversion. All usable by the team without any code.')}
@@ -1297,7 +1343,7 @@ function buildFailures() {
     </div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;">
-      <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.7;">${lang==='fr'
+      <div style="font-size:12px;color:var(--on-accent-85);line-height:1.7;">${lang==='fr'
         ? '→ J\'avais les codes techniques. Pas les codes culturels. Une fois le pipeline prouvé, j\'aurais pu persévérer. Je ne l\'ai pas fait. Peut-être à tort.'
         : '→ I had the technical skills. Not the cultural ones. Once the pipeline was proven, I could have pushed further. I didn\'t. Maybe I should have.'}</div>
     </div>
@@ -1316,7 +1362,7 @@ function buildFailures() {
     </div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;">
-      <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.7;">${lang==='fr'
+      <div style="font-size:12px;color:var(--on-accent-85);line-height:1.7;">${lang==='fr'
         ? '→ Je m\'étais désengagé de mon propre produit avant les utilisateurs. C\'est le signal que j\'aurais dû écouter plus tôt.'
         : '→ I had disengaged from my own product before the users did. That\'s the signal I should have caught earlier.'}</div>
     </div>
@@ -1354,7 +1400,7 @@ function buildOffres() {
       </div>
       <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
         <div style="font-size:18px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">0</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Saisies manuelles':'Manual entries'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Saisies manuelles':'Manual entries'}</div>
       </div>
     </div>
 
@@ -1370,8 +1416,8 @@ function buildAgents() {
     <div style="font-size:12px;color:var(--muted);line-height:1.7;">${lang==='fr'?'Deux agents spécialisés remplacent une logique conditionnelle complexe par une logique décisionnelle.':'Two specialized agents replace complex conditional logic with decision-making logic.'}</div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
-      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Principe fondateur':'Core principle'}</div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.7;">${lang==='fr'?'IA = décision · Make = exécution. L\'IA ne génère pas — elle décide. Make n\'analyse pas — il exécute.':'AI = decision · Make = execution. AI doesn\'t generate — it decides. Make doesn\'t analyse — it executes.'}</div>
+      <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Principe fondateur':'Core principle'}</div>
+      <div style="font-size:12px;color:var(--on-accent-90);line-height:1.7;">${lang==='fr'?'IA = décision · Make = exécution. L\'IA ne génère pas — elle décide. Make n\'analyse pas — il exécute.':'AI = decision · Make = execution. AI doesn\'t generate — it decides. Make doesn\'t analyse — it executes.'}</div>
     </div>
 
     <div style="border-left:2px solid var(--border);padding:10px 14px;background:var(--subtle);border-radius:0 8px 8px 0;">
@@ -1397,7 +1443,7 @@ function buildAgents() {
       </div>
       <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
         <div style="font-size:16px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">0</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Saisies manuelles':'Manual entries'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Saisies manuelles':'Manual entries'}</div>
       </div>
     </div>
 
@@ -1424,12 +1470,12 @@ function buildMatcher() {
     </div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;">
-      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Ce qui a été construit':'What was built'}</div>
+      <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Ce qui a été construit':'What was built'}</div>
       <div style="display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Parser CSV natif — zéro dépendance, détection auto UTF-8 / CP1252':'Native CSV parser — zero dependency, auto UTF-8 / CP1252 detection'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Algorithme Levenshtein embarqué — normalisation noms de sociétés (stopwords métiers)':'Embedded Levenshtein algorithm — company name normalization (business stopwords)'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Interface avec drawer de détail, tri multi-colonnes, overlay de progression':'Interface with detail drawer, multi-column sort, real-time progress overlay'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'1 seul fichier .html — double-clic, aucune installation, 100% local':'1 single .html file — double-click, no install, 100% local'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Parser CSV natif — zéro dépendance, détection auto UTF-8 / CP1252':'Native CSV parser — zero dependency, auto UTF-8 / CP1252 detection'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Algorithme Levenshtein embarqué — normalisation noms de sociétés (stopwords métiers)':'Embedded Levenshtein algorithm — company name normalization (business stopwords)'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Interface avec drawer de détail, tri multi-colonnes, overlay de progression':'Interface with detail drawer, multi-column sort, real-time progress overlay'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'1 seul fichier .html — double-clic, aucune installation, 100% local':'1 single .html file — double-click, no install, 100% local'}</div>
       </div>
     </div>
 
@@ -1444,7 +1490,7 @@ function buildMatcher() {
       </div>
       <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
         <div style="font-size:18px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">1</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Fichier livrable':'Deliverable file'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Fichier livrable':'Deliverable file'}</div>
       </div>
     </div>
 
@@ -1458,12 +1504,12 @@ function buildLoucheOuPas() {
     <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Plateforme web d\'analyse en temps réel de messages suspects. L\'IA détecte les tentatives de phishing, les arnaques et les usurpations d\'identité.':'Web platform for real-time analysis of suspicious messages. AI detects phishing attempts, scams and identity fraud.'}</div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;">
-      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Ce que ça fait':'What it does'}</div>
+      <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Ce que ça fait':'What it does'}</div>
       <div style="display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Analyse de texte en temps réel — détection d\'URLs malveillantes, demandes sensibles, urgence artificielle':'Real-time text analysis — malicious URLs, sensitive requests, artificial urgency detection'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Comptes premium avec paiement Stripe — abonnement intégré côté produit':'Premium accounts with Stripe payments — fully integrated subscription'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Export PDF des analyses — rapport détaillé avec résultats et conseils':'PDF export of analyses — detailed report with results and recommendations'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Base de connaissances éducative — articles et guides de prévention phishing':'Educational knowledge base — anti-phishing articles and guides'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Analyse de texte en temps réel — détection d\'URLs malveillantes, demandes sensibles, urgence artificielle':'Real-time text analysis — malicious URLs, sensitive requests, artificial urgency detection'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Comptes premium avec paiement Stripe — abonnement intégré côté produit':'Premium accounts with Stripe payments — fully integrated subscription'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Export PDF des analyses — rapport détaillé avec résultats et conseils':'PDF export of analyses — detailed report with results and recommendations'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Base de connaissances éducative — articles et guides de prévention phishing':'Educational knowledge base — anti-phishing articles and guides'}</div>
       </div>
     </div>
 
@@ -1496,11 +1542,11 @@ function buildSEO() {
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:2px 0;">
       <div style="background:var(--text);border-radius:10px;padding:12px;text-align:center;">
         <div style="font-size:22px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">24,5 → 12,1</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);margin-top:3px;">${lang==='fr'?'Position moyenne (+12)':'Average position (+12)'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);margin-top:3px;">${lang==='fr'?'Position moyenne (+12)':'Average position (+12)'}</div>
       </div>
       <div style="background:var(--text);border-radius:10px;padding:12px;text-align:center;">
         <div style="font-size:22px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">1,9% → 5,3%</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);margin-top:3px;">${lang==='fr'?'CTR organique (+179%)':'Organic CTR (+179%)'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);margin-top:3px;">${lang==='fr'?'CTR organique (+179%)':'Organic CTR (+179%)'}</div>
       </div>
     </div>
 
@@ -1520,12 +1566,12 @@ function buildSEO() {
     </div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
-      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'SEA Google Ads — compte FIMM ALPHA':'SEA Google Ads — FIMM ALPHA account'}</div>
+      <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'SEA Google Ads — compte FIMM ALPHA':'SEA Google Ads — FIMM ALPHA account'}</div>
       <div style="display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'6 campagnes Search lancées from scratch, analyse concurrentielle de 10 domaines (Semrush Advertising Toolkit)':'6 Search campaigns launched from scratch, competitive analysis of 10 domains'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Annonces RSA (15 titres + 4 descriptions/campagne), 129 mots clés négatifs structurés':'RSA ads (15 titles + 4 descriptions/campaign), 129 structured negative keywords'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="font-weight:600;">${lang==='fr'?'30 jours':'30 days'} :</span> 596 clics, 7 539 impressions, CTR 7,91%, CPC moyen 0,83€</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="font-weight:600;">13 conversions</span> ${lang==='fr'?'réelles (devis générant du CA), coût par conversion 38,01€ pour 25€/jour de budget':'real conversions (revenue-generating quotes), €38.01 cost per conversion on €25/day budget'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'6 campagnes Search lancées from scratch, analyse concurrentielle de 10 domaines (Semrush Advertising Toolkit)':'6 Search campaigns launched from scratch, competitive analysis of 10 domains'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Annonces RSA (15 titres + 4 descriptions/campagne), 129 mots clés négatifs structurés':'RSA ads (15 titles + 4 descriptions/campaign), 129 structured negative keywords'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ <span style="font-weight:600;">${lang==='fr'?'30 jours':'30 days'} :</span> 596 clics, 7 539 impressions, CTR 7,91%, CPC moyen 0,83€</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ <span style="font-weight:600;">13 conversions</span> ${lang==='fr'?'réelles (devis générant du CA), coût par conversion 38,01€ pour 25€/jour de budget':'real conversions (revenue-generating quotes), €38.01 cost per conversion on €25/day budget'}</div>
       </div>
     </div>
 
@@ -1556,12 +1602,12 @@ function buildVeille() {
     <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Transformer une demande DGA — "détecter aides Carsat/Ameli/INRS, mapper produits, générer recommandations" — en agent de veille opérationnel avec validation humaine.':'Turning a C-level request — "detect grants, map products, generate recommendations" — into an operational watch agent with human validation.'}</div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
-      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">Architecture</div>
+      <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">Architecture</div>
       <div style="display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ Sources paramétrables Google Sheets (Carsat, Ameli, INRS, Ministère Travail, FIPU, TMS Pro)</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ Détection RSS + web search + IA analyse pertinence vs gamme Manuvit</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ Validation humaine : Google Sheets + CSV exportable avant action commerciale</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ Feedback learning : notation Bonne/Moyenne/Mauvaise recommandation</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ Sources paramétrables Google Sheets (Carsat, Ameli, INRS, Ministère Travail, FIPU, TMS Pro)</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ Détection RSS + web search + IA analyse pertinence vs gamme Manuvit</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ Validation humaine : Google Sheets + CSV exportable avant action commerciale</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ Feedback learning : notation Bonne/Moyenne/Mauvaise recommandation</div>
       </div>
     </div>
 
@@ -1584,7 +1630,7 @@ function buildStockFTP() {
       <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;">→ Extraction stock via endpoint WordPress REST</div>
       <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;">→ JSON → CSV avec statuts mappés : V=stock | O=fabrication | C=sur commande | R=rupture</div>
       <div style="padding:9px 12px;background:var(--subtle);border-radius:8px;font-size:12px;color:var(--text);line-height:1.65;">→ Dépôt FTP nom fixe, gestion décimales, exécutions 08:05 + 17:05</div>
-      <div style="padding:9px 12px;background:var(--text);border-radius:8px;font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ Alertes Slack : fichier vide | date ancienne | résumé fin de journée</div>
+      <div style="padding:9px 12px;background:var(--text);border-radius:8px;font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ Alertes Slack : fichier vide | date ancienne | résumé fin de journée</div>
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:2px 0;">
@@ -1594,7 +1640,7 @@ function buildStockFTP() {
       </div>
       <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
         <div style="font-size:18px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">0</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">Erreur manuelle</div>
+        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">Erreur manuelle</div>
       </div>
     </div>
 
@@ -1640,12 +1686,12 @@ function buildImpact() {
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:2px 0;">
       <div style="background:var(--text);border-radius:10px;padding:14px;text-align:center;">
-        <div style="font-size:26px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">~70 000€</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;line-height:1.4;">${lang==='fr'?'gagnés via l\'automatisation des devis + relances':'from quote automation + follow-ups'}</div>
+        <div style="font-size:clamp(19px,5.5vw,26px);font-weight:600;color:var(--bg);font-family:var(--font-serif);white-space:nowrap;">~70&#8239;000&#8239;€</div>
+        <div style="font-size:11px;color:var(--on-accent-60);margin-top:4px;line-height:1.4;">${lang==='fr'?'gagnés via l\'automatisation des devis + relances':'from quote automation + follow-ups'}</div>
       </div>
       <div style="background:var(--text);border-radius:10px;padding:14px;text-align:center;">
-        <div style="font-size:26px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">+50 000€</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;line-height:1.4;">${lang==='fr'?'de CA rapportés par la prospection B2B':'B2B prospecting revenue generated'}</div>
+        <div style="font-size:clamp(19px,5.5vw,26px);font-weight:600;color:var(--bg);font-family:var(--font-serif);white-space:nowrap;">+50&#8239;000&#8239;€</div>
+        <div style="font-size:11px;color:var(--on-accent-60);margin-top:4px;line-height:1.4;">${lang==='fr'?'de CA rapportés par la prospection B2B':'B2B prospecting revenue generated'}</div>
       </div>
     </div>
 
@@ -1682,7 +1728,7 @@ function buildArrivee() {
       <div style="font-size:12px;color:var(--muted);line-height:1.7;">${lang==='fr'?'En euros et en temps rendu aux équipes, pas en nombre d\'outils déployés. Si après 6 mois je n\'ai pas généré ou économisé un multiple de mon coût, je n\'ai pas fait mon travail.':'In euros and time given back to teams, not tools deployed. If after 6 months I haven\'t generated or saved a multiple of my cost, I haven\'t done my job.'}</div>
     </div>
 
-    <div style="padding:10px 12px;background:var(--text);border-radius:8px;font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">${lang==='fr'?'Le fil rouge : structurer avant d\'automatiser, mesurer en impact business, transmettre pour que ça tienne quand je ne suis plus là.':'The thread: structure before automating, measure in business impact, hand over so it lasts when I\'m gone.'}</div>
+    <div style="padding:10px 12px;background:var(--text);border-radius:8px;font-size:12px;color:var(--on-accent-90);line-height:1.65;">${lang==='fr'?'Le fil rouge : structurer avant d\'automatiser, mesurer en impact business, transmettre pour que ça tienne quand je ne suis plus là.':'The thread: structure before automating, measure in business impact, hand over so it lasts when I\'m gone.'}</div>
   </div>`;
 }
 
@@ -1702,8 +1748,8 @@ function buildVeilleAgent() {
     </div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
-      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Incident géré en production':'Production incident handled'}</div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.7;">${lang==='fr'?'Corruption de contenu détectée → diagnostic de cause racine → correction de l\'outil fautif → reconstruction du contenu. Garde-fous ajoutés ensuite : opérations en lecture seule par défaut, validation humaine sur toute action destructrice, méthode d\'ajout non-destructive.':'Content corruption detected → root cause diagnosis → faulty tool fixed → content rebuilt. Safeguards added afterward: read-only operations by default, human validation on destructive actions, non-destructive append method.'}</div>
+      <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Incident géré en production':'Production incident handled'}</div>
+      <div style="font-size:12px;color:var(--on-accent-90);line-height:1.7;">${lang==='fr'?'Corruption de contenu détectée → diagnostic de cause racine → correction de l\'outil fautif → reconstruction du contenu. Garde-fous ajoutés ensuite : opérations en lecture seule par défaut, validation humaine sur toute action destructrice, méthode d\'ajout non-destructive.':'Content corruption detected → root cause diagnosis → faulty tool fixed → content rebuilt. Safeguards added afterward: read-only operations by default, human validation on destructive actions, non-destructive append method.'}</div>
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin:2px 0;">
@@ -1717,7 +1763,7 @@ function buildVeilleAgent() {
       </div>
       <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
         <div style="font-size:16px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">~0€</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Coût marginal':'Marginal cost'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Coût marginal':'Marginal cost'}</div>
       </div>
     </div>
 
@@ -1733,11 +1779,11 @@ function buildPricing() {
     <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Suivre les prix affichés par les distributeurs (Manutan…) sur des centaines de références — insoutenable à la main, stratégique pour la direction commerciale. Un système autonome qui relève, fiabilise et trace chaque prix.':'Tracking distributor prices (Manutan…) across hundreds of references — unsustainable by hand, strategic for sales leadership. An autonomous system that collects, validates and traces every price.'}</div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
-      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Architecture à 3 niveaux — coût minimal, fiabilité maximale':'3-tier architecture — minimal cost, maximum reliability'}</div>
+      <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Architecture à 3 niveaux — coût minimal, fiabilité maximale':'3-tier architecture — minimal cost, maximum reliability'}</div>
       <div style="display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="font-weight:600;">1.</span> ${lang==='fr'?'Extraction HTTP directe + règles déterministes — rapide, gratuit, sans IA':'Direct HTTP extraction + deterministic rules — fast, free, no AI'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="font-weight:600;">2.</span> ${lang==='fr'?'Blocage anti-bot détecté ? Bascule vers Playwright sur serveur privé — jamais par défaut, uniquement si nécessaire':'Anti-bot block detected? Fallback to Playwright on private server — never by default, only when needed'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ <span style="font-weight:600;">3.</span> ${lang==='fr'?'Cas ambigu ? Agent IA avec score de confiance chiffré — sous le seuil, renvoi en vérification humaine':'Ambiguous case? AI agent with numeric confidence score — below threshold, routed to human check'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ <span style="font-weight:600;">1.</span> ${lang==='fr'?'Extraction HTTP directe + règles déterministes — rapide, gratuit, sans IA':'Direct HTTP extraction + deterministic rules — fast, free, no AI'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ <span style="font-weight:600;">2.</span> ${lang==='fr'?'Blocage anti-bot détecté ? Bascule vers Playwright sur serveur privé — jamais par défaut, uniquement si nécessaire':'Anti-bot block detected? Fallback to Playwright on private server — never by default, only when needed'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ <span style="font-weight:600;">3.</span> ${lang==='fr'?'Cas ambigu ? Agent IA avec score de confiance chiffré — sous le seuil, renvoi en vérification humaine':'Ambiguous case? AI agent with numeric confidence score — below threshold, routed to human check'}</div>
       </div>
     </div>
 
@@ -1754,7 +1800,7 @@ function buildPricing() {
       </div>
       <div style="background:var(--text);border-radius:8px;padding:9px;text-align:center;">
         <div style="font-size:16px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">0</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Prix inventé':'Invented price'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Prix inventé':'Invented price'}</div>
       </div>
     </div>
 
@@ -1777,7 +1823,7 @@ function buildDropit() {
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin:2px 0;">
       <div style="background:var(--text);border-radius:8px;padding:10px;text-align:center;">
         <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">372/421</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Fiches créées (88%)':'Sheets created (88%)'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Fiches créées (88%)':'Sheets created (88%)'}</div>
       </div>
       <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;">
         <div style="font-size:20px;font-weight:600;color:var(--text);font-family:var(--font-serif);">~300</div>
@@ -1785,7 +1831,7 @@ function buildDropit() {
       </div>
       <div style="background:var(--text);border-radius:8px;padding:10px;text-align:center;">
         <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">0</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Doublon créé':'Duplicate created'}</div>
+        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Doublon créé':'Duplicate created'}</div>
       </div>
     </div>
 
@@ -1795,12 +1841,12 @@ function buildDropit() {
     </div>
 
     <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
-      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Pipeline construit':'Pipeline built'}</div>
+      <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Pipeline construit':'Pipeline built'}</div>
       <div style="display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Lecture et normalisation des données Excel fournisseur':'Reading and normalizing supplier Excel data'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Remplissage automatisé du formulaire, détection fiable de succès/échec':'Automated form filling, reliable success/failure detection'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Reprise sur incident par checkpoint — aucune tentative en double, aucune donnée corrompue':'Checkpoint-based incident recovery — no duplicate attempts, no corrupted data'}</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">→ ${lang==='fr'?'Logs structurés + rapports de suivi générés automatiquement':'Structured logs + automatically generated tracking reports'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Lecture et normalisation des données Excel fournisseur':'Reading and normalizing supplier Excel data'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Remplissage automatisé du formulaire, détection fiable de succès/échec':'Automated form filling, reliable success/failure detection'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Reprise sur incident par checkpoint — aucune tentative en double, aucune donnée corrompue':'Checkpoint-based incident recovery — no duplicate attempts, no corrupted data'}</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Logs structurés + rapports de suivi générés automatiquement':'Structured logs + automatically generated tracking reports'}</div>
       </div>
     </div>
 
@@ -1862,7 +1908,7 @@ function addUserMsg(text) {
   }
   const el = document.createElement('div');
   el.className = 'msg-row user';
-  el.innerHTML = `<div class="msg-avatar">?</div><div class="msg-content"><div class="msg-bubble">${text}</div></div>`;
+  el.innerHTML = `<div class="msg-avatar">?</div><div class="msg-content"><div class="msg-bubble">${escapeHtml(text)}</div></div>`;
   document.getElementById('messages').appendChild(el);
   scroll();
 }
@@ -2023,8 +2069,8 @@ function buildPlan90() {
         <div style="font-size:12px;color:var(--text);line-height:1.65;">${lang==='fr'?'Diagnostic clair, priorités assumées, premiers quick wins en production. Pas de PowerPoint — des choses qui tournent. Sur la prospection Manuvit : pipeline de devis opérationnel en 3 semaines.':'Clear diagnosis, explicit priorities, first production quick wins. No PowerPoints — things that run. On Manuvit prospecting: quote pipeline live in 3 weeks.'}</div>
       </div>
       <div style="padding:11px 13px;background:var(--text);border-radius:8px;">
-        <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">J+90 — Structurer</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9);line-height:1.65;">${lang==='fr'?'Système plus robuste, automatisations utiles, meilleure conversion et moins de tâches manuelles. Les outils servent la stratégie — pas l\'inverse.':'More robust systems, useful automation, better conversion and fewer manual tasks. Tools serve strategy — not the other way around.'}</div>
+        <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">J+90 — Structurer</div>
+        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">${lang==='fr'?'Système plus robuste, automatisations utiles, meilleure conversion et moins de tâches manuelles. Les outils servent la stratégie — pas l\'inverse.':'More robust systems, useful automation, better conversion and fewer manual tasks. Tools serve strategy — not the other way around.'}</div>
       </div>
     </div>
     ${block(lang==='fr'?'Ce que ça donne en pratique':'What this looks like in practice', lang==='fr'?'Chez Momentum : pipeline devis 10min→10sec en 3 semaines. Prospection 4 191 contacts structurée en 2 mois. SEO pipeline Make+Claude+WordPress déployé en 1 mois. Aucun de ces projets n\'existait avant l\'audit initial.':'At Momentum: quote pipeline 10min→10sec in 3 weeks. 4,191-contact prospecting structured in 2 months. Make+Claude+WordPress SEO pipeline deployed in 1 month. None of these existed before the initial audit.')}
@@ -2055,7 +2101,20 @@ async function send() {
       body:JSON.stringify({messages:history.slice(-10)}),
     });
     removeTyping();
-    if (!res.ok) throw new Error();
+    if (!res.ok) {
+      let code = null;
+      try { code = (await res.json()).code; } catch(_) {}
+      if (code === 'daily_limit') {
+        addBotMsg(lang==='fr' ? 'Le quota de questions du jour est atteint. Revenez demain — ou contactez directement Evan via LinkedIn.' : 'Today\'s question quota has been reached. Come back tomorrow — or reach Evan directly on LinkedIn.');
+      } else if (code === 'rate_limit' || res.status === 429) {
+        addBotMsg(lang==='fr' ? 'Limite de messages atteinte pour cette heure. Réessayez un peu plus tard.' : 'Message limit reached for this hour. Please try again a bit later.');
+      } else {
+        addBotMsg(lang==='fr' ? 'Une erreur est survenue. Réessayez.' : 'An error occurred. Please try again.');
+      }
+      busy=false;
+      document.getElementById('sendBtn').disabled=false;
+      return;
+    }
     const data = await res.json();
     const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
     let reply = data.content?.[0]?.text || '';

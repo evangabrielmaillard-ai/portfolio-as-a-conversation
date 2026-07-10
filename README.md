@@ -69,12 +69,13 @@ vercel.json         → headers de sécurité + config déploiement
 
 **Sécurité**
 - Clé API côté serveur uniquement (variable Vercel)
-- System prompt dans `system-prompt.txt` — lu au runtime, non exposé côté client
-- Rate limiting 20 messages/heure par IP — implémenté côté serveur
+- System prompt dans `prompts/system-prompt.txt` — lu au runtime, non exposé côté client
+- Rate limiting 20 messages/heure par IP, partagé entre instances via Redis (Upstash) + plafond global journalier configurable (`DAILY_LIMIT`)
+- Échappement HTML systématique des entrées utilisateur et des sorties LLM (anti-XSS)
 - Validation stricte du payload (taille, type, longueur de chaque message)
 - Timeout explicite sur l'appel Anthropic (15s)
 - Messages d'erreur neutres côté client, détails en logs serveur uniquement
-- Headers de sécurité via `vercel.json` (X-Frame-Options, X-Content-Type-Options, Referrer-Policy)
+- Headers de sécurité via `vercel.json` (CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy)
 
 ---
 
@@ -99,7 +100,7 @@ Dans Vercel → Settings → Environment Variables :
 ANTHROPIC_API_KEY = sk-ant-...
 ```
 
-Le system prompt est lu depuis `system-prompt.txt` à la racine du repo — modifier ce fichier pour personnaliser le profil et les panneaux. Pas de limite de taille, versionné avec le reste du code.
+Le system prompt est lu depuis `prompts/system-prompt.txt` — modifier ce fichier pour personnaliser le profil et les panneaux. Pas de limite de taille, versionné avec le reste du code. (Une copie de secours existe dans `api/chat.js` au cas où le fichier serait inaccessible — la garder en cohérence.)
 
 ---
 
@@ -135,7 +136,6 @@ Vercel limite les variables d'environnement à ~4KB dans l'interface web. Le sys
 
 **Ce que je ferais en V2**
 - Séparer CSS et JS en fichiers dédiés si le projet continue de grandir
-- Rate limit store partagé (Redis/KV) si le trafic augmente
 - Streaming des réponses pour une UX encore plus fluide
 
 ---
@@ -220,12 +220,13 @@ vercel.json         → security headers + deployment config
 
 **Security**
 - API key server-side only (Vercel env variable)
-- System prompt in `system-prompt.txt` — read at runtime, never exposed client-side
-- Rate limiting: 20 messages/hour per IP — server-side in `api/chat.js`
+- System prompt in `prompts/system-prompt.txt` — read at runtime, never exposed client-side
+- Rate limiting: 20 messages/hour per IP, shared across instances via Redis (Upstash) + configurable global daily cap (`DAILY_LIMIT`)
+- Systematic HTML escaping of user input and LLM output (anti-XSS)
 - Strict payload validation (size, type, length per message)
 - Explicit timeout on Anthropic call (15s)
 - Neutral error messages client-side, details in server logs only
-- Security headers via `vercel.json` (X-Frame-Options, X-Content-Type-Options, Referrer-Policy)
+- Security headers via `vercel.json` (CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy)
 
 ---
 
@@ -250,7 +251,7 @@ In Vercel → Settings → Environment Variables:
 ANTHROPIC_API_KEY = sk-ant-...
 ```
 
-The system prompt is read from `system-prompt.txt` at the repo root — edit this file to customize the profile and panels. No size limit, versioned with the rest of the code.
+The system prompt is read from `prompts/system-prompt.txt` — edit this file to customize the profile and panels. No size limit, versioned with the rest of the code. (A fallback copy lives in `api/chat.js` in case the file is unavailable — keep both in sync.)
 
 ---
 
@@ -286,7 +287,6 @@ Vercel limits environment variables to ~4KB in its web UI. The full system promp
 
 **What I'd do in V2**
 - Separate CSS and JS into dedicated files as the project grows further
-- Add a proper shared rate limit store (Redis/KV) if traffic increases
 - Stream responses for smoother UX
 
 ---
