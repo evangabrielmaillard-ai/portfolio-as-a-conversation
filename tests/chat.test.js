@@ -30,7 +30,8 @@ test('loads the editable prompt and shared case data for model requests', async 
     const res = response();
     await handler(request({messages:[{role:'user',content:'Quelles limites ?'}]}), res);
     assert.equal(res.code, 200);
-    assert.match(payload.system, /assistant IA, pas Evan/);
+    assert.match(payload.system, /à la première personne/);
+    assert.match(payload.system, /Ne prétends pas être Evan en personne/);
     assert.match(payload.system, /378/);
     assert.match(payload.system, /une image sur six/);
     assert.match(payload.system, /Aucune expérience ESN/);
