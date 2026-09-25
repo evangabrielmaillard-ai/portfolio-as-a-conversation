@@ -52,6 +52,7 @@
     font-weight: 100 900;
     font-display: swap;
   }
+
 </style>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -471,7 +472,21 @@ button:focus-visible { outline:2px solid var(--text); outline-offset:3px; }
 #shuffleChips,#chipsMoreBtn { font-size:11px; }
 .site-footer { opacity:.75; }
 @media(min-height:850px) and (min-width:700px) { .app:not(.chat-active) { padding-top:110px; } }
-</style>
+/* Footer follows the content and rests at the viewport bottom on short pages. */
+body { min-height:100vh; min-height:100dvh; display:flex; flex-direction:column; }
+.app:not(.chat-active) { width:100%; flex-shrink:0; padding-top:68px; }
+.site-footer { margin-top:auto; width:100%; padding:20px 16px 16px; gap:5px; }
+.site-footer.chat-active { display:flex; position:fixed; bottom:0; left:0; height:44px; padding:5px 12px; background:var(--bg); z-index:31; }
+.input-zone:not(.centered) { bottom:44px; }
+@media(min-height:850px) and (min-width:700px) { .app:not(.chat-active) { padding-top:82px; } }
+@media(min-width:700px) and (max-height:800px) {
+  .landing-photo-wrap { width:64px!important; height:64px!important; margin-bottom:12px!important; }
+  .landing-photo { width:64px; height:64px; }
+  .landing-name { font-size:3rem; margin-bottom:8px; }
+  .profile-story { margin-top:6px; }
+  .input-zone.centered { margin-top:14px; padding-bottom:12px; }
+  .site-footer { padding-top:12px; padding-bottom:12px; }
+}</style>
 </head>
 <body>
 
@@ -519,10 +534,7 @@ button:focus-visible { outline:2px solid var(--text); outline-offset:3px; }
 
 
   <div class="messages" id="messages" aria-live="polite"></div>
-  <footer class="site-footer">
-    <div class="footer-updated" id="footerUpdated">Dernière mise à jour du portfolio</div>
-    <div class="footer-counter" id="footerCounter"></div>
-  </footer>
+
 </div>
 
 <div class="input-zone centered" id="inputZone">
@@ -598,6 +610,11 @@ button:focus-visible { outline:2px solid var(--text); outline-offset:3px; }
   </div>
 </div>
 
+  <footer class="site-footer">
+    <div class="footer-updated" id="footerUpdated">Dernière mise à jour du portfolio</div>
+    <div class="footer-counter" id="footerCounter"></div>
+  </footer>
+
 <div class="modal-overlay" id="mailModal" onclick="handleModalOverlayClick(event)">
   <div class="modal-box">
     <div class="modal-title" id="modalTitle">Contacter Evan</div>
@@ -632,18 +649,30 @@ button:focus-visible { outline:2px solid var(--text); outline-offset:3px; }
 <script src="content/conversation.js"></script>
 <script>
 /* ── COUNTER ── */
-function loadCounter() {
-  fetch('/api/stats').then(r => r.json()).then(data => {
-    const count = data.count || 0;
-    const footerEl = document.getElementById('footerCounter');
-    if (footerEl && count > 0) {
-      footerEl.innerHTML = lang === 'fr'
-        ? `<span>${count.toLocaleString('fr-FR')}</span> questions posées sur ce portfolio`
-        : `<span>${count.toLocaleString('en-US')}</span> questions asked on this portfolio`;
-    }
-  }).catch(() => {});
+let lastQuestionCount = null;
+let counterRequest = 0;
+function renderCounter() {
+  const el = document.getElementById('footerCounter');
+  if (!el) return;
+  el.textContent = lastQuestionCount === null
+    ? (lang === 'fr' ? 'Compteur temporairement indisponible' : 'Counter temporarily unavailable')
+    : (lang === 'fr'
+      ? `${lastQuestionCount.toLocaleString('fr-FR')} question${lastQuestionCount === 1 ? '' : 's'} répondue${lastQuestionCount === 1 ? '' : 's'}`
+      : `${lastQuestionCount.toLocaleString('en-US')} question${lastQuestionCount === 1 ? '' : 's'} answered`);
 }
-
+async function loadCounter() {
+  const request = ++counterRequest;
+  try {
+    const response = await fetch('/api/questions-count', { cache:'no-store' });
+    const data = await response.json();
+    if (request !== counterRequest) return;
+    lastQuestionCount = response.ok && Number.isSafeInteger(data.count) && data.count >= 0 ? data.count : null;
+  } catch {
+    if (request !== counterRequest) return;
+    lastQuestionCount = null;
+  }
+  renderCounter();
+}
 
 /* ── PIXEL AVATAR ── */
 (function() {
@@ -1016,6 +1045,7 @@ function setLang(l) {
   document.getElementById('backLabel').textContent = l==='fr' ? 'Accueil' : 'Home';
   if (!chatStarted) initChips(); // regénérer les suggestions dans la bonne langue
   hydrateFooterDate();
+  renderCounter();
 }
 
 function hydrateFooterDate() {
@@ -1883,7 +1913,7 @@ function adjustMessagesPadding() {
   const iz = document.getElementById('inputZone');
   const msgs = document.getElementById('messages');
   if (!iz || !msgs) return;
-  const izHeight = iz.offsetHeight;
+  const izHeight = iz.offsetHeight + 44;
   msgs.style.paddingBottom = (izHeight + 24) + 'px';
 }
 function scroll() {
@@ -1977,6 +2007,9 @@ async function send() {
       return;
     }
     const data = await res.json();
+    counterRequest++;
+    lastQuestionCount = Number.isSafeInteger(data.questionCount) && data.questionCount >= 0 ? data.questionCount : null;
+    renderCounter();
     const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
     if (epoch !== conversationEpoch) return;
     const reply=data.content?.filter(part=>part.type==='text').map(part=>part.text).join('\n') || '';
@@ -2006,7 +2039,7 @@ async function send() {
 
   if (epoch !== conversationEpoch) return;
   if (!typing) { busy=false; document.getElementById('sendBtn').disabled=false; document.querySelectorAll('.followup-chip').forEach(el=>el.disabled=false); }
-  setTimeout(loadCounter, 1500); // Rafraîchir le compteur après la réponse
+
 }
 
 /* ── INIT ── */

@@ -5,34 +5,7 @@ const professionalContext = require('../content/professional-context.json');
 const conversation = require('../content/conversation.js');
 const SYSTEM_PROMPT = fs.readFileSync(path.join(__dirname, '../prompts/system-prompt.txt'), 'utf8') + '\nCAS DOCUMENTÉS\n' + JSON.stringify(cases) + '\nCONTEXTE PROFESSIONNEL\n' + JSON.stringify(professionalContext) + '\nQUESTIONS DE RELANCE AUTORISÉES\n' + JSON.stringify(conversation.catalog.map(({id,topic,fr,en})=>({id,topic,fr,en})));
 
-// Upstash Redis — tous les noms de variables possibles selon le type de store Vercel
-async function incrementCounter() {
-  try {
-    const url = process.env.KV_REST_API_URL
-             || process.env.UPSTASH_REDIS_REST_URL
-             || process.env.KV_URL;
-    const token = process.env.KV_REST_API_TOKEN
-               || process.env.UPSTASH_REDIS_REST_TOKEN
-               || process.env.KV_REST_API_READ_ONLY_TOKEN;
-    if (!url || !token) {
-      console.log('[counter] vars manquantes — KV_REST_API_URL:', !!process.env.KV_REST_API_URL, 'KV_URL:', !!process.env.KV_URL);
-      return;
-    }
-    // Utiliser l'URL REST (pas la connexion Redis directe)
-    const restUrl = url.startsWith('redis://') || url.startsWith('rediss://')
-      ? process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL
-      : url;
-    if (!restUrl) { console.log('[counter] pas d URL REST disponible'); return; }
-    const r = await fetch(`${restUrl}/incr/prompt_count`, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    const d = await r.json();
-    console.log('[counter] incr result:', JSON.stringify(d));
-  } catch(e) {
-    console.error('[counter] erreur:', e.message);
-  }
-}
+const questionCounter = require('../lib/question-counter');
 
 const rateLimit = new Map();
 function checkRateLimit(ip) {
@@ -86,8 +59,8 @@ module.exports = async function handler(req, res) {
 
     if (!response.ok) { console.error('[chat] Erreur Anthropic', response.status, data?.error?.type); return res.status(502).json({ error: 'Erreur de service. Réessayez.' }); }
 
-    incrementCounter();
-    return res.status(200).json(data);
+    const questionCount = await questionCounter('incr');
+    return res.status(200).json({ ...data, questionCount });
 
   } catch (error) {
     if (error.name === 'AbortError') { console.error('[chat] Timeout'); return res.status(504).json({ error: 'Délai dépassé. Réessayez.' }); }
