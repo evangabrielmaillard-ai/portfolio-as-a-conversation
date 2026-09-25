@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Evan Maillard — Digital Systems, Automation & AI</title>
-<meta name="description" content="Je conçois des systèmes digitaux qui transforment acquisition, CRM et opérations. Portfolio interactif basé sur des cas réels et des résultats mesurés.">
+<meta name="description" content="Du problème métier aux automatisations et systèmes d’IA : découvrez les réalisations, les choix et les limites d’Evan Maillard, Traffic Manager.">
 <meta property="og:title" content="Evan Maillard — Digital Systems, Automation & AI">
 <meta property="og:description" content="Je construis des systèmes qui tournent : acquisition, CRM, automation, IA.">
 <meta property="og:image" content="https://www.evangabrielmaillard.com/og.png">
@@ -37,7 +37,7 @@
   "@type": "Person",
   "name": "Evan Maillard",
   "url": "https://www.evangabrielmaillard.com",
-  "jobTitle": "Head of Digital & AI Innovation",
+  "jobTitle": "Traffic Manager",
   "sameAs": ["https://www.linkedin.com/in/evan-gabriel-maillard/"],
   "knowsAbout": ["Automation", "CRM", "SEO", "AI", "Make", "Python", "Pipedrive"]
 }
@@ -166,7 +166,7 @@ header.scrolled .back-btn { display: flex; }
 .landing { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 1.5rem 140px; text-align: center; transition: opacity 0.35s, transform 0.35s; }
 .landing.hidden { opacity: 0; pointer-events: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; transform: translateY(-16px); }
 
-.landing-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; opacity: 0; transform: scale(0.85); animation: photoIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.1s forwards; border: 2px solid var(--border); display: block; }
+.landing-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; opacity: 0; transform: scale(0.85); animation: photoIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.1s forwards; border: 2px solid var(--border); display: block; }
 .landing-eyebrow { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; font-weight: 400; opacity: 0; animation: fadeUp 0.5s ease 0.3s forwards; }
 .landing-name .word-evan { display: inline-block; opacity: 0; transform: translateY(20px); animation: wordIn 0.5s cubic-bezier(0.22,1,0.36,1) 0.45s forwards; }
 .landing-name .word-maillard { display: inline-block; opacity: 0; transform: translateY(20px); animation: wordIn 0.5s cubic-bezier(0.22,1,0.36,1) 0.6s forwards; }
@@ -186,103 +186,7 @@ header.scrolled .back-btn { display: flex; }
 .landing.explorer-open .landing-title { margin-bottom: 0; }
 .landing-name em { font-style: normal; color: var(--muted); font-weight: 300; }
 .landing-title { font-size: clamp(0.85rem, 2vw, 1rem); color: var(--muted); font-weight: 300; letter-spacing: 0.02em; margin-bottom: 1.25rem; max-width: 460px; line-height: 1.55; margin-left: auto; margin-right: auto; }
-.landing-tagline { font-size: clamp(0.9rem, 2vw, 1.05rem); color: var(--text); font-weight: 300; line-height: 1.6; min-height: 1.7em; margin-bottom: 3rem; max-width: 480px; }
-.tagline-cursor { display: inline-block; width: 2px; height: 1em; background: var(--muted); margin-left: 2px; vertical-align: text-bottom; animation: blink 0.9s step-end infinite; }
-@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
-
-/* RECRUITER MODE BANNER */
-.recruiter-banner { display: none; align-items: center; gap: 8px; background: var(--text); color: var(--bg); padding: 7px 14px; border-radius: 8px; font-size: 12px; margin-bottom: 1rem; animation: msgIn 0.3s ease; }
-.recruiter-banner.visible { display: flex; }
-.recruiter-banner span { opacity: 0.75; }
-
-/* MESSAGES */
-.messages { flex: 1; overflow-y: auto; padding: 70px 1.5rem 220px; display: flex; flex-direction: column; gap: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
-.messages.visible { opacity: 1; pointer-events: all; }
-.messages::-webkit-scrollbar { width: 3px; }
-.messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-.msg-row { display: flex; gap: 10px; animation: msgIn 0.22s ease; }
-@keyframes msgIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
-.msg-row.user { flex-direction: row-reverse; }
-
-.msg-avatar { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 500; flex-shrink: 0; margin-top: 2px; letter-spacing: 0.02em; }
-.msg-row.bot .msg-avatar { background: var(--text); color: var(--bg); }
-.msg-row.user .msg-avatar { background: var(--subtle); color: var(--muted); border: 1px solid var(--border); }
-
-.msg-content { flex: 1; min-width: 0; }
-.msg-bubble { display: inline-block; padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.65; max-width: 100%; word-wrap: break-word; overflow-wrap: break-word; }
-.msg-row.bot .msg-bubble { background: var(--surface); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
-.msg-row.user .msg-bubble { background: var(--text); color: var(--bg); border-bottom-right-radius: 4px; float: right; clear: both; }
-.msg-bubble p { margin: 0; }
-.msg-bubble p + p { margin-top: 8px; }
-.msg-bubble strong { font-weight: 500; color: var(--text); }
-.msg-bubble .msg-bullet { font-weight: 500; color: var(--text); }
-.msg-bubble .msg-bullet-text { color: var(--muted); }
-.msg-row.bot .msg-bubble .msg-bullet { color: var(--text); }
-.msg-row.user .msg-bubble strong,
-.msg-row.user .msg-bubble .msg-bullet,
-.msg-row.user .msg-bubble .msg-bullet-text { color: inherit; }
-
-/* PANELS */
-.panel { margin-top: 10px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
-.panel-header { padding: 11px 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; transition: background 0.12s; }
-.panel-header:hover { background: var(--subtle); }
-.panel-header.open { border-bottom: 1px solid var(--border); }
-.panel-header-left { display: flex; align-items: center; gap: 10px; }
-.panel-icon { width: 28px; height: 28px; border-radius: 7px; background: var(--subtle); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; }
-.panel-label { font-size: 13px; font-weight: 500; }
-.panel-sublabel { font-size: 11px; color: var(--muted); margin-top: 1px; }
-.panel-chevron { color: var(--muted); font-size: 11px; transition: transform 0.22s; line-height: 1; }
-.panel-chevron.open { transform: rotate(180deg); }
-.panel-body { max-height: 0; overflow: hidden; transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1); }
-.panel-body.open { max-height: 2000px; }
-.panel-inner { padding: 14px 16px; }
-
-/* project list */
-.project-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: 8px; overflow: hidden; }
-.project-item { background: var(--surface); padding: 11px 13px; transition: background 0.12s; }
-.project-item:hover { background: var(--subtle); }
-.project-item-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 4px; gap: 8px; }
-.project-name { font-family: var(--font-serif); font-size: 15px; letter-spacing: -0.02em; font-weight: 500; }
-.project-tag { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); background: var(--subtle); border: 1px solid var(--border); padding: 2px 7px; border-radius: 4px; white-space: nowrap; }
-.project-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
-
-/* ANIMATED TIMELINE */
-.timeline-visual { display: flex; flex-direction: column; position: relative; padding-left: 20px; }
-.timeline-visual::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
-.tl-item { position: relative; padding: 0 0 20px 16px; }
-.tl-item:last-child { padding-bottom: 0; }
-.tl-dot { position: absolute; left: -15px; top: 3px; width: 9px; height: 9px; border-radius: 50%; background: var(--border); border: 2px solid var(--surface); transition: background 0.3s; }
-.tl-item:first-child .tl-dot { background: var(--text); }
-.tl-period { font-size: 10px; color: var(--muted); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 3px; }
-.tl-role { font-size: 13px; font-weight: 500; margin-bottom: 1px; }
-.tl-company { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
-.tl-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
-
-/* cv */
-.cv-name { font-family: var(--font-serif); font-size: 22px; letter-spacing: -0.03em; font-weight: 600; margin-bottom: 2px; }
-.cv-role-line { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
-.cv-section-title { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 12px 0 7px; }
-.skill-pills { display: flex; flex-wrap: wrap; gap: 5px; }
-.skill-pill { font-size: 11px; padding: 3px 9px; border: 1px solid var(--border); border-radius: 20px; color: var(--muted); }
-.cv-target { font-size: 12px; color: var(--muted); line-height: 1.7; padding: 10px 12px; background: var(--subtle); border-radius: 8px; }
-
-/* ANIMATED STATS */
-.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
-.stat-card { background: var(--subtle); border: 1px solid var(--border); border-radius: 8px; padding: 10px; text-align: center; }
-.stat-value { font-size: 22px; font-weight: 600; color: var(--text); font-family: var(--font-serif); }
-.stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
-
-/* BAR CHART */
-.bar-wrap { margin: 4px 0 10px; }
-.bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
-.bar-name { font-size: 11px; color: var(--muted); width: 90px; flex-shrink: 0; }
-.bar-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-.bar-fill { height: 100%; border-radius: 3px; background: var(--text); width: 0%; transition: width 1s cubic-bezier(0.4,0,0.2,1); }
-.bar-pct { font-size: 11px; font-weight: 500; color: var(--text); width: 36px; text-align: right; }
-
-/* easter */
-.easter-card { background: var(--subtle); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-top: 10px; }
+.landing-tagline { font-size: clamp(0.9rem, 2vw, 1.054px; margin-top: 10px; }
 .easter-title { font-size: 12px; font-weight: 500; margin-bottom: 4px; }
 .easter-body { font-size: 12px; color: var(--muted); line-height: 1.6; }
 
@@ -407,6 +311,70 @@ header.scrolled .back-btn { display: flex; }
   .header-right { gap: 5px; }
   .theme-btn { display: none; }
 }
+
+/* Reading-first landing; the composer enters normal flow until chat starts. */
+.app:not(.chat-active) { height:auto; min-height:0; padding-top:76px; }
+.app:not(.chat-active) .messages { display:none; }
+.app:not(.chat-active) .site-footer { padding:12px 24px 0; }
+.landing { padding:0 1.5rem; }
+.landing-name { font-size:clamp(2.8rem,7vw,4.4rem); }
+.landing-title { color:var(--text); max-width:540px; margin-bottom:12px; }
+.profile-scope,.assistant-notice { color:var(--muted); font-size:12px; line-height:1.6; }
+.landing-tagline { display:none; }
+.featured { padding:24px 24px 12px; }
+.featured h2 { font-size:15px; font-weight:500; margin-bottom:12px; }
+.case-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.case-card { padding:18px; text-align:left; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:12px; font:inherit; cursor:pointer; }
+.case-card:hover { border-color:var(--muted); }
+.case-card small { display:block; margin-top:8px; color:var(--muted); font-size:11px; line-height:1.5; }
+.case-links { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.input-zone.centered { position:relative; inset:auto; transform:none; margin:12px auto 0; }
+.assistant-notice { margin-bottom:8px; }
+.chat-active .featured { display:none; }
+.case-section { margin-bottom:16px; line-height:1.7; font-size:13px; }
+.case-section h3 { font-size:13px; margin-bottom:4px; }
+button:focus-visible { outline:2px solid var(--text); outline-offset:3px; }
+@media(max-width:520px) { .case-grid { grid-template-columns:1fr; } .featured { padding:20px 16px 8px; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:0.01ms!important; transition-duration:0.01ms!important; } }
+
+/* Connect a visitor's need to concrete work before opening the conversation. */
+.profile-story { max-width:580px; margin:14px auto 0; font-size:14px; line-height:1.7; color:var(--muted); }
+.hero-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:22px; }
+.primary-action,.secondary-action { font:inherit; font-size:13px; padding:12px 16px; border-radius:9px; cursor:pointer; border:1px solid var(--border); line-height:1.5; }
+.primary-action { background:var(--text); color:var(--bg); }
+.secondary-action { background:var(--surface); color:var(--text); }
+.case-card { display:flex; flex-direction:column; align-items:flex-start; }
+.case-card > span:first-child { font-weight:500; line-height:1.45; }
+.case-card small { font-size:12px; line-height:1.65; flex:1; }
+.case-link-label { display:block; font-size:11px; margin-top:14px; }
+.conversation-invite { margin:16px 24px 0; padding:22px; border-radius:14px; background:var(--subtle); }
+.conversation-invite h2 { font-size:16px; font-weight:500; margin-bottom:10px; }
+.conversation-invite p { color:var(--muted); font-size:13px; line-height:1.7; }
+.contact-topics { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
+.chat-active .conversation-invite { display:none; }
+.modal-overlay:not(.open),.chips-more:not(.open) { visibility:hidden; }
+.case-flow { display:flex; flex-wrap:wrap; gap:8px; padding:0; list-style:none; margin:8px 0 18px; }
+.case-flow li { background:var(--subtle); padding:8px 10px; border-radius:8px; font-size:12px; }
+.case-flow li:not(:last-child)::after { content:' →'; }
+.case-discussion { padding:14px; background:var(--subtle); border-radius:10px; margin-top:18px; }
+.case-discussion p { font-size:12px; line-height:1.7; margin-bottom:12px; }
+.case-section p { white-space:pre-line; }
+@media(max-width:520px) { .conversation-invite { margin:16px 16px 0; padding:18px; } .hero-actions { width:100%; } .hero-actions button { width:100%; } }
+
+/* Conversation first: no project grid on the landing page. */
+.app:not(.chat-active) { padding-top:76px; }
+.landing-name { font-size:clamp(2.8rem,7vw,4.2rem); }
+.profile-story { max-width:480px; margin-top:12px; font-size:13px; }
+.landing-title { font-size:18px; max-width:490px; line-height:1.5; }
+.input-zone.centered { margin-top:22px; }
+.chat-invite { font-size:13px; text-align:center; margin-bottom:12px; color:var(--text); }
+.input-zone:not(.centered) .chat-invite { display:none; }
+.assistant-notice { font-size:11px; text-align:center; }
+.chip-primary { font-size:13px; padding:10px 14px; white-space:normal; text-align:left; }
+.chips-main { justify-content:center; gap:8px; }
+#shuffleChips,#chipsMoreBtn { font-size:11px; }
+.site-footer { opacity:.75; }
+@media(min-height:850px) and (min-width:700px) { .app:not(.chat-active) { padding-top:110px; } }
 </style>
 </head>
 <body>
@@ -440,15 +408,20 @@ header.scrolled .back-btn { display: flex; }
   </div>
 </header>
 
-<div class="app">
+<div class="app" id="app">
   <div class="landing" id="landing">
-    <div class="landing-photo-wrap" style="position:relative;width:80px;height:80px;margin:0 auto 1.25rem;"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCABQAFADASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAAAAMEBQYHAgEI/8QAOBAAAgEDAQYEBAMGBwAAAAAAAQIDAAQRBQYSITFBYRMiUXEHgaHBFVKRFDI2QrGyFmJyotHi8P/EABkBAAIDAQAAAAAAAAAAAAAAAAMEAAIFAf/EACMRAAIDAAIDAAEFAAAAAAAAAAABAgMRBCESE0ExBSIyUVL/2gAMAwEAAhEDEQA/ANOoooqECiiqz8QNSudN2Zc2blJriRYA45qGzkjvgVCETrHxLsrS4kg020a73GKmVm3EJHpwJPvwrjSPifYXFx4OqWj2eTgSK2+o9+GR9ai9D2dszaIZY1kYjOW5V5qex+myB3i3on6brcP0oPtWjHobWmpqyuoZSCpGQR1Fe1XNg5J/8OrbXL772krwBs81HFfoQKsdGXYu+goooqECiiioQKqu348bSorcRknxBMG6DdIz9DVqrN9vNrCL78NsVSSKAkTt13uWFPbr+ld8JTT8S0XFSXkLEXUMcS2TYXA5dPlg5rq7ubyZIY0RUJUmQgcyPkcUhZ6sklnDDayATuCcMOg7+tJSTXVu8bpeRSJFvMcRAEDHHJz8sCkTRTWFr2QkAt7m33W30kDsx5HeH/WrDUNsqxm0s3O7urPIXThjK8Bn6Gpmm4fxRn2Z5PAoooqxQKKKjNodWTRdHmvXAZl8sa/mc8h/70rqTbxEbwd319aWEBmvLiOGMdXYDPt61g00njXU0w4b7s2D3Oac313d6jcGe+neaU8cueXYeg9qY7pV+3pWrRx3V2/otOfkKI72ziXcaVRyH5acXV6hsQyWHh8AN4ADtSSZ3RuH5HlXEijxAzINwfyHjx96ByOE3JSh9/ISu/rJGk7EbWWp0+DTdUuFiuU8sbOMKy9BnlkcvlV4BDAEEEHkRXzycsxJ6cKl9C2hv9EvI5YJWeLOJIWY7rj7HvUs4n2JyNn9m4UUx0bVbbWdOjvbUndbgynmjDmDT6kWmnjDBVA+Jt2WksrEcgGmb35D71f6y34gy7+0zKeUUKL7cz96Z4cdtQK55Eq4HXr6iuJVDYYevGlv3ePTowrhgMnuM1ttCaYgMxnsa7bDLmrJJs9phiik/F0jDRh2VihIJGeHEdeA786az6PYwEk6nGUMaSKvAMynnjj04fr2oHui+gniyvqOHvQ4AxVqgttAhtoh+zXN7I+XHh5J5lcZGBgFc8eYPSoeaylu9ZlgtbYRbzF1j3hiNe5qvtj3vSRZRbeIlNhtf/BtU8K4Yi0ucLJ6K3Rvse3tWvVgM1ncJBHcSRssEjFUfoxHOtm2Ru5r7ZixuLht+VkIZvXBIz9KR5kI9TiGrbXTJisp26GNq7k+qRn/AG1q1Zx8R7Ux6xbXIHlmh3Se6n/giqcJ5acvX7CobvHyeXPTpSTZRhkgDPEU4Knd4fWm8uCRG48pIJCgk4zWzN5HRSPbwdpeLGvltbQkDGWj3s96Rm1CViXCQLlQvliAxg5H9KvFvoem6napcwQwyRuvMAZHY96Vg2P04Ek2keP82T/Wsh/qUPsHo+uI/wDRnkuqTyKUe6cqT+4pwP0FT+gSafb6Q5uZlje6bEpyMiMfy+5qJ1a2gt9WuoYMbiSsq4HpTJwBk9+Hem7KXfWluL8gYWKuW5pYNodUsrqyNvaKGkLLjyYWNR0X7mtA2E/g7T8/lb+9qxxj6Vsewn8Haf8A6X/valb6I00qMX9CKx2S1n//2Q==" alt="Evan Maillard" class="landing-photo">
-    <canvas id="pixelAvatar" width="64" height="64" style="position:absolute;top:0;left:0;width:80px;height:80px;border-radius:50%;opacity:0;transition:opacity 0.6s ease;border:2px solid var(--border);image-rendering:pixelated;cursor:default;"></canvas></div>
+    <div class="landing-photo-wrap" style="position:relative;width:80px;height:80px;margin:0 auto 1.25rem;"><img src="assets/evan-maillard.png" alt="Evan Maillard" class="landing-photo">
+</div>
     <p class="landing-eyebrow" id="eyebrow">Portfolio interactif</p>
     <h1 class="landing-name"><span class="word-evan">Evan</span><br><em class="word-maillard">Maillard</em></h1>
-    <p class="landing-title" style="animation-fill-mode:both;">Je fais gagner aux PME & ETI 6 à 12 mois sur leur transformation digitale — sans recruter une équipe tech.</p>
+    <p class="landing-title" data-fr="J’utilise l’IA pour concevoir des outils et automatiser des processus métier." data-en="I use AI to design tools and automate business processes.">J’utilise l’IA pour concevoir des outils et automatiser des processus métier.</p>
+    <p class="profile-scope" data-fr="Traffic Manager · Digital, IA & automatisation" data-en="Traffic Manager · Digital, AI & automation">Traffic Manager · Digital, IA & automatisation</p>
+<p class="profile-story" data-fr="Explorez mes réalisations, ma méthode et mes limites à travers une conversation." data-en="Explore my work, approach and limitations through a conversation.">Explorez mes réalisations, ma méthode et mes limites à travers une conversation.</p>
+
     <p class="landing-tagline" id="tagline" style="opacity:0;animation:fadeUp 0.5s ease 0.9s both;"><span class="tagline-cursor"></span></p>
   </div>
+
+
   <div class="messages" id="messages" aria-live="polite"></div>
   <footer class="site-footer">
     <div class="footer-updated" id="footerUpdated">Dernière mise à jour du portfolio</div>
@@ -461,10 +434,12 @@ header.scrolled .back-btn { display: flex; }
     <span>🎯</span>
     <span id="recruiterText">Mode recruteur activé</span>
   </div>
+  <p class="assistant-notice" data-fr="Un assistant IA vous répond à partir de mon parcours et de mes projets. Il peut se tromper." data-en="An AI assistant answers from my background and projects. It can make mistakes.">Un assistant IA vous répond à partir de mon parcours et de mes projets. Il peut se tromper.</p>
+  <p class="chat-invite" data-fr="Par quoi voulez-vous commencer ?" data-en="Where would you like to start?">Par quoi voulez-vous commencer ?</p>
   <div class="input-box">
     <div class="input-row">
       <textarea class="chat-input" id="inp" rows="1"
-        placeholder="Posez votre question…"
+        maxlength="4000" aria-label="Votre question / Your question" placeholder="Une question sur mon travail ?"
         onkeydown="onKey(event)"
         oninput="resize(this)"></textarea>
       <div class="input-actions">
@@ -479,15 +454,16 @@ header.scrolled .back-btn { display: flex; }
   </div>
   <div class="chips" id="chips">
     <div class="chips-main" id="chipsPrimary">
-      <!-- rempli dynamiquement par initChips() -->
+      <!-- Context-aware suggestions, local and free to explore. -->
+      <button class="chip" id="shuffleChips" type="button" onclick="initChips(true)" data-fr="D’autres questions ↻" data-en="More questions ↻">D’autres questions ↻</button>
       <button class="chip chip-more" id="chipsMoreBtn" onclick="toggleMoreChips()">+ Explorer →</button>
     </div>
     <div class="chips-more" id="chipsMore">
       <div class="chips-more-section">
         <span class="chips-more-label" data-fr="Résultats & impact" data-en="Results & impact">Résultats & impact</span>
         <div class="chips-more-row">
-          <button class="chip" type="button" onclick="openImpactShortcut()" data-lfr="Impact business en €" data-len="Business impact in €">Impact business en €</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Si tu arrivais dans mon entreprise, comment tu t'y prendrais ?" data-en="If you joined my company, how would you approach it?" data-lfr="Si j'arrivais chez vous" data-len="If I joined you">Si j'arrivais chez vous</button>
+          <button class="chip" type="button" onclick="openImpactShortcut()" data-lfr="Gains & limites" data-len="Savings & limits">Gains & limites</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Comment aborderiez-vous un projet dans notre entreprise ?" data-en="If you joined my company, how would you approach it?" data-lfr="Si j'arrivais chez vous" data-len="If I joined you">Si j'arrivais chez vous</button>
           <button class="chip" onclick="chipSend(this)" data-fr="Prospection B2B" data-en="B2B prospecting" data-lfr="Prospection B2B" data-len="B2B prospecting">Prospection B2B</button>
         </div>
       </div>
@@ -495,226 +471,16 @@ header.scrolled .back-btn { display: flex; }
         <span class="chips-more-label" data-fr="Systèmes construits" data-en="Systems built">Systèmes construits</span>
         <div class="chips-more-row">
           <button class="chip" onclick="chipSend(this)" data-fr="Comment tu automatises le traitement des demandes de prix ?" data-en="How do you automate quote request processing?" data-lfr="Automatiser les devis" data-len="Automate quotes">Automatiser les devis</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Explique-moi comment tes agents IA prennent des décisions" data-en="Explain how your AI agents make decisions" data-lfr="Agents IA — décision" data-len="AI agents — decision">Agents IA — décision</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Tes automatisations Make" data-en="Your Make automations" data-lfr="Automatisations Make" data-len="Make automations">Automatisations Make</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Comment vos agents IA prennent-ils leurs décisions ?" data-en="Explain how your AI agents make decisions" data-lfr="Agents IA — décision" data-len="AI agents — decision">Agents IA — décision</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Présentez vos automatisations Make" data-en="Your Make automations" data-lfr="Automatisations Make" data-len="Make automations">Automatisations Make</button>
           <button class="chip" onclick="chipSend(this)" data-fr="Comment tu as géré le SEO après la migration FIMM ?" data-en="How did you handle SEO after the FIMM migration?" data-lfr="SEO post-migration" data-len="Post-migration SEO">SEO post-migration</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ton agent de veille aides et subventions" data-en="Your subsidies watch agent" data-lfr="Agent veille subventions" data-len="Grants watch agent">Agent veille subventions</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ton pipeline stock vers distributeur FTP" data-en="Your stock to distributor FTP pipeline" data-lfr="Pipeline stock FTP" data-len="Stock FTP pipeline">Pipeline stock FTP</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ton générateur d'images IA" data-en="Your AI image generator" data-lfr="Générateur d'images IA" data-len="AI image generator">Générateur d'images IA</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Tes scripts Python" data-en="Your Python scripts" data-lfr="Scripts Python" data-len="Python scripts">Scripts Python</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Présentez votre agent de veille aides et subventions" data-en="Your subsidies watch agent" data-lfr="Agent veille subventions" data-len="Grants watch agent">Agent veille subventions</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Présentez votre pipeline de disponibilité de stock" data-en="Your stock to distributor FTP pipeline" data-lfr="Pipeline stock FTP" data-len="Stock FTP pipeline">Pipeline stock FTP</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Présentez votre générateur d’images IA" data-en="Your AI image generator" data-lfr="Générateur d'images IA" data-len="AI image generator">Générateur d'images IA</button>
+          <button class="chip" onclick="chipSend(this)" data-fr="Présentez vos scripts Python" data-en="Your Python scripts" data-lfr="Scripts Python" data-len="Python scripts">Scripts Python</button>
         </div>
       </div>
-      <div class="chips-more-section">
-        <span class="chips-more-label" data-fr="Side projects" data-en="Side projects">Side projects</span>
-        <div class="chips-more-row">
-          <button class="chip" onclick="chipSend(this)" data-fr="Parle-moi de Louche ou Pas" data-en="Tell me about Louche ou Pas" data-lfr="Louche ou Pas ?" data-len="Louche ou Pas?">Louche ou Pas ?</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ton matcher Pipedrive Lemlist" data-en="Your Pipedrive Lemlist matcher" data-lfr="Matcher Pipedrive × Lemlist" data-len="Pipedrive × Lemlist matcher">Matcher Pipedrive × Lemlist</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Carnetto en détail" data-en="Carnetto in detail" data-lfr="Carnetto" data-len="Carnetto">Carnetto</button>
-        </div>
-      </div>
-      <div class="chips-more-section">
-        <span class="chips-more-label" data-fr="Méthode & profil" data-en="Method & profile">Méthode & profil</span>
-        <div class="chips-more-row">
-          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu abordes un nouveau projet ?" data-en="How do you approach a new project?" data-lfr="Ta méthode" data-len="Your method">Ta méthode</button>
-          <button class="chip" type="button" onclick="openPlan90Shortcut()" data-lfr="Plan 90 jours" data-len="90-day plan">Plan 90 jours</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Quelles erreurs tu vois souvent en entreprise ?" data-en="What mistakes do you often see?" data-lfr="Erreurs fréquentes" data-len="Common mistakes">Erreurs fréquentes</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Comment tu utilises l'IA concrètement ?" data-en="How do you actually use AI?" data-lfr="Usage IA concret" data-len="Concrete AI use">Usage IA concret</button>
-          <button class="chip" onclick="chipSend(this)" data-fr="Ce qui n'a pas marché" data-en="What didn't work" data-lfr="Ce qui n'a pas marché" data-len="What didn't work">Ce qui n'a pas marché</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="mailModal" onclick="handleModalOverlayClick(event)">
-  <div class="modal-box">
-    <div class="modal-title" id="modalTitle">Contacter Evan</div>
-    <div class="modal-sub" id="modalSub">Une petite question avant — histoire de filtrer les robots.</div>
-    <div class="modal-challenge" id="modalChallenge">
-      <div class="modal-challenge-label" id="challengeLabel">Question</div>
-      <div class="modal-challenge-q" id="challengeQ"></div>
-      <div class="modal-challenge-opts" id="challengeOpts"></div>
-    </div>
-    <div class="modal-email-reveal" id="emailReveal">
-      <a class="modal-email-link" href="mailto:evangabriel.maillard@gmail.com">
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-        evangabriel.maillard@gmail.com
-      </a>
-    </div>
-    <button class="modal-close" onclick="closeMailModal()" id="modalCloseBtn">Fermer</button>
-  </div>
-</div>
-
-<div class="modal-overlay" id="engageModal" onclick="handleEngageOverlayClick(event)">
-  <div class="modal-box">
-    <span class="engage-badge" id="engageBadge">Défi gratuit</span>
-    <div class="modal-title" id="engageTitle">Un problème concret à régler ?</div>
-    <div class="modal-sub" id="engageSub">Décrivez votre plus gros goulot d'étranglement commercial ou opérationnel. Evan vous répond en 48h avec une piste concrète — gratuitement, sans engagement.</div>
-    <textarea id="engageInput" class="engage-textarea" placeholder="Ex : nos devis prennent 3 jours à sortir et on perd des affaires…"></textarea>
-    <button class="engage-send" id="engageSendBtn" onclick="sendEngage()">Envoyer mon défi →</button>
-    <button class="modal-close" onclick="closeEngageModal()" id="engageCloseBtn">Plus tard</button>
-  </div>
-</div>
-
-<script>
-/* ── COUNTER ── */
-function loadCounter() {
-  fetch('/api/stats').then(r => r.json()).then(data => {
-    const count = data.count || 0;
-    const footerEl = document.getElementById('footerCounter');
-    if (footerEl && count > 0) {
-      footerEl.innerHTML = lang === 'fr'
-        ? `<span>${count.toLocaleString('fr-FR')}</span> questions posées sur ce portfolio`
-        : `<span>${count.toLocaleString('en-US')}</span> questions asked on this portfolio`;
-    }
-  }).catch(() => {});
-}
-
-
-/* ── PIXEL AVATAR ── */
-(function() {
-  const C = {
-    skin:'#F4C68A', skinD:'#D4A56A', hair:'#1A1208',
-    shirt:'#1B3A7A', shirtD:'#0F2454', eye:'#1A1208',
-    white:'#F5F5F5', green:'#22C55E', shadow:'#C4956A', bg:'transparent'
-  };
-
-  function drawFace(ctx, blink, frame) {
-    ctx.clearRect(0, 0, 64, 64);
-    ctx.fillStyle = C.shirt;
-    ctx.fillRect(14, 40, 36, 24);
-    ctx.fillStyle = C.shirtD;
-    ctx.fillRect(28, 40, 8, 24);
-    ctx.fillStyle = C.skin;
-    ctx.fillRect(26, 35, 12, 8);
-    ctx.fillStyle = C.skin;
-    ctx.fillRect(16, 10, 32, 28);
-    ctx.fillStyle = C.skinD;
-    ctx.fillRect(16, 34, 32, 4);
-    ctx.fillStyle = C.hair;
-    ctx.fillRect(14, 8, 36, 8);
-    ctx.fillRect(14, 8, 4, 16);
-    ctx.fillRect(46, 8, 4, 12);
-    ctx.fillStyle = C.skinD;
-    ctx.fillRect(12, 18, 4, 8);
-    ctx.fillRect(48, 18, 4, 8);
-    if (blink) {
-      ctx.fillStyle = C.skin;
-      ctx.fillRect(20, 20, 8, 4);
-      ctx.fillRect(36, 20, 8, 4);
-      ctx.fillStyle = C.skinD;
-      ctx.fillRect(20, 23, 8, 1);
-      ctx.fillRect(36, 23, 8, 1);
-    } else {
-      ctx.fillStyle = C.white;
-      ctx.fillRect(20, 19, 8, 6);
-      ctx.fillRect(36, 19, 8, 6);
-      ctx.fillStyle = C.eye;
-      ctx.fillRect(23, 20, 4, 4);
-      ctx.fillRect(39, 20, 4, 4);
-      ctx.fillStyle = C.white;
-      ctx.fillRect(24, 20, 1, 1);
-      ctx.fillRect(40, 20, 1, 1);
-      ctx.fillStyle = C.hair;
-      ctx.fillRect(19, 16, 10, 2);
-      ctx.fillRect(35, 16, 10, 2);
-    }
-    ctx.fillStyle = C.shadow;
-    ctx.fillRect(30, 26, 4, 3);
-    ctx.fillStyle = C.eye;
-    ctx.fillRect(23, 31, 2, 2);
-    ctx.fillRect(39, 31, 2, 2);
-    ctx.fillRect(25, 33, 14, 2);
-    if (frame % 2 === 0) {
-      ctx.fillStyle = C.green;
-      ctx.fillRect(28, 58, 8, 3);
-    }
-  }
-
-  let frame = 0, blinkTimer = 100, isBlinking = false, animRunning = false;
-
-  function scheduleNextBlink() { blinkTimer = 80 + Math.floor(Math.random() * 120); }
-  scheduleNextBlink();
-
-  function loop() {
-    frame++;
-    if (frame >= blinkTimer && !isBlinking) {
-      isBlinking = true;
-      setTimeout(() => { isBlinking = false; scheduleNextBlink(); frame = 0; }, 150);
-    }
-    const canvas = document.getElementById('pixelAvatar');
-    if (canvas) {
-      const ctx = canvas.getContext('2d');
-      drawFace(ctx, isBlinking, frame);
-    }
-    if (animRunning) requestAnimationFrame(loop);
-  }
-
-  window.startPixelAvatar = function() {
-    if (animRunning) return;
-    animRunning = true;
-    const avatar = document.getElementById('headerAvatar');
-    if (!avatar) return;
-    requestAnimationFrame(loop);
-    setTimeout(() => { avatar.classList.add('visible'); }, 150);
-  };
-
-  window.stopPixelAvatar = function() {
-    animRunning = false;
-    const avatar = document.getElementById('headerAvatar');
-    if (avatar) avatar.classList.remove('visible');
-  };
-})();
-
-/* ── MAIL MODAL ── */
-const CHALLENGES = [
-  {
-    q: { fr: "Quel outil j'utilise pour orchestrer mes automatisations ?", en: "Which tool do I use to orchestrate my automations?" },
-    opts: { fr: ['Zapier', 'Make', 'n8n', 'Power Automate'], en: ['Zapier', 'Make', 'n8n', 'Power Automate'] },
-    answer: 'Make'
-  },
-  {
-    q: { fr: "En combien de temps j'ai construit ce portfolio ?", en: "How long did it take me to build this portfolio?" },
-    opts: { fr: ['1 semaine', '3 jours', 'Une soirée + une matinée', '1 mois'], en: ['1 week', '3 days', 'One evening + one morning', '1 month'] },
-    answer: { fr: 'Une soirée + une matinée', en: 'One evening + one morning' }
-  },
-  {
-    q: { fr: "Combien de références j'ai traitées avec le générateur d'images IA ?", en: "How many references did I process with the AI image generator?" },
-    opts: { fr: ['50', '176', '300', '528'], en: ['50', '176', '300', '528'] },
-    answer: '176'
-  },
-  {
-    q: { fr: "Quel CRM j'utilise au quotidien ?", en: "Which CRM do I use daily?" },
-    opts: { fr: ['HubSpot', 'Salesforce', 'Pipedrive', 'Notion'], en: ['HubSpot', 'Salesforce', 'Pipedrive', 'Notion'] },
-    answer: 'Pipedrive'
-  },
-  {
-    q: { fr: "Quel est mon taux d'ouverture en prospection B2B ?", en: "What's my B2B prospecting open rate?" },
-    opts: { fr: ['22%', '31.5%', '43.5%', '67%'], en: ['22%', '31.5%', '43.5%', '67%'] },
-    answer: '43.5%'
-  },
-];
-
-let _currentChallenge = null;
-
-function openMailModal() {
-  const modal = document.getElementById('mailModal');
-  const challenge = CHALLENGES[Math.floor(Math.random() * CHALLENGES.length)];
-  _currentChallenge = challenge;
-  document.getElementById('emailReveal').classList.remove('visible');
-  document.getElementById('modalTitle').textContent = lang === 'fr' ? 'Contacter Evan' : 'Contact Evan';
-  document.getElementById('modalSub').textContent = lang === 'fr'
-    ? 'Une petite question avant — histoire de filtrer les robots.'
-    : 'A quick question first — just to filter out the bots.';
-  document.getElementById('challengeLabel').textContent = lang === 'fr' ? 'Question' : 'Question';
-  document.getElementById('challengeQ').textContent = lang === 'fr' ? challenge.q.fr : challenge.q.en;
-  document.getElementById('modalCloseBtn').textContent = lang === 'fr' ? 'Fermer' : 'Close';
-  const opts = lang === 'fr' ? challenge.opts.fr : challenge.opts.en;
-  const answer = typeof challenge.answer === 'object' ? challenge.answer[lang] : challenge.answer;
-  const optsEl = document.getElementById('challengeOpts');
-  optsEl.innerHTML = '';
-  opts.forEach(opt => {
-    const btn = document.createElement('button');
+        const btn = document.createElement('button');
     btn.className = 'modal-opt';
     btn.textContent = opt;
     btn.onclick = () => checkAnswer(btn, opt, answer);
@@ -761,135 +527,79 @@ function handleModalOverlayClick(e) {
 }
 
 /* ── ENGAGE CTA POPUP ── */
-function openEngageModal() {
-  if (chatStarted === false) return; // ne s'ouvre qu'en conversation
-  const modal = document.getElementById('engageModal');
-  // Traductions
-  document.getElementById('engageBadge').textContent = lang==='fr' ? 'Défi gratuit' : 'Free challenge';
-  document.getElementById('engageTitle').textContent = lang==='fr' ? 'Un problème concret à régler ?' : 'A concrete problem to solve?';
+let contactReturnFocus = null;
+function openEngageModal(caseId) {
+  contactReturnFocus = document.activeElement;
+  document.getElementById('engageBadge').textContent = lang==='fr' ? 'Prendre contact' : 'Get in touch';
+  document.getElementById('engageTitle').textContent = lang==='fr' ? 'Un besoin, un poste ou une question ?' : 'A need, a role or a question?';
   document.getElementById('engageSub').textContent = lang==='fr'
-    ? "Décrivez votre plus gros goulot d'étranglement commercial ou opérationnel. Evan vous répond en 48h avec une piste concrète — gratuitement, sans engagement."
-    : "Describe your biggest commercial or operational bottleneck. Evan replies within 48h with a concrete idea — free, no strings attached.";
-  document.getElementById('engageInput').placeholder = lang==='fr'
-    ? "Ex : nos devis prennent 3 jours à sortir et on perd des affaires…"
-    : "E.g. our quotes take 3 days to produce and we lose deals…";
-  document.getElementById('engageSendBtn').textContent = lang==='fr' ? 'Envoyer mon défi →' : 'Send my challenge →';
-  document.getElementById('engageCloseBtn').textContent = lang==='fr' ? 'Plus tard' : 'Later';
-  modal.classList.add('open');
-  setTimeout(() => document.getElementById('engageInput')?.focus(), 250);
+    ? 'Décrivez le contexte et ce que vous aimeriez approfondir. Ce bouton prépare un email dans votre messagerie ; rien n’est envoyé automatiquement.'
+    : 'Describe the context and what you would like to discuss. This button prepares an email in your mail app; nothing is sent automatically.';
+  const input = document.getElementById('engageInput');
+  input.placeholder = lang==='fr' ? 'Le besoin ou le poste, les outils en place et le sujet à approfondir…' : 'The need or role, current tools and what you would like to discuss…';
+  if (caseId && PORTFOLIO_CASES[caseId]) input.value = (lang==='fr' ? 'Bonjour Evan, votre projet « ' : 'Hi Evan, your project “') + PORTFOLIO_CASES[caseId].title[lang] + (lang==='fr' ? ' » fait écho à notre besoin. Voici notre contexte : ' : '” relates to our need. Here is our context: ');
+  document.getElementById('engageSendBtn').textContent = lang==='fr' ? 'Préparer mon email →' : 'Prepare my email →';
+  document.getElementById('engageCloseBtn').textContent = lang==='fr' ? 'Fermer' : 'Close';
+  document.getElementById('engageModal').classList.add('open');
+  input.focus();
 }
-
 function closeEngageModal() {
   document.getElementById('engageModal').classList.remove('open');
+  if (contactReturnFocus?.isConnected) contactReturnFocus.focus();
 }
-
 function handleEngageOverlayClick(e) {
   if (e.target === document.getElementById('engageModal')) closeEngageModal();
 }
-
+document.getElementById('engageModal').addEventListener('keydown', e => {
+  if (e.key === 'Escape') { e.preventDefault(); closeEngageModal(); }
+  if (e.key === 'Tab') {
+    const first = document.getElementById('engageInput');
+    const last = document.getElementById('engageCloseBtn');
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+});
 function sendEngage() {
   const val = document.getElementById('engageInput').value.trim();
-  const subject = lang==='fr' ? 'Mon défi pour Evan' : 'My challenge for Evan';
-  const body = val
-    ? (lang==='fr' ? 'Voici mon goulot d\'étranglement :\n\n' : 'Here is my bottleneck:\n\n') + val
-    : (lang==='fr' ? 'Bonjour Evan, j\'aimerais échanger sur un sujet précis.' : 'Hi Evan, I\'d like to discuss a specific topic.');
-  const mailto = `mailto:evangabriel.maillard@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = mailto;
+  const subject = lang==='fr' ? 'Échanger sur un besoin ou un poste' : 'Discuss a need or a role';
+  const body = val || (lang==='fr' ? 'Bonjour Evan, je souhaite échanger sur un besoin ou un poste.' : 'Hi Evan, I would like to discuss a need or a role.');
+  window.location.href = `mailto:evangabriel.maillard@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   closeEngageModal();
 }
 
-/* ── CHIPS ROTATION ── */
-const CHIPS_POOL = {
-  fr: [
-    { label: 'Ton intervention en une minute', msg: "Comment résumes-tu la nature exacte de ton intervention en une minute ?" },
-    { label: 'Un système réellement en production', msg: "Donne-moi un système que tu as réellement mis en production." },
-    { label: 'Synthèse de ton profil', msg: "Peux-tu me donner une synthèse de ton profil en quelques lignes ?" },
-    { label: 'Impact business', fn: 'openImpactShortcut' },
-    { label: 'Plan 90 jours', fn: 'openPlan90Shortcut' },
-    { label: 'Méthode face à un nouveau dossier', msg: "Quelle méthode suis-tu face à un dossier que tu découvres ?" },
-    { label: "L'échec dont tu as le plus appris", msg: "Quel est l'échec dont tu as le plus appris, et qu'en retires-tu aujourd'hui ?" },
-    { label: 'Décision d\'un agent IA', msg: "Comment tes agents IA prennent-ils concrètement leurs décisions, et où places-tu la validation humaine ?" },
-    { label: 'Goulot des devis : ta réponse', msg: "Comment as-tu traité le goulot d'étranglement des devis entrants ?" },
-    { label: 'Chaîne de génération d\'images', msg: "Parle-moi de ta chaîne de génération d'images produit." },
-    { label: 'Outils Python pour les équipes', msg: "Tes outils Python pour les équipes internes — ce qui marche, ce qui résiste." },
-    { label: 'Prospection B2B sortante', msg: "Ta démarche de prospection B2B sortante, en quelques mots." },
-    { label: 'Louche ou Pas, en quelques mots', msg: "Le projet Louche ou Pas, peux-tu m'en dire l'essentiel ?" },
-    { label: 'L\'agent Hermes en production', msg: "L'agent Hermes en production sur ton VPS Docker — parle-m'en." },
-    { label: 'Matcher Pipedrive × Lemlist', msg: "Le matcher Pipedrive × Lemlist : pourquoi l'avoir construit, et qu'en tires-tu ?" },
-    { label: 'Erreurs récurrentes en entreprise', msg: "Quelles erreurs récurrentes observes-tu en entreprise sur le digital et l'automatisation ?" },
-    { label: 'L\'IA dans ton quotidien', msg: "L'IA dans ton quotidien, concrètement — pas en théorie." },
-    { label: 'PME industrielle, que m\'apportes-tu ?', msg: "Je dirige une PME industrielle. Qu'apporterais-tu dans les six premiers mois ?" },
-    { label: 'Mes commerciaux ne relancent pas', msg: "Mes commerciaux ne relancent pas leurs leads. Comment t'y prendrais-tu ?" },
-    { label: 'Par où commencer à automatiser ?', msg: "Par où commencer pour automatiser sans casser l'existant ?" },
-    { label: 'Ton agent veille subventions', msg: "Ton agent de veille sur les aides et subventions — comment fonctionne-t-il, et quel format de recommandation ?" },
-    { label: 'Résultats SEO/SEA FIMM', msg: "Quels résultats concrets as-tu obtenus sur le SEO et le SEA chez FIMM ?" },
-    { label: 'Pipeline stock vers distributeur', msg: "Le pipeline stock vers le distributeur — comment l'as-tu sécurisé contre les défaillances silencieuses ?" },
-    { label: 'Veille tarifaire concurrentielle', msg: "Comment surveilles-tu les prix de la concurrence malgré leurs protections anti-bot ?" },
-    { label: 'QuoteOps Agent — où en es-tu ?', msg: "Le projet QuoteOps Agent : à quel stade en es-tu, et qu'attends-tu de ce side project ?" },
-    { label: 'Fiches produit B2B sans API', msg: "Comment as-tu automatisé la création de fiches produit sur une plateforme sans API ?" },
-  ],
-  en: [
-    { label: 'Your role in one minute', msg: "Can you summarize the exact nature of your role in one minute?" },
-    { label: 'A system actually in production', msg: "Show me a system you have actually put into production." },
-    { label: 'A synthesis of your profile', msg: "Could you give me a brief synthesis of your profile?" },
-    { label: 'Business impact', fn: 'openImpactShortcut' },
-    { label: '90-day plan', fn: 'openPlan90Shortcut' },
-    { label: 'Method on a new case', msg: "What method do you follow when you take on a new case?" },
-    { label: 'The failure you learned from most', msg: "What is the failure you learned the most from, and what do you take from it today?" },
-    { label: 'How an AI agent decides', msg: "How do your AI agents actually make their decisions, and where do you place human validation?" },
-    { label: 'Quote bottleneck: your response', msg: "How did you address the incoming-quote bottleneck?" },
-    { label: 'Your image generation chain', msg: "Tell me about your product image generation chain." },
-    { label: 'Python tools for internal teams', msg: "Your Python tools for internal teams — what works, what resists." },
-    { label: 'Outbound B2B prospecting', msg: "Your outbound B2B prospecting approach, in a few words." },
-    { label: 'Louche ou Pas, in short', msg: "The Louche ou Pas project: can you tell me the essentials?" },
-    { label: 'Hermes agent in production', msg: "The Hermes agent running on your Docker VPS — tell me about it." },
-    { label: 'Pipedrive × Lemlist matcher', msg: "The Pipedrive × Lemlist matcher: why did you build it, and what did you learn?" },
-    { label: 'Recurring mistakes you see', msg: "What recurring mistakes do you see in companies regarding digital and automation?" },
-    { label: 'AI in your daily work', msg: "AI in your daily work, concretely — not in theory." },
-    { label: 'Industrial SME, what do you bring?', msg: "I run an industrial SME. What would you bring in the first six months?" },
-    { label: 'My sales team doesn\'t follow up', msg: "My sales team doesn't follow up on leads. How would you handle that?" },
-    { label: 'Where to start automating?', msg: "Where do you start to automate without breaking what works?" },
-    { label: 'Your grants watch agent', msg: "Your grants and subsidies watch agent — how does it work, and what recommendation format?" },
-    { label: 'FIMM SEO/SEA results', msg: "What concrete results did you get on SEO and SEA at FIMM?" },
-    { label: 'Stock to distributor pipeline', msg: "The stock-to-distributor pipeline — how did you secure it against silent failures?" },
-    { label: 'Competitive price monitoring', msg: "How do you monitor competitor prices despite their anti-bot protections?" },
-    { label: 'QuoteOps Agent — where are you?', msg: "QuoteOps Agent: where are you with this side project, and what do you expect from it?" },
-    { label: 'B2B product sheets without an API', msg: "How did you automate product sheet creation on a platform with no API?" },
-  ]
-};
+function startRoleMatch() {
+  activateChat();
+  addBotMsg(lang==='fr'
+    ? 'Collez les missions et les compétences essentielles du poste (4 000 caractères maximum). Je rapprocherai les besoins des réalisations documentées d’Evan, puis signalerai les points à vérifier en entretien. Retirez les informations confidentielles avant l’envoi.'
+    : 'Paste the role’s key responsibilities and skills (up to 4,000 characters). I will compare the requirements with Evan’s documented work and identify points to verify in an interview. Remove confidential information before sending.', null, { skipFollowups: true });
+  document.getElementById('inp').focus();
+}
 
-function initChips() {
+/* ── CONVERSATION SUGGESTIONS ── */
+const askedQuestions = new Set();
+const seenSuggestions = new Set();
+let activeTopic = 'general';
+let suggestedIds = [];
+let conversationEpoch = 0;
+
+function chooseQuestion(item) {
+  if (busy) return;
+  activeTopic = item.topic;
+  document.getElementById('inp').value = item[lang];
+  send();
+}
+function initChips(rotate = false) {
   const container = document.getElementById('chipsPrimary');
-  if (!container) return;
-  // Retirer les chips dynamiques existantes (regénérées au changement de langue)
   container.querySelectorAll('.chip-primary').forEach(el => el.remove());
-  // Exclure les suggestions qui doublonnent avec le menu Explorer
-  const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
-  const staticLabels = [...document.querySelectorAll('#chipsMore .chip')].map(b => norm(b.textContent)).filter(Boolean);
-  const pool = (CHIPS_POOL[lang] || CHIPS_POOL.fr).filter(chip => {
-    const l = norm(chip.label);
-    return !staticLabels.some(s => l.includes(s) || s.includes(l));
+  const selected = Conversation.pick({topic:'general',asked:[...askedQuestions],seen:[...seenSuggestions],count:4,landing:true});
+  selected.forEach(item => {
+    const button = document.createElement('button');
+    button.type='button'; button.className='chip chip-primary'; button.textContent=item[lang];
+    button.onclick=()=>chooseQuestion(item);
+    container.insertBefore(button,document.getElementById('shuffleChips'));
+    seenSuggestions.add(item.id);
   });
-  // Shuffle Fisher-Yates
-  const shuffled = [...pool];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  // Prendre 4 chips au hasard
-  const selected = shuffled.slice(0, 4);
-  const moreBtn = document.getElementById('chipsMoreBtn');
-  selected.forEach(chip => {
-    const btn = document.createElement('button');
-    btn.className = 'chip chip-primary';
-    btn.textContent = chip.label;
-    if (chip.fn) {
-      btn.onclick = () => window[chip.fn]();
-    } else {
-      btn.onclick = () => { document.getElementById('inp').value = chip.msg; send(); };
-    }
-    container.insertBefore(btn, moreBtn);
-  });
+  if (rotate) container.querySelector('.chip-primary')?.focus();
 }
 
 /* ── DATA ── */
@@ -902,7 +612,7 @@ const DATA = {
     { name: 'E-commerce étudiant', tag: 'PrestaShop · Etsy', fr: 'Lancement e-commerce pendant les études. PrestaShop + marketplaces (Etsy). Premiers réflexes de vente en ligne.', en: 'E-commerce launched during studies. PrestaShop + Etsy. First online selling instincts.' },
   ],
   career: [
-    { period: '2022 →', role: { fr: 'Traffic Manager & Sales Ops', en: 'Traffic Manager & Sales Ops' }, company: 'Momentum Group — FIMM / Manuvit', fr: 'Pipeline devis automatisé (Make + GPT, ~20/jour, 10 min → 10 sec). Pipeline SEO actif Make + Claude + WordPress. CRM Pipedrive, prospection Lemlist multi-secteur, scripts Python pour équipes, refontes WordPress + audits Semrush.', en: 'Automated quote pipeline (Make + GPT, ~20/day, 10 min → 10 sec). Live SEO pipeline Make + Claude + WordPress. Pipedrive CRM, multi-sector prospecting, Python scripts for teams.' },
+    { period: '2022 →', role: { fr: 'Traffic Manager', en: 'Traffic Manager' }, company: 'Momentum Group — FIMM / Manuvit', fr: 'Pipeline devis automatisé (Make + GPT, ~20/jour, 10 min → 10 sec). Pipeline SEO actif Make + Claude + WordPress. CRM Pipedrive, prospection Lemlist multi-secteur, scripts Python pour équipes, refontes WordPress + audits Semrush.', en: 'Automated quote pipeline (Make + GPT, ~20/day, 10 min → 10 sec). Live SEO pipeline Make + Claude + WordPress. Pipedrive CRM, multi-sector prospecting, Python scripts for teams.' },
     { period: '2020 – 2022', role: { fr: '1er employé — Marketing & Growth', en: 'First Employee — Marketing & Growth' }, company: 'BonjourCyber', fr: 'Stack construite from scratch : CRM, site Webflow, cold email, Meta / LinkedIn / Google Ads. Cybersécurité B2B, formation anti-phishing.', en: 'Full stack from scratch: CRM, Webflow, cold email, Meta / LinkedIn / Google Ads. B2B cybersecurity, anti-phishing training.' },
     { period: '2018 – 2020', role: { fr: 'Responsable Marketing', en: 'Marketing Manager' }, company: 'IonBench', fr: 'Industrie scientifique (spectrométrie de masse). Marketing B2B international, refonte charte et sites web.', en: 'Scientific industry (mass spectrometry). International B2B marketing, brand and website redesign.' },
     { period: 'Antérieur', role: { fr: 'Chargé Marketing Digital · Chef de Produit', en: 'Digital Marketing · Product Manager' }, company: 'Enodis · CML', fr: 'Début de carrière en marketing digital et gestion de produit e-commerce.', en: 'Early career in digital marketing and e-commerce product management.' },
@@ -911,23 +621,7 @@ const DATA = {
 };
 
 
-const TAGLINES = [
-  "Le vrai problème n'est rarement celui qu'on croit.",
-  "Pas de slides. Des systèmes qui tournent en prod.",
-  "SEO, CRM, automation : trois leviers. Un seul système.",
-  "20 devis par jour traités automatiquement. 200 minutes d'équipe libérées.",
-  "4 191 contacts. 43.5% d'ouverture. Sans agence, sans budget ads.",
-  "L'IA ne remplace pas le travail. Elle rend les bonnes décisions moins coûteuses.",
-  "Builder depuis 10 ans. Ce qui prenait 3 semaines prend 3 heures.",
-  "Je cherche le levier avec le plus d'impact, pas le plus visible.",
-  "Aucun outil ne compense un problème mal posé.",
-  "Ce qui prenait un analyste une semaine prend maintenant un agent une nuit.",
-  "Du CRM au FTP au pipeline IA. Toujours le même fil : structurer avant d'automatiser.",
-  "Un Directeur Digital qui code ce qu'il ne trouve pas, et achète ce qu'il ne devrait pas coder.",
-  "10 ans à construire des trucs qui marchent encore quand je pars en vacances.",
-  "Je lis les signaux faibles. J'agis avant que ça devienne une tendance.",
-  "Je livre. Puis je documente. Puis je transmets.",
-];
+const TAGLINES = ["Du problème métier au système en production."];
 
 function toggleMoreChips() {
   const more = document.getElementById('chipsMore');
@@ -938,119 +632,18 @@ function toggleMoreChips() {
 }
 
 
-const FOLLOWUP_POOLS = {
-  // Génériques (fallback)
-  fr: [
-    ["Tu peux développer ce point ?", "Quel exemple concret derrière cette idée ?", "Et l'impact mesuré, qu'a-t-il donné ?"],
-    ["Quelle limite tu n'as pas réussi à franchir ?", "Comment tu aurais procédé avec moins de budget ?", "Qu'est-ce que tu en retires aujourd'hui ?"],
-    ["Quelle est la première étape concrète ?", "Où est-ce que la plupart des gens se trompent ?", "Tu peux détailler la méthode ?"],
-  ],
-  en: [
-    ["Can you elaborate on that point?", "Any concrete example behind this idea?", "And the measured impact — what was it?"],
-    ["What limit did you fail to overcome?", "How would you have done it with less budget?", "What do you take from it today?"],
-    ["What's the first concrete step?", "Where do most people get it wrong?", "Can you detail the method?"],
-  ],
-
-  // Panneaux Résultats & Impact
-  impact_fr: [["Comment as-tu attribué ces chiffres ?", "Quelle part vient de l'IA, quelle part du process ?", "Comment as-tu calculé les 50 000€ de prospection ?"]],
-  impact_en: [["How did you attribute these figures?", "What share comes from AI vs. from process?", "How did you compute the €50k prospecting figure?"]],
-
-  arrivee_fr: [["Quel est le piège classique du premier mois ?", "Comment repères-tu ce qu'il ne faut surtout pas toucher ?", "Au bout de combien de temps les premiers résultats ?"]],
-  arrivee_en: [["What's the classic trap of the first month?", "How do you identify what you must not touch?", "How long until the first results?"]],
-
-  // Systèmes construits
-  seo_fr: [["Comment as-tu pensé l'arbitrage entre SEO et SEA ?", "Quelle erreur de migration tu ne referais pas ?", "Combien de temps avant que les positions ne bougent réellement ?"]],
-  seo_en: [["How did you think about the SEO vs. SEA trade-off?", "Which migration mistake would you avoid next time?", "How long before positions actually shifted?"]],
-
-  veille_fr: [["Comment l'agent priorise-t-il les opportunités ?", "Comment as-tu calibré le feedback learning ?", "Quelle est ta métrique de succès sur ce système ?"]],
-  veille_en: [["How does the agent prioritize opportunities?", "How did you calibrate the feedback learning loop?", "What's your success metric on this system?"]],
-
-  stockftp_fr: [["Quelles défaillances ont déjà déclenché tes alertes ?", "Comment as-tu fixé le seuil d'alerte ?", "Que se passe-t-il si l'API WordPress tombe ?"]],
-  pricing_fr: [["Comment détectes-tu qu'une page est bloquée par l'anti-bot ?", "Comment as-tu calibré le seuil de confiance de l'IA ?", "Quelle proportion des références part en vérification manuelle ?"]],
-  stockftp_en: [["What failures have already triggered your alerts?", "How did you set the alert threshold?", "What happens if the WordPress API goes down?"]],
-  pricing_en: [["How do you detect an anti-bot blocked page?", "How did you calibrate the AI confidence threshold?", "What share of references goes to manual review?"]],
-
-  dropit_fr: [["Comment as-tu géré les 49 fiches qui n'ont pas passé ?", "Comment détectes-tu qu'une saisie a réellement réussi ?", "Comment l'utilisateur non-technique reprend-il la main en cas de blocage ?"]],
-  dropit_en: [["How did you handle the 49 sheets that didn't go through?", "How do you detect that an entry actually succeeded?", "How does the non-technical user take back control if it blocks?"]],
-
-  offres_fr: [["Comment gères-tu les erreurs d'extraction de l'IA ?", "Quel est le taux réel de validation humaine sur les cas limites ?", "Et si l'agent se trompe de référence produit ?"]],
-  offres_en: [["How do you handle AI extraction errors?", "What's the real human validation rate on edge cases?", "What if the agent picks the wrong product reference?"]],
-
-  agents_fr: [["Quel est ton critère pour ne PAS automatiser ?", "Comment tu choisis entre Make et Python pour un agent ?", "Où places-tu précisément la validation humaine ?"]],
-  agents_en: [["What's your criterion for NOT automating?", "How do you choose between Make and Python for an agent?", "Where exactly do you place human validation?"]],
-
-  make_fr: [["Quel scénario considères-tu comme le plus critique ?", "Comment gères-tu les erreurs Make en production ?", "Quelle limite de l'outil tu as déjà rencontrée ?"]],
-  make_en: [["Which scenario do you consider most critical?", "How do you handle Make errors in production?", "What tool limit have you already hit?"]],
-
-  imagegen_fr: [["Comment valides-tu la qualité des images générées ?", "Quel modèle envisages-tu après gpt-image-1 ?", "Et le pipeline Nano Banana pour Hermes, où en es-tu ?"]],
-  imagegen_en: [["How do you validate the quality of generated images?", "What model do you consider after gpt-image-1?", "And the Nano Banana pipeline for Hermes — where are you?"]],
-
-  python_fr: [["Lesquels sont utilisés quotidiennement ?", "Comment les équipes les prennent-elles en main ?", "Tu envisages de les passer en application web ?"]],
-  python_en: [["Which ones are used daily?", "How do the teams adopt them?", "Are you considering moving them to a web app?"]],
-
-  prospection_fr: [["Comment écris-tu un icebreaker qui convertit ?", "Quelle proportion devient prospect réel ?", "Comment segmentes-tu tes clusters sectoriels ?"]],
-  prospection_en: [["How do you write an icebreaker that converts?", "What share becomes a real prospect?", "How do you segment your sector clusters?"]],
-
-  pipeline_fr: [["Quel est le taux d'erreur réel sur la lecture des PDF ?", "Comment gères-tu les cas où l'extraction échoue ?", "Quel a été l'impact mesuré sur l'équipe ADV ?"]],
-  pipeline_en: [["What's the real error rate on PDF reading?", "How do you handle extraction failures?", "What was the measured impact on the sales-admin team?"]],
-
-  // Side projects
-  louche_fr: [["Quelle a été la décision technique la plus difficile ?", "Combien d'utilisateurs actifs aujourd'hui ?", "Comment fonctionne le modèle premium ?"]],
-  louche_en: [["What was the hardest technical decision?", "How many active users today?", "How does the premium model work?"]],
-
-  veilleagent_fr: [["Comment as-tu réagi à l'incident en pleine production ?", "Pourquoi Gemini plutôt qu'un modèle plus coûteux ?", "Quelle est la limite actuelle de l'agent ?"]],
-  veilleagent_en: [["How did you react to the production incident?", "Why Gemini rather than a more expensive model?", "What is the agent's current limitation?"]],
-
-  carnetto_fr: [["Pourquoi avoir choisi Lovable plutôt que du code from scratch ?", "Quelle leçon retires-tu de ces 100 licences ?", "Le badge Platine, qu'est-ce que ça change concrètement ?"]],
-  carnetto_en: [["Why Lovable rather than coding from scratch?", "What lesson do you take from those 100 licenses?", "The Platinum badge — what does it actually change?"]],
-
-  matcher_fr: [["Comment calibres-tu le seuil de confiance ?", "Combien de faux positifs en réel ?", "L'outil est-il devenu un standard interne ?"]],
-  matcher_en: [["How do you calibrate the confidence threshold?", "How many false positives in real use?", "Has the tool become an internal standard?"]],
-
-  // Méthode & profil
-  failures_fr: [
-    ["Pourquoi n'as-tu pas persévéré sur Feedcasse ?", "Quel était le vrai signal sur Carnetto ?", "Tu referais cela aujourd'hui ?"],
-    ["Comment as-tu vendu les 100 premières licences ?", "Quel a été le moment exact où tu as lâché ?", "Qu'as-tu appris sur toi-même ?"],
-  ],
-  failures_en: [
-    ["Why didn't you push further on Feedcasse?", "What was the real signal on Carnetto?", "Would you do it again today?"],
-    ["How did you sell the first 100 licenses?", "What was the exact moment you let go?", "What did you learn about yourself?"],
-  ],
-
-  plan90_fr: [["Quel est le KPI clé du 90e jour ?", "Comment sécurises-tu le buy-in interne ?", "Que ferais-tu si l'équipe résiste au changement ?"]],
-  plan90_en: [["What's the key KPI on day 90?", "How do you secure internal buy-in?", "What would you do if the team resists change?"]],
-
-  ai_fr: [["Quel cas d'usage as-tu écarté volontairement ?", "Comment évalues-tu le bon moment pour intégrer l'IA ?", "Quelle erreur dans l'usage de l'IA tu vois le plus souvent ?"]],
-  ai_en: [["Which use case did you deliberately set aside?", "How do you evaluate the right moment to bring AI in?", "What AI usage mistake do you see most often?"]],
-
-  career_fr: [["Quel choix de carrière t'a le plus surpris a posteriori ?", "Quel poste t'a le plus appris, et pourquoi ?", "Que cherches-tu précisément aujourd'hui ?"]],
-  career_en: [["Which career choice surprised you most in hindsight?", "Which role taught you the most, and why?", "What are you precisely looking for today?"]],
-
-  cv_fr: [["Quel est le poste exact que tu vises ?", "Quelle compétence te sépare du marché ?", "Combien de temps avant de produire un impact mesurable ?"]],
-  cv_en: [["What is the exact role you are targeting?", "What skill sets you apart from the market?", "How long before you produce measurable impact?"]],
-};
-
 function addFollowupChips(parentEl, context) {
-  // Si on a un panneau ouvert : chercher le pool spécifique {panel}_{lang}, fallback générique
-  let pool;
-  if (context) {
-    pool = FOLLOWUP_POOLS[context + '_' + lang] || FOLLOWUP_POOLS[lang] || FOLLOWUP_POOLS.fr;
-  } else {
-    pool = FOLLOWUP_POOLS[lang] || FOLLOWUP_POOLS.fr;
-  }
-  const set = pool[Math.floor(Math.random() * pool.length)];
-  const wrap = document.createElement('div');
-  wrap.className = 'followup-chips';
-  set.forEach(q => {
-    const btn = document.createElement('button');
-    btn.className = 'followup-chip';
-    btn.textContent = q;
-    btn.onclick = () => {
-      wrap.remove();
-      document.getElementById('inp').value = q;
-      send();
-    };
-    wrap.appendChild(btn);
+  document.querySelectorAll('.followup-chips').forEach(el=>el.remove());
+  const topic = Conversation.topicForPanel(context) || activeTopic;
+  const set = Conversation.pick({topic,asked:[...askedQuestions],seen:[...seenSuggestions],preferred:suggestedIds,count:3});
+  suggestedIds=[];
+  if (!set.length) return;
+  const wrap=document.createElement('div'); wrap.className='followup-chips';
+  set.forEach(item=>{
+    const btn=document.createElement('button'); btn.type='button'; btn.className='followup-chip';
+    btn.textContent=item[lang]; btn.disabled=busy;
+    btn.onclick=()=>chooseQuestion(item);
+    wrap.appendChild(btn); seenSuggestions.add(item.id);
   });
   parentEl.appendChild(wrap);
 }
@@ -1105,12 +698,13 @@ function typewrite(el, text, speed=38) {
 /* ── LANG ── */
 function setLang(l) {
   lang = l;
+  document.documentElement.lang = l;
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === l.toUpperCase()));
   // data-lfr/data-len = libellé court affiché ; data-fr/data-en = message envoyé au chat
   document.querySelectorAll('[data-fr]').forEach(el => { if (el.dataset.lfr) return; el.textContent = l==='fr' ? el.dataset.fr : el.dataset.en; });
   document.querySelectorAll('[data-lfr]').forEach(el => { el.textContent = l==='fr' ? el.dataset.lfr : el.dataset.len; });
   document.getElementById('eyebrow').textContent = l==='fr' ? 'Portfolio interactif' : 'Interactive portfolio';
-  document.getElementById('inp').placeholder = l==='fr' ? 'Posez votre question…' : 'Ask your question…';
+  document.getElementById('inp').placeholder = l==='fr' ? 'Une question sur mon travail ?' : 'A question about my work?';
   document.getElementById('backLabel').textContent = l==='fr' ? 'Accueil' : 'Home';
   if (!chatStarted) initChips(); // regénérer les suggestions dans la bonne langue
   hydrateFooterDate();
@@ -1120,7 +714,7 @@ function hydrateFooterDate() {
   const el = document.getElementById('footerUpdated');
   if (!el) return;
 
-  const parsed = new Date(document.lastModified);
+  const parsed = new Date(Conversation.updated + 'T12:00:00Z');
   const date = Number.isNaN(parsed.getTime()) ? new Date() : parsed;
 
   const locale = lang === 'fr' ? 'fr-FR' : 'en-US';
@@ -1138,8 +732,11 @@ function hydrateFooterDate() {
 
 /* ── BACK ── */
 function goBack() {
+  conversationEpoch++; askedQuestions.clear(); seenSuggestions.clear(); activeTopic="general"; suggestedIds=[]; busy=false; document.getElementById("sendBtn").disabled=false; initChips();
+  document.getElementById('app').classList.remove('chat-active');
   chatStarted = false; history = []; recruiterMode = false; msgCount = 0; userTurns = 0;
   document.getElementById('landing').classList.remove('hidden');
+  document.getElementById('landing').inert = false;
   document.getElementById('messages').classList.remove('visible');
   document.getElementById('messages').innerHTML = '';
   document.getElementById('inputZone').classList.add('centered');
@@ -1162,7 +759,10 @@ function goBack() {
 function activateChat() {
   if (chatStarted) return;
   chatStarted = true;
+  document.getElementById('app').classList.add('chat-active');
   document.getElementById('landing').classList.add('hidden');
+  document.getElementById('landing').inert = true;
+  window.scrollTo(0, 0);
   document.getElementById('messages').classList.add('visible');
   document.getElementById('inputZone').classList.remove('centered');
   document.getElementById('hdr').classList.add('scrolled');
@@ -1201,6 +801,37 @@ function block(title, body) {
   return `<div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);margin-bottom:8px;"><span style="font-weight:500;color:var(--text);display:block;margin-bottom:4px;font-size:12px;">${title}</span><span style="font-size:12px;color:var(--muted);line-height:1.65;">${body}</span></div>`;
 }
 
+function openCase(type) {
+  if (!PANELS[type]) return;
+  activateChat();
+  addBotMsg('', type, { alignTop: true });
+  const heading = document.querySelector('#messages .msg-row:last-child .panel-header');
+  if (heading) { heading.tabIndex = -1; heading.focus({preventScroll:true}); }
+}
+
+function buildCase(type) {
+  const entry = PORTFOLIO_CASES[type];
+  const fields = { problem:['Le problème à résoudre','The problem to solve'], contribution:['Ma contribution','My contribution'], decision:['Le choix structurant','The key decision'], architecture:['Le fonctionnement','How it works'], results:['Résultats & périmètre','Results & scope'], limits:['Limites & incidents','Limits & incidents'], lesson:['Ce que j’en retiens','What I take from it'] };
+  const flow = `<section class="case-section"><h3>${lang==='fr'?'Schéma de fonctionnement':'Flow overview'}</h3><ol class="case-flow">${entry.steps[lang].map(step=>`<li>${escapeHtml(step)}</li>`).join('')}</ol></section>`;
+  const sections = Object.entries(fields).filter(([key])=>entry[key]).map(([key, labels]) => `<section class="case-section"><h3>${labels[lang==='fr'?0:1]}</h3><p>${escapeHtml(entry[key][lang])}</p></section>`).join('');
+  return flow + sections + `<div class="case-discussion"><p>${escapeHtml(entry.discussion[lang])}</p><button type="button" class="secondary-action" onclick="openEngageModal('${type}')">${lang==='fr'?'Échanger à partir de ce cas':'Discuss this case'}</button></div>`;
+}
+
+function buildArbitrages() {
+  const entries = lang === 'fr' ? [
+    ['Volume insuffisant', 'Recherche de comptes : automatisation déconseillée sous environ 6 à 8 campagnes par an dans le contexte étudié. Ce seuil n’est pas une règle universelle.'],
+    ['Jugement éditorial', 'Contenu SEO : validation humaine via Slack et passe éditoriale avant publication.'],
+    ['Données partagées', 'Stock : transmettre une disponibilité plutôt qu’une quantité, via un flux standardisé plutôt qu’un accès API aux tiers.'],
+    ['Mesure incertaine', 'SEO : environ 30 % de perte de mesure estimée liée au consentement. L’auto-audit relève sept faiblesses de méthode ; ne pas confondre perte de mesure et baisse du trafic.']
+  ] : [
+    ['Insufficient volume', 'Account research: automation was not recommended below roughly 6–8 campaigns a year in the context studied. This is not a universal threshold.'],
+    ['Editorial judgment', 'SEO content: human approval via Slack and editorial review before publication.'],
+    ['Shared data', 'Stock: share availability rather than quantities, through a standard feed rather than third-party API access.'],
+    ['Uncertain measurement', 'SEO: an estimated 30% measurement loss linked to consent. A self-audit identified seven methodological weaknesses; measurement loss is not necessarily a traffic decline.']
+  ];
+  return entries.map(([title,text]) => `<section class="case-section"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></section>`).join('');
+}
+
 function buildProjects() {
   return `<div class="project-list">${DATA.projects.map(p=>`<div class="project-item"><div class="project-item-top"><span class="project-name">${p.name}</span><span class="project-tag">${p.tag}</span></div><div class="project-desc">${lang==='fr'?p.fr:p.en}</div></div>`).join('')}</div>`;
 }
@@ -1210,7 +841,13 @@ function buildCareer() {
 }
 
 function buildCV() {
-  return `<div class="cv-name">Evan Maillard</div><div class="cv-role-line">Digital Systems · Automation · AI · Île-de-France</div><div class="cv-section-title">${lang==='fr'?'Compétences':'Skills'}</div><div class="skill-pills">${DATA.skills.map(s=>`<span class="skill-pill">${s}</span>`).join('')}</div><div class="cv-section-title">LinkedIn</div><a href="https://www.linkedin.com/in/evan-gabriel-maillard/" target="_blank" style="font-size:12px;color:var(--text);">linkedin.com/in/evan-gabriel-maillard ↗</a>`;
+  return `<div class="cv-name">Evan Maillard</div><div class="cv-role-line">Traffic Manager · ${lang==='fr'?'Digital, IA & automatisation':'Digital, AI & automation'}</div>
+    ${block(lang==='fr'?'Le fil de mon parcours':'The thread through my career',lang==='fr'?'Marketing, acquisition et opérations commerciales : c’est au contact de ces besoins que j’ai développé des automatisations, des outils métier et des usages de l’IA.':'Marketing, acquisition and sales operations: working with these needs led me to build automations, business tools and AI applications.')}
+    ${block(lang==='fr'?'Les sujets que nous pouvons approfondir':'Topics we can explore',lang==='fr'?'Ressaisie entre outils, traitement de documents, veille exploitable et supervision d’agents. Les cas montrent les choix, les résultats déclarés et les limites.':'Repeated data entry across tools, document processing, actionable monitoring and agent oversight. The cases show the decisions, reported results and limits.')}
+    ${block(lang==='fr'?'Construire avec l’IA':'Building with AI',lang==='fr'?'J’utilise l’IA pour développer et itérer. Pour évaluer mon travail, examinons le besoin, les choix de conception et la vérification du résultat. Le détail des contributions est précisé lorsqu’il est documenté.':'I use AI to develop and iterate. To assess my work, let’s examine the need, design choices and result verification. Contributions are detailed where documented.')}
+    <div class="case-links"><button type="button" class="chip" onclick="openCase('career')">${lang==='fr'?'Voir le parcours':'See career history'}</button><button type="button" class="chip" onclick="startRoleMatch()">${lang==='fr'?'Comparer à un poste':'Compare with a role'}</button></div>
+    <details class="case-section"><summary>${lang==='fr'?'Outils utilisés':'Tools used'}</summary><div class="skill-pills">${DATA.skills.map(s=>`<span class="skill-pill">${escapeHtml(s)}</span>`).join('')}</div></details>
+    <a href="https://www.linkedin.com/in/evan-gabriel-maillard/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>`;
 }
 
 function buildEaster() {
@@ -1231,7 +868,7 @@ function buildProspection() {
 }
 
 function buildPipeline() {
-  return `<div style="display:flex;flex-direction:column;gap:8px;"><div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Pipeline de traitement de devis automatisé':'Automated quote processing pipeline'}</div><div style="display:flex;align-items:center;gap:8px;background:var(--subtle);border-radius:8px;padding:14px;margin-bottom:4px;"><div style="text-align:center;flex:1;"><div style="font-size:24px;font-weight:600;color:var(--muted);text-decoration:line-through;">10 min</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:2px;">${lang==='fr'?'Avant':'Before'}</div></div><div style="font-size:20px;color:var(--muted);">→</div><div style="text-align:center;flex:1;"><div style="font-size:24px;font-weight:600;color:var(--text);">10 sec</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:2px;">${lang==='fr'?'Après':'After'}</div></div><div style="font-size:20px;color:var(--muted);">×</div><div style="text-align:center;flex:1;"><div style="font-size:24px;font-weight:600;color:var(--text);">~20</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:2px;">${lang==='fr'?'Devis/jour':'Quotes/day'}</div></div></div>${block(lang==='fr'?'Le flux':'The flow',lang==='fr'?'Lecture mail → extraction référence produit → sélection prix → réponse client (auto ou validation ADV) → intégration Pipedrive → relance automatique.':'Read email → extract product ref → select price → reply (auto or ADV validation) → Pipedrive integration → automatic follow-up.')}${block(lang==='fr'?'L\'impact réel':'Real impact',lang==='fr'?'~200 minutes d\'ADV libérées chaque jour. L\'intelligence humaine se réalloue là où elle a de la valeur ajoutée.':'~200 minutes freed up daily. Human intelligence reallocated where it adds real value.')}${block(lang==='fr'?'La limite honnête':'Honest limitation',lang==='fr'?'La lecture de PDF via l\'API GPT reste imparfaite. Certains formats résistent encore — principal point d\'amélioration en cours.':'PDF reading via GPT API remains imperfect. Some formats still resist — main improvement area.')}</div>`;
+  return buildCase('pipeline');
 }
 
 function buildCarnettoPanel() {
@@ -1239,34 +876,13 @@ function buildCarnettoPanel() {
 }
 
 function buildAI() {
-  return `<div style="display:flex;flex-direction:column;gap:8px;"><div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Mon point de vue sur l\'IA — ce que j\'observe vraiment':'My take on AI — what I actually observe'}</div>${block(lang==='fr'?'La grande illusion':'The big illusion',lang==='fr'?'L\'IA ne fait pas à ta place. Tu es toujours obligé d\'itérer. La valeur est dans le cadrage, pas dans la génération.':'AI doesn\'t do it for you. You still have to iterate. The value is in the framing, not the generation.')}${block(lang==='fr'?'Les vrais gains':'Real gains',lang==='fr'?'Productivité massive, livrables de meilleure qualité. Moins de temps pour faire beaucoup plus. Presque rien ne peut coincer quand tu sais utiliser les bons outils.':'Massive productivity, better quality outputs. Less time to do much more. Almost nothing can block you when you know the right tools.')}${block(lang==='fr'?'La philosophie':'Philosophy',lang==='fr'?'L\'IA pour augmenter la valeur de son travail — être un humain augmenté. Pas un remplacement, un accélérateur. L\'IA libère du temps pour exercer le jugement.':'AI to increase the value of your work — be an augmented human. Not a replacement, an accelerator.')}<div style="padding:12px 14px;background:var(--text);border-radius:8px;margin-top:4px;"><span style="font-size:12px;color:var(--on-accent-90);font-style:italic;line-height:1.65;">"${lang==='fr'?'Même sans être un profil technique, l\'IA te permet de faire ce que tu veux — tout ce que tu as à faire, c\'est être méthodique, itérer, essayer et ne jamais rien lâcher.':'Even without a technical background, AI lets you build whatever you want — you just need to be methodical, iterate, try, and never give up.'}"</span></div></div>`;
+  return block(lang==='fr'?'Mon usage de l’IA':'How I use AI',lang==='fr'?'Je m’en sers pour construire des outils, automatiser des flux et itérer sur des produits. Le pipeline d’intégration des commandes au CRM sans intervention humaine est une réalisation dont je suis particulièrement fier.':'I use AI to build tools, automate workflows and iterate on products. The pipeline that integrates orders into the CRM without manual intervention is a project I am particularly proud of.')
+  + block(lang==='fr'?'Ce que cela montre':'What this demonstrates',lang==='fr'?'Une pratique appliquée : formuler le besoin, guider les assistants, relier des outils et examiner les résultats. L’IA participe à l’implémentation ; je ne prétends pas écrire seul tout le code.':'Applied practice: define a need, guide assistants, connect tools and examine results. AI contributes to implementation; I do not claim to write all the code myself.')
+  + block(lang==='fr'?'Ce que je ne revendique pas':'What I do not claim',lang==='fr'?'Ces projets ne prouvent pas une expertise en recherche ML, en entraînement de modèles ou sur tous les sujets d’ingénierie. Pour évaluer mon niveau, interrogez un cas concret, mes choix et les limites rencontrées.':'These projects do not establish expertise in ML research, model training or every engineering discipline. Assess my level through a concrete case, my decisions and the limits encountered.');
 }
 
 function buildImageGen() {
-  return `<div style="display:flex;flex-direction:column;gap:8px;">
-    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Générateur d\'images produit IA':'AI Product Image Generator'}</div>
-    ${block(lang==='fr'?'Le concept':'Concept', lang==='fr'?'Un outil générique qui transforme n\'importe quelle photo produit sur fond blanc en image de mise en situation contextuelle — sans compétence technique. Interface HTML standalone, accessible en un clic.':'A generic tool that transforms any white-background product photo into a contextual lifestyle image — no technical skills required. Standalone HTML interface, accessible in one click.')}
-    ${block(lang==='fr'?'Comment ça fonctionne':'How it works', lang==='fr'?'Pipeline Python (FastAPI) : lit un fichier Excel de références, envoie chaque photo à gpt-image-1 via l\'API OpenAI /v1/images/edits, génère le fond contextuel en conservant le produit, contrôle la qualité via GPT-4o Vision, exporte un rapport Excel avec scores. Chaque image est unique : décor, éclairage, présence de charge variables.':'Python pipeline (FastAPI): reads a reference Excel file, sends each photo to gpt-image-1 via OpenAI /v1/images/edits, generates contextual background while preserving the product, checks quality via GPT-4o Vision, exports an Excel report with scores. Each image is unique: varying decor, lighting, and load presence.')}
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:4px 0;">
-      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;">
-        <div style="font-size:20px;font-weight:600;color:var(--text);font-family:var(--font-serif);">176</div>
-        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Références':'References'}</div>
-      </div>
-      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;">
-        <div style="font-size:20px;font-weight:600;color:var(--text);font-family:var(--font-serif);">528</div>
-        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Images générées':'Images generated'}</div>
-      </div>
-      <div style="background:var(--text);border-radius:8px;padding:10px;text-align:center;">
-        <div style="font-size:20px;font-weight:600;color:var(--bg);font-family:var(--font-serif);">21h</div>
-        <div style="font-size:10px;color:var(--on-accent-60);text-transform:uppercase;letter-spacing:0.04em;margin-top:2px;">${lang==='fr'?'Économisées':'Saved'}</div>
-      </div>
-    </div>
-    ${block(lang==='fr'?'Le calcul':'The math', lang==='fr'?'Méthode manuelle : 3 min × 3 requêtes × 176 refs = 26h. Avec l\'outil : 4-5h sans intervention. Gain net : 21h par batch. Taux de déchet ~1 image sur 6 — identique en manuel, mais sans l\'overhead de saisie.':'Manual method: 3 min × 3 requests × 176 refs = 26h. With the tool: 4-5h unattended. Net gain: 21h per batch. Rejection rate ~1 in 6 images — same as manual, but without input overhead.')}
-    ${block(lang==='fr'?'Coût estimé':'Estimated cost', lang==='fr'?'~200$ pour 528 images, contrôle qualité inclus. Réutilisable à l\'identique pour toute mise à jour catalogue ou nouvelle gamme.':'~$200 for 528 images, quality control included. Fully reusable for any catalogue update or new product range.')}
-    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;">
-      <span style="font-weight:500;color:var(--text);">${lang==='fr'?'Ce que ça démontre :':'What this demonstrates:'}</span> ${lang==='fr'?'Identifier un problème métier coûteux, concevoir un outil réutilisable sans être développeur, le mener en production avec interface utilisable par des non-techniciens.':'Identifying a costly business problem, building a reusable tool without being a developer, shipping it to production with an interface usable by non-technical staff.'}
-    </div>
-  </div>`;
+  return buildCase('imagegen');
 }
 
 function buildPython() {
@@ -1499,38 +1115,7 @@ function buildMatcher() {
 }
 
 function buildLoucheOuPas() {
-  return `<div style="display:flex;flex-direction:column;gap:8px;">
-    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Louche ou Pas — Détection de scams & phishing':'Louche or Not — Scam & Phishing Detection'}</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Plateforme web d\'analyse en temps réel de messages suspects. L\'IA détecte les tentatives de phishing, les arnaques et les usurpations d\'identité.':'Web platform for real-time analysis of suspicious messages. AI detects phishing attempts, scams and identity fraud.'}</div>
-
-    <div style="padding:10px 14px;background:var(--text);border-radius:8px;">
-      <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">${lang==='fr'?'Ce que ça fait':'What it does'}</div>
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Analyse de texte en temps réel — détection d\'URLs malveillantes, demandes sensibles, urgence artificielle':'Real-time text analysis — malicious URLs, sensitive requests, artificial urgency detection'}</div>
-        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Comptes premium avec paiement Stripe — abonnement intégré côté produit':'Premium accounts with Stripe payments — fully integrated subscription'}</div>
-        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Export PDF des analyses — rapport détaillé avec résultats et conseils':'PDF export of analyses — detailed report with results and recommendations'}</div>
-        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ ${lang==='fr'?'Base de connaissances éducative — articles et guides de prévention phishing':'Educational knowledge base — anti-phishing articles and guides'}</div>
-      </div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:2px 0;">
-      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
-        <div style="font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Frontend</div>
-        <div style="font-size:11px;color:var(--muted);line-height:1.7;">React 18 + TypeScript + Vite<br>Shadcn/ui + Tailwind + Framer Motion<br>React Query + React Hook Form + Zod</div>
-      </div>
-      <div style="background:var(--subtle);border:1px solid var(--border);border-radius:8px;padding:10px 12px;">
-        <div style="font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Backend</div>
-        <div style="font-size:11px;color:var(--muted);line-height:1.7;">Supabase (PostgreSQL + Auth)<br>Edge Functions (Deno)<br>Stripe webhooks + email transactionnel</div>
-      </div>
-    </div>
-
-    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;">${lang==='fr'?'<span style=\"color:var(--text);font-weight:500;\">Ce que ça démontre :</span> Concevoir et livrer un produit web complet avec monétisation, auth, base de données et tests — sans être développeur full-stack de formation. Architecture modulaire, testabilité (Vitest + Playwright), SEO-friendly.':'<span style=\"color:var(--text);font-weight:500;\">What this shows:</span> Designing and shipping a complete web product with monetization, auth, database and tests — without a formal full-stack background. Modular architecture, testability (Vitest + Playwright), SEO-friendly.'}</div>
-
-    <a href="https://louche-ou-pas.fr" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color 0.12s;" onmouseover="this.style.borderColor='var(--text)'" onmouseout="this.style.borderColor='var(--border)'">
-      <span style="font-size:12px;font-weight:500;color:var(--text);">louche-ou-pas.fr</span>
-      <span style="font-size:11px;color:var(--muted);">↗</span>
-    </a>
-  </div>`;
+  return buildCase('louche');
 }
 
 
@@ -1597,28 +1182,7 @@ function buildSEO() {
 }
 
 function buildVeille() {
-  return `<div style="display:flex;flex-direction:column;gap:8px;">
-    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Agent Veille — Aides & Subventions Manuvit':'Watch Agent — Grants & Subsidies Manuvit'}</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Transformer une demande DGA — "détecter aides Carsat/Ameli/INRS, mapper produits, générer recommandations" — en agent de veille opérationnel avec validation humaine.':'Turning a C-level request — "detect grants, map products, generate recommendations" — into an operational watch agent with human validation.'}</div>
-
-    <div style="padding:10px 14px;background:var(--text);border-radius:8px;margin:2px 0;">
-      <div style="font-size:11px;font-weight:600;color:var(--on-accent-50);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">Architecture</div>
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ Sources paramétrables Google Sheets (Carsat, Ameli, INRS, Ministère Travail, FIPU, TMS Pro)</div>
-        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ Détection RSS + web search + IA analyse pertinence vs gamme Manuvit</div>
-        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ Validation humaine : Google Sheets + CSV exportable avant action commerciale</div>
-        <div style="font-size:12px;color:var(--on-accent-90);line-height:1.65;">→ Feedback learning : notation Bonne/Moyenne/Mauvaise recommandation</div>
-      </div>
-    </div>
-
-    <div style="border:1px solid var(--border);border-radius:8px;padding:10px 14px;background:var(--subtle);">
-      <div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Format recommandation</div>
-      <div style="font-size:11px;color:#EF4444;line-height:1.7;margin-bottom:4px;">✗ "Contacter entreprises agroalimentaire"</div>
-      <div style="font-size:11px;color:#22C55E;line-height:1.7;">✓ "Campagne email 3 temps vers clients IAA Pays de la Loire (5 comptes) sur Lev600/Moovit140 éligibles subvention Carsat avant fin juin"</div>
-    </div>
-
-    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;"><span style="color:var(--text);font-weight:500;">Impact :</span> identification automatique des opportunités subventions = levier CA direct pour Manuvit. Recommandations concrètes, actionnables, validées humainement.</div>
-  </div>`;
+  return buildCase('veille');
 }
 
 function buildStockFTP() {
@@ -1651,7 +1215,9 @@ function buildStockFTP() {
 
 /* ── PANELS REGISTRY ── */
 const PANELS = {
-  impact:      { icon:'💰', cat:'results', label:{fr:'Impact business chiffré',en:'Business impact in €'}, sub:{fr:'~120 000€ générés ou économisés',en:'~€120,000 generated or saved'}, build:buildImpact },
+  orders: {icon:'↗',label:{fr:'Commandes → CRM',en:'Orders → CRM'},sub:{fr:'Intégration sans intervention humaine',en:'Integration without manual intervention'},build:()=>buildCase('orders')},
+  arbitrages: { icon:'⚖️', label:{fr:'Ce que je n’automatise pas',en:'What I choose not to automate'}, sub:{fr:'Volume · validation · confidentialité · mesure',en:'Volume · review · privacy · measurement'}, build:buildArbitrages },
+  impact:      { icon:'💰', cat:'results', label:{fr:'Gains & limites',en:'Savings & limits'}, sub:{fr:'Gains techniques déclarés',en:'Reported technical savings'}, build:buildImpact },
   arrivee:     { icon:'🎯', cat:'results', label:{fr:'Si j\'arrivais chez vous',en:'If I joined your team'}, sub:{fr:'3 questions de dirigeant',en:'3 leadership questions'}, build:buildArrivee },
   projects:    { icon:'🚀', label:{fr:'Side projects',en:'Side projects'}, sub:{fr:'5 projets',en:'5 projects'}, build:buildProjects },
   career:      { icon:'💼', label:{fr:'Parcours professionnel',en:'Career path'}, sub:{fr:'4 expériences',en:'4 positions'}, build:buildCareer },
@@ -1680,32 +1246,7 @@ const PANELS = {
 };
 
 function buildImpact() {
-  return `<div style="display:flex;flex-direction:column;gap:8px;">
-    <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;">${lang==='fr'?'Impact business — résultats chiffrés':'Business Impact — measured results'}</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:2px;">${lang==='fr'?'Pas de l\'activité. Des résultats. Voici ce que les systèmes que j\'ai construits ont rapporté ou économisé, en euros.':'Not activity. Results. Here is what the systems I built generated or saved, in euros.'}</div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:2px 0;">
-      <div style="background:var(--text);border-radius:10px;padding:14px;text-align:center;">
-        <div style="font-size:clamp(19px,5.5vw,26px);font-weight:600;color:var(--bg);font-family:var(--font-serif);white-space:nowrap;">~70&#8239;000&#8239;€</div>
-        <div style="font-size:11px;color:var(--on-accent-60);margin-top:4px;line-height:1.4;">${lang==='fr'?'gagnés via l\'automatisation des devis + relances':'from quote automation + follow-ups'}</div>
-      </div>
-      <div style="background:var(--text);border-radius:10px;padding:14px;text-align:center;">
-        <div style="font-size:clamp(19px,5.5vw,26px);font-weight:600;color:var(--bg);font-family:var(--font-serif);white-space:nowrap;">+50&#8239;000&#8239;€</div>
-        <div style="font-size:11px;color:var(--on-accent-60);margin-top:4px;line-height:1.4;">${lang==='fr'?'de CA rapportés par la prospection B2B':'B2B prospecting revenue generated'}</div>
-      </div>
-    </div>
-
-    <div style="padding:11px 14px;background:var(--subtle);border-radius:8px;border-left:3px solid var(--text);">
-      <div style="font-size:11px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px;">${lang==='fr'?'Automatisation des devis — depuis février':'Quote automation — since February'}</div>
-      <div style="display:flex;flex-direction:column;gap:5px;">
-        <div style="font-size:12px;color:var(--text);line-height:1.65;">→ ${lang==='fr'?'455 devis traités automatiquement':'455 quotes processed automatically'}</div>
-        <div style="font-size:12px;color:var(--text);line-height:1.65;">→ ${lang==='fr'?'10 min d\'ADV économisées par devis':'10 min of sales-admin time saved per quote'}</div>
-        <div style="font-size:12px;color:var(--text);line-height:1.65;">→ ${lang==='fr'?'relances automatiques jusqu\'à obtenir une réponse — aucune offre oubliée':'automated follow-ups until a reply — no quote forgotten'}</div>
-      </div>
-    </div>
-
-    <div style="padding:10px 12px;background:var(--subtle);border-radius:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted);line-height:1.65;">${lang==='fr'?'<span style="color:var(--text);font-weight:500;">Comment lire ces chiffres :</span> le gain devis combine le temps ADV récupéré et le CA débloqué par les relances qui partaient avant de tomber dans l\'oubli. La prospection est mesurée en CA réellement signé, pas en leads générés.':'<span style="color:var(--text);font-weight:500;">How to read these:</span> the quote figure combines recovered sales-admin time and revenue unlocked by follow-ups that used to fall through the cracks. Prospecting is measured in actually-signed revenue, not leads generated.'}</div>
-  </div>`;
+  return buildCase('imagegen');
 }
 
 function buildArrivee() {
@@ -1902,10 +1443,7 @@ function togglePanel(id) {
 /* ── MESSAGES ── */
 function addUserMsg(text) {
   userTurns++;
-  if (userTurns === 3 && !engageShown) {
-    engageShown = true;
-    setTimeout(() => openEngageModal(), 2500);
-  }
+
   const el = document.createElement('div');
   el.className = 'msg-row user';
   el.innerHTML = `<div class="msg-avatar">?</div><div class="msg-content"><div class="msg-bubble">${escapeHtml(text)}</div></div>`;
@@ -1914,6 +1452,7 @@ function addUserMsg(text) {
 }
 
 function typewriterMsg(text, panelType, onDone) {
+  const epoch = conversationEpoch;
   const el = document.createElement('div');
   el.className = 'msg-row bot';
   const content = document.createElement('div');
@@ -1933,6 +1472,7 @@ function typewriterMsg(text, panelType, onDone) {
   const para = b.querySelector('p');
 
   function nextWord() {
+    if (epoch !== conversationEpoch || !el.isConnected) return;
     if (i < words.length) {
       para.innerHTML += words[i++];
       scroll();
@@ -1951,7 +1491,7 @@ function typewriterMsg(text, panelType, onDone) {
   nextWord();
 }
 
-function addBotMsg(text, panelType) {
+function addBotMsg(text, panelType, options = {}) {
   const el = document.createElement('div');
   el.className = 'msg-row bot';
   const content = document.createElement('div');
@@ -1967,12 +1507,18 @@ function addBotMsg(text, panelType) {
   el.appendChild(content);
   document.getElementById('messages').appendChild(el);
 
-  if (text && text.length > 20) addFollowupChips(content, panelType);
+  if ((panelType || (text && text.length > 20)) && !options.skipFollowups) addFollowupChips(content, panelType);
   msgCount++;
   if (msgCount > 0 && msgCount % 8 === 0 && !document.querySelector('.contact-cta')) {
     setTimeout(() => addContactCTA(), 500);
   }
-  scroll();
+  if (options.alignTop) {
+    adjustMessagesPadding();
+    const messages = document.getElementById('messages');
+    requestAnimationFrame(() => { messages.scrollTop = el.offsetTop - 70; });
+  } else {
+    scroll();
+  }
 }
 
 function addContactCTA() {
@@ -2047,7 +1593,7 @@ function chipSend(btn) { document.getElementById('inp').value = lang==='fr'?btn.
 function openImpactShortcut() {
   activateChat();
   addUserMsg(lang==='fr' ? 'Impact business' : 'Business impact');
-  addBotMsg(lang==='fr' ? 'Voici les résultats chiffrés, en euros.' : 'Here are the measured results, in euros.', 'impact');
+  addBotMsg(lang==='fr' ? 'Voici un gain technique, avec son périmètre et ses limites.' : 'Here is a technical saving, with its scope and limits.', 'impact');
 }
 
 function openPlan90Shortcut() {
@@ -2090,6 +1636,11 @@ async function send() {
   busy=true;
 
   addUserMsg(text);
+  askedQuestions.add(Conversation.normalize(text));
+  activeTopic=Conversation.detectTopic(text,activeTopic);
+  const epoch=conversationEpoch;
+  let typing=false;
+  document.querySelectorAll('.followup-chip').forEach(el=>el.disabled=true);
   history.push({role:'user',content:text});
   addTyping();
   const t0 = Date.now();
@@ -2100,6 +1651,7 @@ async function send() {
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({messages:history.slice(-10)}),
     });
+    if (epoch !== conversationEpoch) return;
     removeTyping();
     if (!res.ok) {
       let code = null;
@@ -2113,42 +1665,39 @@ async function send() {
       }
       busy=false;
       document.getElementById('sendBtn').disabled=false;
+      document.querySelectorAll('.followup-chip').forEach(el=>el.disabled=false);
       return;
     }
     const data = await res.json();
     const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
-    let reply = data.content?.[0]?.text || '';
-    let panelType=null, displayText=reply;
-
-    try {
-      const m = reply.match(/\{[\s\S]*?\}/);
-      if (m) {
-        const p = JSON.parse(m[0]);
-        if (p.panel) { panelType=p.panel; displayText=p.intro||''; }
-        if (p.recruiter) {
-          recruiterMode=true; recruiterRole=p.role||'';
-          displayText=p.response||reply;
-          const banner = document.getElementById('recruiterBanner');
-          banner.classList.add('visible');
-          document.getElementById('recruiterText').textContent = (lang==='fr'?'Mode recruteur — ':'Recruiter mode — ') + recruiterRole;
-        }
-      }
-    } catch(e) {}
-
+    if (epoch !== conversationEpoch) return;
+    const reply=data.content?.filter(part=>part.type==='text').map(part=>part.text).join('\n') || '';
+    const decoded=Conversation.decodeReply(reply);
+    const panelType=decoded.panel && Object.hasOwn(PANELS,decoded.panel) ? decoded.panel : null;
+    const displayText=decoded.response || (panelType ? '' : (lang==='fr'?'Je n’ai pas pu formuler cette réponse. Pouvez-vous préciser votre question ?':'I could not formulate that answer. Could you clarify your question?'));
+    activeTopic=decoded.topic || Conversation.topicForPanel(panelType) || Conversation.detectTopic(displayText,activeTopic);
+    suggestedIds=decoded.suggestions;
+    if(decoded.recruiter){
+      recruiterMode=true; recruiterRole=decoded.role;
+      document.getElementById('recruiterBanner').classList.add('visible');
+      document.getElementById('recruiterText').textContent=(lang==='fr'?'Échange recrutement — ':'Recruiting discussion — ')+recruiterRole;
+    }
     history.push({role:'assistant',content:reply});
     if (displayText && !panelType) {
-      typewriterMsg(displayText, null, () => addResponseTime(elapsed));
+      typing=true;
+      typewriterMsg(displayText, null, () => { addResponseTime(elapsed); busy=false; document.getElementById('sendBtn').disabled=false; document.querySelectorAll('.followup-chip').forEach(el=>el.disabled=false); });
     } else {
       addBotMsg(displayText, panelType);
       addResponseTime(elapsed);
     }
   } catch(e) {
+    if (epoch !== conversationEpoch) return;
     removeTyping();
     addBotMsg(lang==='fr'?'Une erreur est survenue. Réessayez.':'An error occurred. Please try again.');
   }
 
-  busy=false;
-  document.getElementById('sendBtn').disabled=false;
+  if (epoch !== conversationEpoch) return;
+  if (!typing) { busy=false; document.getElementById('sendBtn').disabled=false; document.querySelectorAll('.followup-chip').forEach(el=>el.disabled=false); }
   setTimeout(loadCounter, 1500); // Rafraîchir le compteur après la réponse
 }
 
