@@ -1,0 +1,85 @@
+{
+  "updated": "2026-09-25",
+  "positioning": "Pratique appliquée de l’IA : cadrer des besoins métier, utiliser des assistants pour construire et itérer, assembler des outils et examiner les résultats. Le portfolio démontre ces usages ; il ne prouve pas une expertise de chercheur ML, d’entraînement de modèles ou d’ingénieur senior sur toute la stack.",
+  "authorship": "Evan pilote des travaux avec des assistants IA. Distinguer ses demandes, arbitrages et observations des implémentations réalisées par les assistants. Ne pas lui attribuer l’écriture manuelle du code ou les tests exécutés par l’assistant.",
+  "facts": [
+    {
+      "topic": "orders",
+      "status": "confirmed_by_evan",
+      "fact": "Evan confirme le flux suivant orchestré avec Make : commandes reçues sur une boîte mail générale, dispatch par secteur, intégration au CRM, distinction entre produits standard et spéciaux avec ajustement pour les spéciaux, génération du devis dans le CRM via un modèle intégré, puis renvoi au client. Il confirme que l’intégration au CRM se fait sans intervention humaine et cite ce pipeline comme une fierté.",
+      "unknowns": "Les critères de secteur, les règles d’ajustement des produits spéciaux, le traitement des erreurs, les points exacts de recours à un modèle IA, les volumes et les gains mesurés ne sont pas précisés. Ne pas attribuer à cette chaîne les chiffres historiques des autres fiches sans rapprochement confirmé. Ne pas transformer l’autonomie de l’intégration en garantie de zéro erreur."
+    },
+    {
+      "topic": "louche",
+      "status": "observed_project_work",
+      "fact": "Evan a signalé une régression d’analyse des captures et demandé un premier avis utile lorsque les informations sont incomplètes, avec la liste des éléments manquants. Un assistant a implémenté des correctifs et rapporté des tests. Cela documente du pilotage produit, des retours d’usage et de l’itération avec l’IA.",
+      "unknowns": "Ne pas présenter les tests exécutés par l’assistant comme écrits ou exécutés manuellement par Evan. La vérification du parcours complet de capture restait à terminer dans l’échange consulté."
+    },
+    {
+      "topic": "seo",
+      "status": "observed_project_work",
+      "fact": "Evan a ajouté Merchant Center et demandé de réévaluer un diagnostic SEO en tenant compte de ce nouveau canal. Il demande la pertinence et l’impact potentiel des recommandations, et préfère un point décisionnel utile à un reporting qui ne sera pas consulté.",
+      "unknowns": "Ne pas attribuer toute hausse de visibilité aux seules corrections SEO. Ne pas additionner des indicateurs de périmètres différents. Ne pas publier les données commerciales internes."
+    },
+    {
+      "topic": "crm",
+      "status": "proposal_not_verified_deployed",
+      "fact": "Travail sur la distinction entre source d’acquisition initiale, campagne et maturité à l’ouverture d’une affaire. Evan a corrigé une proposition qui ignorait les champs déjà présents et demandé une explication courte pour la direction.",
+      "unknowns": "Déploiement de cette évolution non établi. Ne pas la présenter comme une automatisation en production."
+    },
+    {
+      "topic": "prospection",
+      "status": "deliverable_prepared_with_ai",
+      "fact": "Préparation assistée par IA d’un export Pharow pour Lemlist : segmentation métier, variables de personnalisation, contrôle des données manquantes et doublons, cas à vérifier manuellement. Une campagne peut exploiter les variantes dans le fichier plutôt que multiplier les branches.",
+      "unknowns": "Fichier préparé ne signifie pas campagne effectivement envoyée ni ventes réalisées. Ne publier ni coordonnées de prospects ni noms de sociétés ciblées."
+    },
+    {
+      "topic": "prototype",
+      "status": "prototype",
+      "fact": "Prototype d’assistant de qualification produit dans la manutention, développé avec assistance IA. Les échanges réclament encore des documents produit réels, des règles de qualification et des exemples validés par un expert.",
+      "unknowns": "Ne pas présenter cet assistant comme connecté à des données réelles ou déployé en production."
+    },
+    {
+      "topic": "crm",
+      "status": "observed_arbitration",
+      "fact": "Sur une mise à jour de catalogue CRM, Evan a préféré une modification groupée à une succession d’appels MCP pour gagner du temps. Exemple de choix pragmatique : utiliser l’interface standard lorsqu’elle suffit.",
+      "unknowns": "Ne pas publier prix, identifiants produits ou détails d’incidents impliquant des tiers."
+    },
+    {
+      "topic": "automation",
+      "status": "reported_in_existing_portfolio",
+      "fact": "Outils Python métier avec interfaces Tkinter pour médias, données, SEO et qualité ; 19 scripts déclarés dans le portfolio initial. Plusieurs scénarios Make relient CRM, IA, messagerie et feuilles de calcul.",
+      "unknowns": "Inventaire et volumes non réaudités à la date de cette mise à jour. Ne pas affirmer que chaque outil fonctionne encore ni qu’Evan a écrit seul son code."
+    },
+    {
+      "topic": "stock",
+      "status": "reported_in_existing_portfolio",
+      "fact": "Flux de disponibilité de stock standardisé vers un distributeur, avec transformation en CSV, transfert FTP et alertes. Choix de transmettre des états de disponibilité plutôt que les quantités.",
+      "unknowns": "Ne pas donner de noms de distributeurs, d’identifiants ou de quantités commerciales. Ne pas promettre zéro panne."
+    },
+    {
+      "topic": "pricing",
+      "status": "reported_in_existing_portfolio",
+      "fact": "Veille tarifaire avec extraction déterministe, solution de repli sur navigateur automatisé et traitement des cas ambigus. Chaque donnée doit porter son niveau de fiabilité ; ne pas inventer un prix.",
+      "unknowns": "Ne pas publier les prix ou les accès techniques, ni garantir la collecte sur toute plateforme."
+    },
+    {
+      "topic": "product-data",
+      "status": "reported_in_existing_portfolio",
+      "fact": "Automatisation de saisie de fiches produit sur une plateforme dépourvue d’API exploitable, avec normalisation des données, reprise et journalisation. Le portfolio décrit une passation à un utilisateur non technique.",
+      "unknowns": "Ne pas publier les noms de tiers ou traiter les décomptes historiques comme des métriques à jour."
+    },
+    {
+      "topic": "side-projects",
+      "status": "reported_in_existing_portfolio",
+      "fact": "Carnetto : produit de suivi d’entretien automobile et reconstruction assistée par IA. Feedcasse : publication de contenus courts, avec une limite liée à l’adéquation du contenu aux usages des plateformes. Autres expériences en e-commerce et marketplace.",
+      "unknowns": "Ne pas extrapoler revenus, utilisateurs actifs, statut actuel ou succès commercial. Les leçons de projets sont plus solides que les titres flatteurs."
+    },
+    {
+      "topic": "crm",
+      "status": "reported_in_existing_portfolio",
+      "fact": "Outil de rapprochement Pipedrive/Lemlist par email, domaine et société, avec score de confiance et vérification temporelle. Traite une absence de clé commune entre acquisition et CRM.",
+      "unknowns": "Ne pas présenter un rapprochement probable comme une preuve causale d’attribution commerciale."
+    }
+  ]
+}

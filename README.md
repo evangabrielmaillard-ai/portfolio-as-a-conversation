@@ -2,6 +2,39 @@
 
 > Un portfolio qui répond à la place d'un CV.
 
+## Parcours de lecture et maintenance
+
+L’accueil est centré sur la conversation : présentation courte, photo et quatre
+questions d’amorce. « D’autres questions » renouvelle les suggestions sans appel
+au modèle. Les relances suivent le sujet et excluent les questions déjà posées.
+Les fiches apparaissent à la demande pendant la conversation.
+
+Les cas présentent le problème, les choix, le fonctionnement et les limites. Le contact
+prépare un email dans la messagerie du visiteur, sans envoi automatique ni délai
+de réponse promis. La comparaison à un poste confronte les besoins aux faits
+documentés et signale les points à vérifier en entretien. La contribution
+personnelle n’est affichée dans une fiche que si le champ `contribution` est
+renseigné avec des informations confirmées.
+
+- `content/portfolio.js` : fiches bilingues partagées par les panneaux et le prompt serveur.
+- `content/professional-context.json` : contexte professionnel sélectionné, statuts et limites d’attribution. Ce fichier est public ; aucun secret ni historique brut.
+- `content/conversation.js` : questions bilingues, sélection contextuelle, exclusion des répétitions et décodage des réponses JSON. Le modèle ne peut sélectionner que des identifiants connus.
+- `prompts/system-prompt.txt` : règles de réponse, profil et navigation, réellement chargés par l’API.
+- `index.html` : interface et panneaux secondaires existants.
+- `node --test tests/*.test.js` : validation du payload, chargement du prompt et gestion des erreurs fournisseur. Aucun appel payant dans ces tests.
+
+Le flux commandes → CRM, confirmé par Evan comme autonome sur l’intégration,
+couvre aussi le devis CRM sur modèle et son renvoi au client, orchestrés avec Make.
+Les métriques historiques d’autres fiches ne lui sont pas transférées sans
+confirmation. Les règles d’ajustement et le traitement des exceptions restent à documenter. Le niveau IA est présenté par des usages concrets
+avec assistance IA, sans revendiquer l’écriture manuelle de tout le code ni une
+expertise en recherche ML.
+
+Les métriques des nouveaux cas sont déclaratives. Leurs périodes, méthodes de
+calcul et autorisations de publication doivent être confirmées avant mise en ligne.
+Les panneaux secondaires hérités nécessitent encore une revue éditoriale complète.
+Ne jamais enregistrer de secrets dans ce dépôt public, y compris dans le prompt.
+
 **[→ Voir le site en live](https://www.evangabrielmaillard.com)** · [English version below](#english)
 
 ---
@@ -70,7 +103,7 @@ vercel.json         → headers de sécurité + config déploiement
 **Sécurité**
 - Clé API côté serveur uniquement (variable Vercel)
 - System prompt dans `prompts/system-prompt.txt` — lu au runtime, non exposé côté client
-- Rate limiting 20 messages/heure par IP, partagé entre instances via Redis (Upstash) + plafond global journalier configurable (`DAILY_LIMIT`)
+- Rate limiting 20 messages/heure par IP en mémoire locale à chaque instance. Redis sert au compteur, pas à cette limite. Un plafond partagé reste à implémenter pour limiter les coûts en production.
 - Échappement HTML systématique des entrées utilisateur et des sorties LLM (anti-XSS)
 - Validation stricte du payload (taille, type, longueur de chaque message)
 - Timeout explicite sur l'appel Anthropic (15s)
@@ -100,7 +133,7 @@ Dans Vercel → Settings → Environment Variables :
 ANTHROPIC_API_KEY = sk-ant-...
 ```
 
-Le system prompt est lu depuis `prompts/system-prompt.txt` — modifier ce fichier pour personnaliser le profil et les panneaux. Pas de limite de taille, versionné avec le reste du code. (Une copie de secours existe dans `api/chat.js` au cas où le fichier serait inaccessible — la garder en cohérence.)
+Le system prompt est lu depuis `prompts/system-prompt.txt` et enrichi avec `content/portfolio.js`. Il n’existe plus de copie de secours divergente dans l’API. La taille reste soumise aux limites de contexte et influe sur le coût des requêtes. Le cache de prompt n’est pas activé par cette modification.
 
 ---
 
@@ -221,7 +254,7 @@ vercel.json         → security headers + deployment config
 **Security**
 - API key server-side only (Vercel env variable)
 - System prompt in `prompts/system-prompt.txt` — read at runtime, never exposed client-side
-- Rate limiting: 20 messages/hour per IP, shared across instances via Redis (Upstash) + configurable global daily cap (`DAILY_LIMIT`)
+- Rate limiting: 20 messages/hour per IP in each instance's memory. Redis is used for the counter, not for this limit. A shared production cost cap remains to be implemented.
 - Systematic HTML escaping of user input and LLM output (anti-XSS)
 - Strict payload validation (size, type, length per message)
 - Explicit timeout on Anthropic call (15s)
@@ -251,7 +284,7 @@ In Vercel → Settings → Environment Variables:
 ANTHROPIC_API_KEY = sk-ant-...
 ```
 
-The system prompt is read from `prompts/system-prompt.txt` — edit this file to customize the profile and panels. No size limit, versioned with the rest of the code. (A fallback copy lives in `api/chat.js` in case the file is unavailable — keep both in sync.)
+The system prompt is read from `prompts/system-prompt.txt` and enriched with `content/portfolio.js`. There is no duplicate fallback prompt. Context limits and per-request costs still apply. Prompt caching is not enabled by this change.
 
 ---
 
